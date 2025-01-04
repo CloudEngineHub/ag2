@@ -142,12 +142,13 @@
         },
         {
           "items": [
-            "reference/agentchat/realtime_agent/client",
             "reference/agentchat/realtime_agent/function_observer",
+            "reference/agentchat/realtime_agent/oai_realtime_client",
             "reference/agentchat/realtime_agent/realtime_agent",
+            "reference/agentchat/realtime_agent/realtime_client",
             "reference/agentchat/realtime_agent/realtime_observer",
-            "reference/agentchat/realtime_agent/twilio_observer",
-            "reference/agentchat/realtime_agent/websocket_observer"
+            "reference/agentchat/realtime_agent/twilio_audio_adapter",
+            "reference/agentchat/realtime_agent/websocket_audio_adapter"
           ],
           "label": "agentchat.realtime_agent",
           "type": "category"
@@ -251,6 +252,13 @@
     },
     {
       "items": [
+        "reference/messages/agent_messages"
+      ],
+      "label": "messages",
+      "type": "category"
+    },
+    {
+      "items": [
         "reference/oai/anthropic",
         "reference/oai/bedrock",
         "reference/oai/cerebras",
@@ -270,6 +278,7 @@
     },
     {
       "items": [
+        "reference/tools/function_utils",
         "reference/tools/tool"
       ],
       "label": "tools",
@@ -278,7 +287,6 @@
     "reference/browser_utils",
     "reference/code_utils",
     "reference/exception_utils",
-    "reference/function_utils",
     "reference/graph_utils",
     "reference/math_utils",
     "reference/retrieve_utils",
