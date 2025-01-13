@@ -104,7 +104,9 @@
                 "reference/agentchat/contrib/graph_rag/graph_query_engine",
                 "reference/agentchat/contrib/graph_rag/graph_rag_capability",
                 "reference/agentchat/contrib/graph_rag/neo4j_graph_query_engine",
-                "reference/agentchat/contrib/graph_rag/neo4j_graph_rag_capability"
+                "reference/agentchat/contrib/graph_rag/neo4j_graph_rag_capability",
+                "reference/agentchat/contrib/graph_rag/neo4j_native_graph_query_engine",
+                "reference/agentchat/contrib/graph_rag/neo4j_native_graph_rag_capability"
               ],
               "label": "agentchat.contrib.graph_rag",
               "type": "category"
@@ -184,6 +186,7 @@
             "reference/coding/jupyter/base",
             "reference/coding/jupyter/docker_jupyter_server",
             "reference/coding/jupyter/embedded_ipython_code_executor",
+            "reference/coding/jupyter/helpers",
             "reference/coding/jupyter/jupyter_client",
             "reference/coding/jupyter/jupyter_code_executor",
             "reference/coding/jupyter/local_jupyter_server"
@@ -245,7 +248,10 @@
     {
       "items": [
         "reference/logger/base_logger",
-        "reference/logger/file_logger"
+        "reference/logger/file_logger",
+        "reference/logger/logger_factory",
+        "reference/logger/logger_utils",
+        "reference/logger/sqlite_logger"
       ],
       "label": "logger",
       "type": "category"
@@ -253,7 +259,9 @@
     {
       "items": [
         "reference/messages/agent_messages",
-        "reference/messages/base_message"
+        "reference/messages/base_message",
+        "reference/messages/client_messages",
+        "reference/messages/print_message"
       ],
       "label": "messages",
       "type": "category"
@@ -293,7 +301,8 @@
     "reference/math_utils",
     "reference/retrieve_utils",
     "reference/runtime_logging",
-    "reference/token_count_utils"
+    "reference/token_count_utils",
+    "reference/types"
   ],
   "label": "Reference",
   "type": "category"
