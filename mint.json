@@ -619,7 +619,7 @@
             "notebooks/agentchat_oai_code_interpreter",
             "notebooks/agentchat_openlit",
             "notebooks/agentchat_planning",
-            "notebooks/agentchat_realtime_swarm_websocket",
+            "notebooks/agentchat_realtime_swarm",
             "notebooks/agentchat_realtime_websocket",
             "notebooks/agentchat_reasoning_agent",
             "notebooks/agentchat_society_of_mind",
