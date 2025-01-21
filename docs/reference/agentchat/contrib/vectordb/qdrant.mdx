@@ -6,6 +6,7 @@ title: agentchat.contrib.vectordb.qdrant
 ## FastEmbedEmbeddingFunction
 
 ```python
+@require_optional_import("fastembed", "retrievechat-qdrant")
 class FastEmbedEmbeddingFunction(EmbeddingFunction)
 ```
 
@@ -40,6 +41,7 @@ Initialize fastembed.TextEmbedding.
 ## QdrantVectorDB
 
 ```python
+@require_optional_import("qdrant_client", "retrievechat-qdrant")
 class QdrantVectorDB(VectorDB)
 ```
 

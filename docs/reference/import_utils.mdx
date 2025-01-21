@@ -1,0 +1,74 @@
+---
+sidebarTitle: import_utils
+title: import_utils
+---
+
+### optional\_import\_block
+
+```python
+@contextmanager
+def optional_import_block() -> Generator[Result, None, None]
+```
+
+Guard a block of code to suppress ImportErrors
+
+A context manager to temporarily suppress ImportErrors.
+Use this to attempt imports without failing immediately on missing modules.
+
+**Example**:
+
+```python
+with optional_import_block():
+    import some_module
+    import some_other_module
+```
+
+### get\_missing\_imports
+
+```python
+def get_missing_imports(modules: Union[str, Iterable[str]])
+```
+
+Get missing modules from a list of module names
+
+**Arguments**:
+
+- `modules` - Module name or list of module names
+  
+
+**Returns**:
+
+  List of missing module names
+
+## PatchObject
+
+```python
+class PatchObject(ABC)
+```
+
+### copy\_metadata
+
+```python
+def copy_metadata(retval: T) -> None
+```
+
+Copy metadata from original object to patched object
+
+**Arguments**:
+
+- `retval` - Patched object
+
+### require\_optional\_import
+
+```python
+def require_optional_import(modules: Union[str, Iterable[str]],
+                            dep_target: str) -> Callable[[T], T]
+```
+
+Decorator to handle optional module dependencies
+
+**Arguments**:
+
+- `modules` - Module name or list of module names required
+- `dep_target` - Target name for pip installation (e.g. 'test' in pip install ag2[test])
+

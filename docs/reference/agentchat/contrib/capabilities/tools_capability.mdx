@@ -1,0 +1,24 @@
+---
+sidebarTitle: tools_capability
+title: agentchat.contrib.capabilities.tools_capability
+---
+
+## ToolsCapability
+
+```python
+class ToolsCapability()
+```
+
+Adding a list of tools as composable capabilities to a single agent.
+This class can be inherited from to allow code to run at the point of creating or adding the capability.
+
+Note: both caller and executor of the tools are the same agent.
+
+### add\_to\_agent
+
+```python
+def add_to_agent(agent: ConversableAgent)
+```
+
+Add tools to the given agent.
+

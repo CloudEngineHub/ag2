@@ -152,6 +152,7 @@ Configuration for this pydantic object.
 ```python
 @root_validator(skip_on_failure=True)
 @classmethod
+@require_optional_import("wolframalpha", "mathchat")
 def validate_environment(cls, values: dict) -> dict
 ```
 

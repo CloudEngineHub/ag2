@@ -6,6 +6,7 @@ title: agentchat.contrib.qdrant_retrieve_user_proxy_agent
 ## QdrantRetrieveUserProxyAgent
 
 ```python
+@require_optional_import(["fastembed", "qdrant_client"], "retrievechat-qdrant")
 class QdrantRetrieveUserProxyAgent(RetrieveUserProxyAgent)
 ```
 
@@ -99,6 +100,7 @@ def retrieve_docs(problem: str, n_results: int = 20, search_string: str = "")
 ### create\_qdrant\_from\_dir
 
 ```python
+@require_optional_import(["fastembed", "qdrant_client"], "retrievechat-qdrant")
 def create_qdrant_from_dir(
         dir_path: str,
         max_tokens: int = 4000,
@@ -150,6 +152,7 @@ url to a single file.
 ### query\_qdrant
 
 ```python
+@require_optional_import("qdrant_client", "retrievechat-qdrant")
 def query_qdrant(
         query_texts: list[str],
         n_results: int = 10,
