@@ -14,6 +14,7 @@ Utility changes _id field from Collection into id for Document.
 ## MongoDBAtlasVectorDB
 
 ```python
+@require_optional_import(["pymongo", "sentence_transformers"], "retrievechat-mongodb")
 class MongoDBAtlasVectorDB(VectorDB)
 ```
 
@@ -24,8 +25,7 @@ A Collection object for MongoDB.
 ```python
 def __init__(connection_string: str = "",
              database_name: str = "vector_db",
-             embedding_function: Callable = SentenceTransformer(
-                 "all-MiniLM-L6-v2").encode,
+             embedding_function: Optional[Callable] = None,
              collection_name: str = None,
              index_name: str = "vector_index",
              overwrite: bool = False,
@@ -66,7 +66,7 @@ List the collections in the vector database.
 ```python
 def create_collection(collection_name: str,
                       overwrite: bool = False,
-                      get_or_create: bool = True) -> Collection
+                      get_or_create: bool = True) -> "Collection"
 ```
 
 Create a collection in the vector database and create a vector search index in the collection.
@@ -81,7 +81,7 @@ Create a collection in the vector database and create a vector search index in t
 
 ```python
 def create_index_if_not_exists(index_name: str = "vector_index",
-                               collection: Collection = None) -> None
+                               collection: "Collection" = None) -> None
 ```
 
 Creates a vector search index on the specified collection in MongoDB.
@@ -94,7 +94,7 @@ Creates a vector search index on the specified collection in MongoDB.
 ### get\_collection
 
 ```python
-def get_collection(collection_name: str = None) -> Collection
+def get_collection(collection_name: str = None) -> "Collection"
 ```
 
 Get the collection from the vector database.
@@ -125,7 +125,7 @@ Delete the collection from the vector database.
 
 ```python
 def create_vector_search_index(
-    collection: Collection,
+    collection: "Collection",
     index_name: Union[str, None] = "vector_index",
     similarity: Literal["euclidean", "cosine",
                         "dotProduct"] = "cosine") -> None

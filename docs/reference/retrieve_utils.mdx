@@ -22,6 +22,7 @@ Split a long text into chunks of max_tokens.
 ### extract\_text\_from\_pdf
 
 ```python
+@require_optional_import("pypdf", "retrievechat")
 def extract_text_from_pdf(file: str) -> str
 ```
 
@@ -54,6 +55,7 @@ Return a list of all the files in a given directory, a url, a file path or a lis
 ### parse\_html\_to\_markdown
 
 ```python
+@require_optional_import(["markdownify", "bs4"], "retrievechat")
 def parse_html_to_markdown(html: str, url: str = None) -> str
 ```
 
@@ -78,9 +80,10 @@ Return True if the string is a valid URL.
 ### create\_vector\_db\_from\_dir
 
 ```python
+@require_optional_import("chromadb", "retrievechat")
 def create_vector_db_from_dir(dir_path: Union[str, list[str]],
                               max_tokens: int = 4000,
-                              client: API = None,
+                              client: "API" = None,
                               db_path: str = "tmp/chromadb.db",
                               collection_name: str = "all-my-documents",
                               get_or_create: bool = False,
@@ -91,7 +94,7 @@ def create_vector_db_from_dir(dir_path: Union[str, list[str]],
                               custom_text_split_function: Callable = None,
                               custom_text_types: list[str] = TEXT_FORMATS,
                               recursive: bool = True,
-                              extra_docs: bool = False) -> API
+                              extra_docs: bool = False) -> "API"
 ```
 
 Create a vector db from all the files in a given directory, the directory can also be a single file or a url to
@@ -128,14 +131,15 @@ you prepared your own vector db.
 ### query\_vector\_db
 
 ```python
+@require_optional_import("chromadb", "retrievechat")
 def query_vector_db(query_texts: list[str],
                     n_results: int = 10,
-                    client: API = None,
+                    client: "API" = None,
                     db_path: str = "tmp/chromadb.db",
                     collection_name: str = "all-my-documents",
                     search_string: str = "",
                     embedding_model: str = "all-MiniLM-L6-v2",
-                    embedding_function: Callable = None) -> QueryResult
+                    embedding_function: Callable = None) -> "QueryResult"
 ```
 
 Query a vector db. We support chromadb compatible APIs, it's not required if you prepared your own vector db

@@ -49,7 +49,7 @@ Initialize the vector database.
 ```python
 def create_collection(collection_name: str,
                       overwrite: bool = False,
-                      get_or_create: bool = True) -> Collection
+                      get_or_create: bool = True) -> "Collection"
 ```
 
 Create a collection in the vector database.
@@ -72,7 +72,7 @@ otherwise it raise a ValueError.
 ### get\_collection
 
 ```python
-def get_collection(collection_name: str = None) -> Collection
+def get_collection(collection_name: str = None) -> "Collection"
 ```
 
 Get the collection from the vector database.

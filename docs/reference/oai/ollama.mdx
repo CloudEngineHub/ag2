@@ -80,6 +80,7 @@ We correct for any specific role orders and types, and convert tools to messages
 ### response\_to\_tool\_call
 
 ```python
+@require_optional_import("fix_busted_json", "ollama")
 def response_to_tool_call(response_string: str) -> Any
 ```
 

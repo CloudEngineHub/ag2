@@ -6,6 +6,7 @@ title: agentchat.contrib.graph_rag.falkor_graph_query_engine
 ## FalkorGraphQueryEngine
 
 ```python
+@require_optional_import(["falkordb", "graphrag_sdk"], "graph-rag-falkor-db")
 class FalkorGraphQueryEngine()
 ```
 
@@ -19,8 +20,8 @@ def __init__(name: str,
              port: int = 6379,
              username: str | None = None,
              password: str | None = None,
-             model: GenerativeModel = OpenAiGenerativeModel("gpt-4o"),
-             ontology: Ontology | None = None)
+             model: Optional["GenerativeModel"] = None,
+             ontology: Optional["Ontology"] = None)
 ```
 
 Initialize a FalkorDB knowledge graph.

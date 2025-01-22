@@ -6,6 +6,7 @@ title: agentchat.contrib.graph_rag.neo4j_native_graph_query_engine
 ## Neo4jNativeGraphQueryEngine
 
 ```python
+@require_optional_import(["neo4j", "neo4j_graphrag"], "neo4j")
 class Neo4jNativeGraphQueryEngine(GraphQueryEngine)
 ```
 
@@ -20,20 +21,10 @@ def __init__(host: str = "neo4j://localhost",
              port: int = 7687,
              username: str = "neo4j",
              password: str = "password",
-             embeddings: Optional[Embedder] = OpenAIEmbeddings(
-                 model="text-embedding-3-large"),
+             embeddings: Optional["Embedder"] = None,
              embedding_dimension: Optional[int] = 3072,
-             llm: Optional[LLMInterface] = OpenAILLM(
-                 model_name="gpt-4o",
-                 model_params={
-                     "response_format": {
-                         "type": "json_object"
-                     },
-                     "temperature": 0
-                 },
-             ),
-             query_llm: Optional[LLMInterface] = OpenAILLM(
-                 model_name="gpt-4o", model_params={"temperature": 0}),
+             llm: Optional["LLMInterface"] = None,
+             query_llm: Optional["LLMInterface"] = None,
              entities: Optional[List[str]] = None,
              relations: Optional[List[str]] = None,
              potential_schema: Optional[List[tuple[str, str, str]]] = None)

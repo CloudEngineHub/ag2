@@ -9,6 +9,11 @@
     "og:image": "https://media.githubusercontent.com/media/ag2ai/ag2/refs/heads/main/website/static/img/cover.png"
   },
   "favicon": "/logo/ag2.svg",
+  "analytics": {
+    "ga4": {
+        "measurementId": "G-2GN2KN2CE4"
+    }
+  },
   "search": {
     "prompt": "Search or ask..."
   },
@@ -129,6 +134,7 @@
             "docs/topics/non-openai-models/cloud-litellm-watsonx",
             "docs/topics/non-openai-models/cloud-mistralai",
             "docs/topics/non-openai-models/cloud-togetherai",
+            "docs/topics/non-openai-models/cloud-deepseek-v3",
             "docs/topics/non-openai-models/local-litellm-ollama",
             "docs/topics/non-openai-models/local-lm-studio",
             "docs/topics/non-openai-models/local-ollama",

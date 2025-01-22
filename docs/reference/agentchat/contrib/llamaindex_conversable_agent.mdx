@@ -14,7 +14,7 @@ class LLamaIndexConversableAgent(ConversableAgent)
 
 ```python
 def __init__(name: str,
-             llama_index_agent: AgentRunner,
+             llama_index_agent: "AgentRunner",
              description: Optional[str] = None,
              **kwargs)
 ```

@@ -6,6 +6,7 @@ title: agentchat.contrib.graph_rag.neo4j_graph_query_engine
 ## Neo4jGraphQueryEngine
 
 ```python
+@require_optional_import("llama_index", "neo4j")
 class Neo4jGraphQueryEngine(GraphQueryEngine)
 ```
 
@@ -35,12 +36,11 @@ def __init__(host: str = "bolt://localhost",
              database: str = "neo4j",
              username: str = "neo4j",
              password: str = "neo4j",
-             llm: LLM = OpenAI(model="gpt-4o", temperature=0.0),
-             embedding: BaseEmbedding = OpenAIEmbedding(
-                 model_name="text-embedding-3-small"),
-             entities: Optional[TypeAlias] = None,
-             relations: Optional[TypeAlias] = None,
-             schema: Optional[Union[dict[str, str], list[Triple]]] = None,
+             llm: Optional["LLM"] = None,
+             embedding: Optional["BaseEmbedding"] = None,
+             entities: Optional["TypeAlias"] = None,
+             relations: Optional["TypeAlias"] = None,
+             schema: Optional[Union[dict[str, str], list["Triple"]]] = None,
              strict: Optional[bool] = False)
 ```
 

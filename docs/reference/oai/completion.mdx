@@ -53,6 +53,7 @@ Clear cache.
 
 ```python
 @classmethod
+@require_optional_import("flaml", "flaml")
 def tune(cls,
          data: list[dict],
          metric: str,

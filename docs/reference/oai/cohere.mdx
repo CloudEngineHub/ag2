@@ -76,6 +76,7 @@ Loads the parameters for Cohere API from the passed in parameters and returns a 
 ### oai\_messages\_to\_cohere\_messages
 
 ```python
+@require_optional_import("cohere", "cohere")
 def oai_messages_to_cohere_messages(
         messages: list[dict[str, Any]], params: dict[str, Any],
         cohere_params: dict[str,

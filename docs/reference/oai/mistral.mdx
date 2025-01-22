@@ -27,6 +27,7 @@ Create an OpenAI-compatible client using Mistral.AI's API.
 ## MistralAIClient
 
 ```python
+@require_optional_import("mistralai", "mistral")
 class MistralAIClient()
 ```
 
@@ -57,6 +58,7 @@ Retrieve the messages from the response.
 ### parse\_params
 
 ```python
+@require_optional_import("mistralai", "mistral")
 def parse_params(params: dict[str, Any]) -> dict[str, Any]
 ```
 
@@ -65,6 +67,7 @@ Loads the parameters for Mistral.AI API from the passed in parameters and return
 ### tool\_def\_to\_mistral
 
 ```python
+@require_optional_import("mistralai", "mistral")
 def tool_def_to_mistral(
         tool_definitions: list[dict[str, Any]]) -> list[dict[str, Any]]
 ```

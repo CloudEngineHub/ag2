@@ -29,6 +29,7 @@ assistant = autogen.AssistantAgent("assistant", llm_config={"config_list": confi
 ## BedrockClient
 
 ```python
+@require_optional_import("boto3", "bedrock")
 class BedrockClient()
 ```
 

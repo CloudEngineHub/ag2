@@ -356,7 +356,7 @@ A vector database that uses PGVector as the backend.
 
 ```python
 def __init__(*,
-             conn: Optional[psycopg.Connection] = None,
+             conn: Optional["psycopg.Connection"] = None,
              connection_string: Optional[str] = None,
              host: Optional[str] = None,
              port: Optional[Union[int, str]] = None,
@@ -401,14 +401,14 @@ Note: connection_string or host + port + dbname must be specified
 
 ```python
 def establish_connection(
-        conn: Optional[psycopg.Connection] = None,
+        conn: Optional["psycopg.Connection"] = None,
         connection_string: Optional[str] = None,
         host: Optional[str] = None,
         port: Optional[Union[int, str]] = None,
         dbname: Optional[str] = None,
         username: Optional[str] = None,
         password: Optional[str] = None,
-        connect_timeout: Optional[int] = 10) -> psycopg.Connection
+        connect_timeout: Optional[int] = 10) -> "psycopg.Connection"
 ```
 
 Establishes a connection to a PostgreSQL database using psycopg.

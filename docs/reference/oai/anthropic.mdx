@@ -69,6 +69,7 @@ assistant = autogen.AssistantAgent("assistant", llm_config={"config_list": confi
 ## AnthropicClient
 
 ```python
+@require_optional_import("anthropic", "anthropic")
 class AnthropicClient()
 ```
 
@@ -131,6 +132,7 @@ Get the usage of tokens and their cost information.
 ### oai\_messages\_to\_anthropic\_messages
 
 ```python
+@require_optional_import("anthropic", "anthropic")
 def oai_messages_to_anthropic_messages(
         params: dict[str, Any]) -> list[dict[str, Any]]
 ```
