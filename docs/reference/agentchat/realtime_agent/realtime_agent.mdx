@@ -1,182 +1,164 @@
 ---
 sidebarTitle: realtime_agent
-title: agentchat.realtime_agent.realtime_agent
+title: autogen.agentchat.realtime_agent.realtime_agent
 ---
 
-## RealtimeAgent
+    <h2 id="autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent" class="doc doc-heading">
+        <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+        <span class="doc doc-object-name doc-class-name">RealtimeAgent</span>
+        <a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent" class="headerlink" title="Permanent link"></a>
+    </h2>
 
 ```python
-class RealtimeAgent(ConversableAgent)
+RealtimeAgent(
+    *,
+    name: str,
+    audio_adapter: autogen.agentchat.realtime_agent.realtime_observer.RealtimeObserver | None = None,
+    system_message: str = 'You are a helpful AI Assistant.',
+    llm_config: dict[str, typing.Any],
+    logger: logging.Logger | None = None,
+    **client_kwargs: Any
+)
 ```
 
-(Experimental) Agent for interacting with the Realtime Clients.
+    (Experimental) Agent for interacting with the Realtime Clients.
+    
+    (Experimental) Agent for interacting with the Realtime Clients.
 
-### \_\_init\_\_
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` | The name of the agent.<br/><br/>**Type:** `str` |
+| `audio_adapter` | The audio adapter for the agent.<br/><br/>**Type:** `autogen.agentchat.realtime_agent.realtime_observer.RealtimeObserver \| None`<br/><br/>**Default:** None |
+| `system_message` | The system message for the agent.<br/><br/>**Type:** `str`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
+| `llm_config` | The config for the agent.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `logger` | The logger for the agent.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `**client_kwargs` | The keyword arguments for the client.<br/><br/>**Type:** `Any` |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### logger
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.logger" class="headerlink" title="Permanent link"></a>
+
+    Get the logger for the agent.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### realtime_client
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.realtime_client" class="headerlink" title="Permanent link"></a>
+
+    Get the OpenAI Realtime Client.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### registred_realtime_tools
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.registred_realtime_tools" class="headerlink" title="Permanent link"></a>
+
+    Get the registered realtime tools.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### system_message
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.system_message" class="headerlink" title="Permanent link"></a>
+
+    Get the system message for the agent.
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_observer
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.register_observer" class="headerlink" title="Permanent link"></a>
 
 ```python
-def __init__(*,
-             name: str,
-             audio_adapter: Optional[RealtimeObserver] = None,
-             system_message: str = "You are a helpful AI Assistant.",
-             llm_config: dict[str, Any],
-             voice: str = "alloy",
-             logger: Optional[Logger] = None,
-             websocket: Optional["WebSocket"] = None)
+register_observer(self, observer: autogen.agentchat.realtime_agent.realtime_observer.RealtimeObserver) -> None
 ```
 
-(Experimental) Agent for interacting with the Realtime Clients.
+    Register an observer with the Realtime Agent.
 
-**Arguments**:
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `observer` | The observer to register.<br/><br/>**Type:** `autogen.agentchat.realtime_agent.realtime_observer.RealtimeObserver` |
 
-- `name` _str_ - The name of the agent.
-- `audio_adapter` _Optional[RealtimeObserver] = None_ - The audio adapter for the agent.
-- `system_message` _str_ - The system message for the agent.
-- `llm_config` _dict[str, Any], bool_ - The config for the agent.
-- `voice` _str_ - The voice for the agent.
-- `websocket` _Optional[WebSocket] = None_ - WebSocket from WebRTC javascript client
+<br />
 
-### logger
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_realtime_function
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.register_realtime_function" class="headerlink" title="Permanent link"></a>
 
 ```python
-@property
-def logger() -> Logger
+register_realtime_function(
+    self,
+    *,
+    name: str | None = None,
+    description: str | None = None
+) -> Callable[[~F | autogen.tools.tool.Tool], autogen.tools.tool.Tool]
 ```
 
-Get the logger for the agent.
+    Decorator for registering a function to be used by an agent.
 
-### realtime\_client
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` | The name of the function.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | The description of the function.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[~F \| autogen.tools.tool.Tool], autogen.tools.tool.Tool]` | Callable[[Union[F, Tool]], Tool]: The decorator for registering a function. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.run" class="headerlink" title="Permanent link"></a>
 
 ```python
-@property
-def realtime_client() -> RealtimeClientProtocol
+run(self) -> None
 ```
 
-Get the OpenAI Realtime Client.
+    Run the agent.
 
-### registred\_realtime\_tools
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### start_observers
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgent.start_observers" class="headerlink" title="Permanent link"></a>
 
 ```python
-@property
-def registred_realtime_tools() -> dict[str, Tool]
+start_observers(self) -> None
 ```
 
-Get the registered realtime tools.
+    
 
-### register\_observer
+<br />
+
+    <h2 id="autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgentCallbacks" class="doc doc-heading">
+        <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+        <span class="doc doc-object-name doc-class-name">RealtimeAgentCallbacks</span>
+        <a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgentCallbacks" class="headerlink" title="Permanent link"></a>
+    </h2>
 
 ```python
-def register_observer(observer: RealtimeObserver) -> None
+RealtimeAgentCallbacks(on_observers_ready: Callable[[], Any] = &lt;function RealtimeAgentCallbacks.&lt;lambda>>)
 ```
 
-Register an observer with the Realtime Agent.
+    Callbacks for the Realtime Agent.
 
-**Arguments**:
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `on_observers_ready` | **Type:** `Callable[[], Any]`<br/><br/>**Default:** &lt;function RealtimeAgentCallbacks.&lt;lambda>> |
 
-- `observer` _RealtimeObserver_ - The observer to register.
+### Instance Methods
 
-### register\_swarm
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### on_observers_ready
+<a href="#autogen.agentchat.realtime_agent.realtime_agent.RealtimeAgentCallbacks.on_observers_ready" class="headerlink" title="Permanent link"></a>
 
 ```python
-def register_swarm(*,
-                   initial_agent: SwarmAgent,
-                   agents: list[SwarmAgent],
-                   system_message: Optional[str] = None) -> None
+on_observers_ready() -> Callable[[], Any]
 ```
 
-Register a swarm of agents with the Realtime Agent.
+    
 
-**Arguments**:
-
-- `initial_agent` _SwarmAgent_ - The initial agent.
-- `agents` _list[SwarmAgent]_ - The agents in the swarm.
-- `system_message` _str_ - The system message for the agent.
-
-### run
-
-```python
-async def run() -> None
-```
-
-Run the agent.
-
-### register\_realtime\_function
-
-```python
-def register_realtime_function(
-        *,
-        name: Optional[str] = None,
-        description: Optional[str] = None) -> Callable[[Union[F, Tool]], Tool]
-```
-
-Decorator for registering a function to be used by an agent.
-
-**Arguments**:
-
-- `name` _str_ - The name of the function.
-- `description` _str_ - The description of the function.
-  
-
-**Returns**:
-
-  Callable[[Union[F, Tool]], Tool]: The decorator for registering a function.
-
-### reset\_answer
-
-```python
-def reset_answer() -> None
-```
-
-Reset the answer event.
-
-### set\_answer
-
-```python
-def set_answer(answer: str) -> str
-```
-
-Set the answer to the question.
-
-### get\_answer
-
-```python
-async def get_answer() -> str
-```
-
-Get the answer to the question.
-
-### ask\_question
-
-```python
-async def ask_question(question: str, question_timeout: int) -> None
-```
-
-Send a question for the user to the agent and wait for the answer.
-If the answer is not received within the timeout, the question is repeated.
-
-**Arguments**:
-
-- `question` - The question to ask the user.
-- `question_timeout` - The time in seconds to wait for the answer.
-
-### check\_termination\_and\_human\_reply
-
-```python
-def check_termination_and_human_reply(
-        messages: Optional[list[dict[str, Any]]] = None,
-        sender: Optional[Agent] = None,
-        config: Optional[Any] = None) -> tuple[bool, Union[str, None]]
-```
-
-Check if the conversation should be terminated and if the agent should reply.
-
-Called when its agents turn in the chat conversation.
-
-**Arguments**:
-
-- `messages` - list of dict
-  the messages in the conversation
-- `sender` - Agent
-  the agent sending the message
-- `config` - any
-  the config for the agent
-
+<br />

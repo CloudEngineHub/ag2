@@ -27,18 +27,6 @@ successfully, run it locally within the cloned project so that the
 `notebooks/agentchat_realtime_websocket/templates` folders are available
 in the correct relative paths.
 
-
-<div class="info Requirements">
-<Info>
-Install `ag2`:
-```bash
-git clone https://github.com/ag2ai/ag2.git
-cd ag2
-```
-</Info>
-</div>
-
-
 ## Install AG2 and dependencies
 
 To use the realtime agent we will connect it to a local websocket trough
@@ -63,7 +51,7 @@ For more information, please refer to the [installation guide](/docs/installatio
 
 
 ```python
-!pip install "ag2" "fastapi>=0.115.0,<1" "uvicorn>=0.30.6,<1" "jinja2"
+# !pip install "ag2>=0.7.2" "fastapi>=0.115.0,<1" "uvicorn>=0.30.6,<1" "jinja2"
 ```
 
 ### Import the dependencies
@@ -158,9 +146,18 @@ This sets up a basic FastAPI server and provides a simple health-check
 endpoint to confirm that the server is operational.
 
 ```python
+from contextlib import asynccontextmanager
+
 PORT = 5050
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(*args, **kwargs):
+    print("Application started. Please visit http://localhost:5050/start-chat to start voice chat.")
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.get("/", response_class=JSONResponse)
@@ -240,8 +237,8 @@ async def handle_media_stream(websocket: WebSocket):
 
     audio_adapter = WebSocketAudioAdapter(websocket, logger=logger)
     realtime_agent = RealtimeAgent(
-        name="Weather Bot",
-        system_message="Hello there! I am an AI voice assistant powered by Autogen and the OpenAI Realtime API. You can ask me about weather, jokes, or anything you can imagine. Start by saying 'How can I help you'?",
+        name="Weather_Bot",
+        system_message="You are an AI voice assistant powered by AG2 and the OpenAI Realtime API. You can answer questions about weather. Start by saying 'How can I help you'?",
         llm_config=realtime_llm_config,
         audio_adapter=audio_adapter,
         logger=logger,
