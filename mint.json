@@ -282,6 +282,13 @@
                   ]
                 },
                 {
+                  "group": "agentchat.contrib.rag",
+                  "pages": [
+                    "docs/reference/agentchat/contrib/rag/document_utils",
+                    "docs/reference/agentchat/contrib/rag/parser_utils"
+                  ]
+                },
+                {
                   "group": "agentchat.contrib.vectordb",
                   "pages": [
                     "docs/reference/agentchat/contrib/vectordb/base",
