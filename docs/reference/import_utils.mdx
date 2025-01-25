@@ -76,7 +76,7 @@ require_optional_import(modules: str | Iterable[str], dep_target: str) -> Ca
 <a href="#autogen.import_utils..skip_on_missing_imports" class="headerlink" title="Permanent link"></a>
 
 ```python
-skip_on_missing_imports(modules: str | Iterable[str], dep_target: str) -> Callable[[~T], ~T]
+skip_on_missing_imports(modules: str | Iterable[str], dep_target: str | None = None) -> Callable[[~T], ~T]
 ```
 
     Decorator to skip a test if an optional module is missing
@@ -85,6 +85,6 @@ skip_on_missing_imports(modules: str | Iterable[str], dep_target: str) -> Ca
 | Name | Description |
 |--|--|
 | `modules` | **Type:** `str \| Iterable[str]` |
-| `dep_target` | Target name for pip installation (e.g.<br/><br/>'test' in pip install ag2[test])<br/><br/>**Type:** `str` |
+| `dep_target` | Target name for pip installation (e.g.<br/><br/>'test' in pip install ag2[test])<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 
 <br />
