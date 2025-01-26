@@ -243,8 +243,8 @@ The flight # is 1919. The flight departure date is 3pm ET, 5/21/2024.""",
 
 
 def triage_instructions(context_variables: dict[str, str]) -> str:
-    customer_context = context_variables.get("customer_context", None)
-    flight_context = context_variables.get("flight_context", None)
+    customer_context = context_variables.get("customer_context")
+    flight_context = context_variables.get("flight_context")
     return f"""You are to triage a users request, and call a tool to transfer to the right intent.
     Once you are ready to transfer to the right intent, call the tool to transfer to the right intent.
     You dont need to know specifics, just the topic of the request.

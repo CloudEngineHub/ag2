@@ -53,8 +53,9 @@ function loads a list of configurations from an environment variable or
 a json file.
 
 ```python
+from typing import Annotated
+
 from IPython import get_ipython
-from typing_extensions import Annotated
 
 import autogen
 from autogen.cache import Cache

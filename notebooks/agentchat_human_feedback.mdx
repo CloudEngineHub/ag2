@@ -340,5 +340,5 @@ print(user_proxy.chat_messages[assistant])
 
 
 ```python
-json.dump(user_proxy.chat_messages[assistant], open("conversations.json", "w"), indent=2)
+json.dump(user_proxy.chat_messages[assistant], open("conversations.json", "w"), indent=2)  # noqa: SIM115
 ```
