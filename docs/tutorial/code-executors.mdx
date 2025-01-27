@@ -53,17 +53,17 @@ actions.
 
 ## Overview
 
-In AutoGen, a code executor is a component that takes input messages
-(e.g., those containing code blocks), performs execution, and outputs
-messages with the results. AutoGen provides two types of built-in code
-executors, one is command line code executor, which runs code in a
-command line environment such as a UNIX shell, and the other is Jupyter
-executor, which runs code in an interactive [Jupyter
+In AG2, a code executor is a component that takes input messages (e.g.,
+those containing code blocks), performs execution, and outputs messages
+with the results. AG2 provides two types of built-in code executors, one
+is command line code executor, which runs code in a command line
+environment such as a UNIX shell, and the other is Jupyter executor,
+which runs code in an interactive [Jupyter
 kernel](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 
-For each type of executor, AutoGen provides two ways to execute code:
+For each type of executor, AG2 provides two ways to execute code:
 locally and in a Docker container. One way is to execute code directly
-in the same host platform where AutoGen is running, i.e., the local
+in the same host platform where AG2 is running, i.e., the local
 operating system. It is for development and testing, but it is not ideal
 for production as LLM can generate arbitrary code. The other way is to
 execute code in a Docker container. The table below shows the
@@ -247,10 +247,10 @@ to it.
 ## Use Code Execution in Conversation
 
 Writing and executing code is necessary for many tasks such as data
-analysis, machine learning, and mathematical modeling. In AutoGen,
-coding can be a conversation between a code writer agent and a code
-executor agent, mirroring the interaction between a programmer and a
-code interpreter.
+analysis, machine learning, and mathematical modeling. In AG2, coding
+can be a conversation between a code writer agent and a code executor
+agent, mirroring the interaction between a programmer and a code
+interpreter.
 
 ![Code Writer and Code Executor](/docs/tutorial/assets/code-execution-in-conversation.png)
 
@@ -559,8 +559,7 @@ better choice.
 In the previous examples, we create the code executor agent directly
 using the
 [`ConversableAgent`](../../docs/reference/agentchat/conversable_agent#conversableagent)
-class. Existing AutoGen examples often create code executor agent using
-the
+class. Existing AG2 examples often create code executor agent using the
 [`UserProxyAgent`](../../docs/reference/agentchat/user_proxy_agent#userproxyagent)
 class, which is a subclass of
 [`ConversableAgent`](../../docs/reference/agentchat/conversable_agent#conversableagent)
@@ -575,8 +574,8 @@ creating an agent that is intended to be used as a code executor.
 In the previous examples, we created the code writer agent directly
 using the
 [`ConversableAgent`](../../docs/reference/agentchat/conversable_agent#conversableagent)
-class. Existing AutoGen examples often create the code writer agent
-using the
+class. Existing AG2 examples often create the code writer agent using
+the
 [`AssistantAgent`](../../docs/reference/agentchat/assistant_agent#assistantagent)
 class, which is a subclass of
 [`ConversableAgent`](../../docs/reference/agentchat/conversable_agent#conversableagent)
