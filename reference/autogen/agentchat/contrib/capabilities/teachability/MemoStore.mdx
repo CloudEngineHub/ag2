@@ -1,0 +1,62 @@
+---
+sidebarTitle: MemoStore
+title: autogen.agentchat.contrib.capabilities.teachability.MemoStore
+---
+<h2 id="autogen.agentchat.contrib.capabilities.teachability.MemoStore" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">MemoStore</span>
+    <a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore" class="headerlink" title="Permanent link"></a>
+</h2>
+
+```python
+MemoStore(**kwargs)
+```
+
+    Provides memory storage and retrieval for a teachable agent, using a vector database.
+    Each DB entry (called a memo) is a pair of strings: an input text and an output text.
+    The input text might be a question, or a task to perform.
+    The output text might be an answer to the question, or advice on how to perform the task.
+    Vector embeddings are currently supplied by Chroma's default Sentence Transformers.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### add_input_output_pair
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.add_input_output_pair" class="headerlink" title="Permanent link"></a>
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get_nearest_memo
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.get_nearest_memo" class="headerlink" title="Permanent link"></a>
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get_related_memos
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.get_related_memos" class="headerlink" title="Permanent link"></a>
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### list_memos
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.list_memos" class="headerlink" title="Permanent link"></a>
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### prepopulate
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.prepopulate" class="headerlink" title="Permanent link"></a>
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### reset_db
+<a href="#autogen.agentchat.contrib.capabilities.teachability.MemoStore.reset_db" class="headerlink" title="Permanent link"></a>
+
+    <br />
