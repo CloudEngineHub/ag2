@@ -5,7 +5,6 @@ title: autogen.ConversableAgent
 <h2 id="autogen.ConversableAgent" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">ConversableAgent</span>
-    <a href="#autogen.ConversableAgent" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -48,7 +47,7 @@ ConversableAgent(
 | `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'TERMINATE' |
 | `function_map` | Mapping function names (passed to openai) to callable functions, also used for tool calls.<br/><br/>**Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
 | `code_execution_config` | config for the code execution.<br/><br/>To disable code execution, set to False.<br/><br/>Otherwise, set to a dictionary with the following keys: - work_dir (Optional, str): The working directory for the code execution.<br/><br/>If None, a default working directory will be used.<br/><br/>The default working directory is the "extensions" directory under "path_to_autogen".<br/><br/>- use_docker (Optional, list, str or bool): The docker image to use for code execution.<br/><br/>Default is True, which means the code will be executed in a docker container.<br/><br/>A default list of images will be used.<br/><br/>If a list or a str of image name(s) is provided, the code will be executed in a docker container with the first image successfully pulled.<br/><br/>If False, the code will be executed in the current environment.<br/><br/>We strongly recommend using docker for code execution.<br/><br/>- timeout (Optional, int): The maximum execution time in seconds.<br/><br/>- last_n_messages (Experimental, int or str): The number of messages to look back for code execution.<br/><br/>If set to 'auto', it will scan backwards through all messages arriving since the agent last spoke, which is typically the last time execution was attempted.<br/><br/>(Default: auto)<br/><br/>**Type:** `dict \| Literal[False]`<br/><br/>**Default:** False |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/reference/oai/client#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `default_auto_reply` | default auto reply when no code execution or llm-based reply is generated.<br/><br/>**Type:** `str \| dict`<br/><br/>**Default:** '' |
 | `description` | a short description of the agent.<br/><br/>This description is used by other agents (e.g.<br/><br/>the GroupChatManager) to decide when to call upon this agent.<br/><br/>(Default: system_message)<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 | `chat_messages` | the previous chat messages that this agent had in the past with other agents.<br/><br/>Can be used to give the agent a memory by providing the chat history.<br/><br/>This will allow the agent to resume previous had conversations.<br/><br/>Defaults to an empty chat history.<br/><br/>**Type:** `dict[autogen.Agent, list[dict]] \| None`<br/><br/>**Default:** None |
@@ -59,31 +58,31 @@ ConversableAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### DEFAULT_CONFIG
-<a href="#autogen.ConversableAgent.DEFAULT_CONFIG" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### DEFAULT_SUMMARY_METHOD
-<a href="#autogen.ConversableAgent.DEFAULT_SUMMARY_METHOD" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### DEFAULT_SUMMARY_PROMPT
-<a href="#autogen.ConversableAgent.DEFAULT_SUMMARY_PROMPT" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### MAX_CONSECUTIVE_AUTO_REPLY
-<a href="#autogen.ConversableAgent.MAX_CONSECUTIVE_AUTO_REPLY" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### llm_config
-<a href="#autogen.ConversableAgent.llm_config" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
@@ -91,43 +90,43 @@ ConversableAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### chat_messages
-<a href="#autogen.ConversableAgent.chat_messages" class="headerlink" title="Permanent link"></a>
+<br />
 
     A dictionary of conversations from agent to list of messages.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### code_executor
-<a href="#autogen.ConversableAgent.code_executor" class="headerlink" title="Permanent link"></a>
+<br />
 
     The code executor used by this agent. Returns None if code execution is disabled.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### description
-<a href="#autogen.ConversableAgent.description" class="headerlink" title="Permanent link"></a>
+<br />
 
     Get the description of the agent.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### function_map
-<a href="#autogen.ConversableAgent.function_map" class="headerlink" title="Permanent link"></a>
+<br />
 
     Return the function map.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### name
-<a href="#autogen.ConversableAgent.name" class="headerlink" title="Permanent link"></a>
+<br />
 
     Get the name of the agent.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### system_message
-<a href="#autogen.ConversableAgent.system_message" class="headerlink" title="Permanent link"></a>
+<br />
 
     Return the system message.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### use_docker
-<a href="#autogen.ConversableAgent.use_docker" class="headerlink" title="Permanent link"></a>
+<br />
 
     Bool value of whether to use docker to execute the code,
     or str value of the docker image name to use, or None when code execution is disabled.
@@ -136,7 +135,6 @@ ConversableAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_check_termination_and_human_reply
-<a href="#autogen.ConversableAgent.a_check_termination_and_human_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_check_termination_and_human_reply(
@@ -171,7 +169,6 @@ a_check_termination_and_human_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_execute_function
-<a href="#autogen.ConversableAgent.a_execute_function" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_execute_function(
@@ -202,7 +199,6 @@ a_execute_function(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_generate_function_call_reply
-<a href="#autogen.ConversableAgent.a_generate_function_call_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_generate_function_call_reply(
@@ -229,7 +225,6 @@ a_generate_function_call_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_generate_init_message
-<a href="#autogen.ConversableAgent.a_generate_init_message" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_generate_init_message(
@@ -257,7 +252,6 @@ a_generate_init_message(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_generate_oai_reply
-<a href="#autogen.ConversableAgent.a_generate_oai_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_generate_oai_reply(
@@ -281,7 +275,6 @@ a_generate_oai_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_generate_reply
-<a href="#autogen.ConversableAgent.a_generate_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_generate_reply(
@@ -325,7 +318,6 @@ a_generate_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_generate_tool_calls_reply
-<a href="#autogen.ConversableAgent.a_generate_tool_calls_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_generate_tool_calls_reply(
@@ -349,7 +341,6 @@ a_generate_tool_calls_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_get_human_input
-<a href="#autogen.ConversableAgent.a_get_human_input" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_get_human_input(self, prompt: str) -> str
@@ -373,7 +364,6 @@ a_get_human_input(self, prompt: str) -> str
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_initiate_chat
-<a href="#autogen.ConversableAgent.a_initiate_chat" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_initiate_chat(
@@ -418,7 +408,6 @@ a_initiate_chat(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_initiate_chats
-<a href="#autogen.ConversableAgent.a_initiate_chats" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> dict[int, autogen.ChatResult]
@@ -435,7 +424,6 @@ a_initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> dict[int, 
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_receive
-<a href="#autogen.ConversableAgent.a_receive" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_receive(
@@ -464,7 +452,6 @@ a_receive(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_send
-<a href="#autogen.ConversableAgent.a_send" class="headerlink" title="Permanent link"></a>
 
 ```python
 a_send(
@@ -490,7 +477,6 @@ a_send(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### can_execute_function
-<a href="#autogen.ConversableAgent.can_execute_function" class="headerlink" title="Permanent link"></a>
 
 ```python
 can_execute_function(self, name: list[str] | str) -> bool
@@ -507,7 +493,6 @@ can_execute_function(self, name: list[str] | str) -> bool
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### chat_messages_for_summary
-<a href="#autogen.ConversableAgent.chat_messages_for_summary" class="headerlink" title="Permanent link"></a>
 
 ```python
 chat_messages_for_summary(self, agent: autogen.Agent) -> list[dict]
@@ -524,7 +509,6 @@ chat_messages_for_summary(self, agent: autogen.Agent) -> list[dict]
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### check_termination_and_human_reply
-<a href="#autogen.ConversableAgent.check_termination_and_human_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 check_termination_and_human_reply(
@@ -559,7 +543,6 @@ check_termination_and_human_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### clear_history
-<a href="#autogen.ConversableAgent.clear_history" class="headerlink" title="Permanent link"></a>
 
 ```python
 clear_history(
@@ -581,7 +564,6 @@ clear_history(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### execute_code_blocks
-<a href="#autogen.ConversableAgent.execute_code_blocks" class="headerlink" title="Permanent link"></a>
 
 ```python
 execute_code_blocks(self, code_blocks) -> 
@@ -598,7 +580,6 @@ execute_code_blocks(self, code_blocks) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### execute_function
-<a href="#autogen.ConversableAgent.execute_function" class="headerlink" title="Permanent link"></a>
 
 ```python
 execute_function(
@@ -629,7 +610,6 @@ execute_function(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_code_execution_reply
-<a href="#autogen.ConversableAgent.generate_code_execution_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_code_execution_reply(
@@ -653,7 +633,6 @@ generate_code_execution_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_function_call_reply
-<a href="#autogen.ConversableAgent.generate_function_call_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_function_call_reply(
@@ -680,7 +659,6 @@ generate_function_call_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_init_message
-<a href="#autogen.ConversableAgent.generate_init_message" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_init_message(
@@ -708,7 +686,6 @@ generate_init_message(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_oai_reply
-<a href="#autogen.ConversableAgent.generate_oai_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_oai_reply(
@@ -732,7 +709,6 @@ generate_oai_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_reply
-<a href="#autogen.ConversableAgent.generate_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_reply(
@@ -776,7 +752,6 @@ generate_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_tool_calls_reply
-<a href="#autogen.ConversableAgent.generate_tool_calls_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_tool_calls_reply(
@@ -800,7 +775,6 @@ generate_tool_calls_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_actual_usage
-<a href="#autogen.ConversableAgent.get_actual_usage" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_actual_usage(self) -> dict[str, int] | None
@@ -812,7 +786,6 @@ get_actual_usage(self) -> dict[str, int] | None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_chat_results
-<a href="#autogen.ConversableAgent.get_chat_results" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_chat_results(self, chat_index: int | None = None) -> list[autogen.ChatResult] | autogen.ChatResult
@@ -829,7 +802,6 @@ get_chat_results(self, chat_index: int | None = None) -> list[autogen.ChatR
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_context
-<a href="#autogen.ConversableAgent.get_context" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_context(
@@ -856,7 +828,6 @@ get_context(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_human_input
-<a href="#autogen.ConversableAgent.get_human_input" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_human_input(self, prompt: str) -> str
@@ -880,7 +851,6 @@ get_human_input(self, prompt: str) -> str
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_total_usage
-<a href="#autogen.ConversableAgent.get_total_usage" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_total_usage(self) -> dict[str, int] | None
@@ -892,7 +862,6 @@ get_total_usage(self) -> dict[str, int] | None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### initiate_chat
-<a href="#autogen.ConversableAgent.initiate_chat" class="headerlink" title="Permanent link"></a>
 
 ```python
 initiate_chat(
@@ -936,7 +905,6 @@ initiate_chat(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### initiate_chats
-<a href="#autogen.ConversableAgent.initiate_chats" class="headerlink" title="Permanent link"></a>
 
 ```python
 initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> list[autogen.ChatResult]
@@ -958,7 +926,6 @@ initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> list[autogen.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### last_message
-<a href="#autogen.ConversableAgent.last_message" class="headerlink" title="Permanent link"></a>
 
 ```python
 last_message(self, agent: autogen.Agent | None = None) -> dict | None
@@ -980,7 +947,6 @@ last_message(self, agent: autogen.Agent | None = None) -> dict | None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### max_consecutive_auto_reply
-<a href="#autogen.ConversableAgent.max_consecutive_auto_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 max_consecutive_auto_reply(self, sender: autogen.Agent | None = None) -> int
@@ -997,7 +963,6 @@ max_consecutive_auto_reply(self, sender: autogen.Agent | None = None) -> in
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### pop_context
-<a href="#autogen.ConversableAgent.pop_context" class="headerlink" title="Permanent link"></a>
 
 ```python
 pop_context(
@@ -1024,7 +989,6 @@ pop_context(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### print_usage_summary
-<a href="#autogen.ConversableAgent.print_usage_summary" class="headerlink" title="Permanent link"></a>
 
 ```python
 print_usage_summary(self, mode: list[str] | str = ['actual', 'total']) -> None
@@ -1041,7 +1005,6 @@ print_usage_summary(self, mode: list[str] | str = ['actual', 'total']) -> N
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### process_all_messages_before_reply
-<a href="#autogen.ConversableAgent.process_all_messages_before_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 process_all_messages_before_reply(self, messages: list[dict]) -> list[dict]
@@ -1058,7 +1021,6 @@ process_all_messages_before_reply(self, messages: list[dict]) -> list[dict]
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### process_last_received_message
-<a href="#autogen.ConversableAgent.process_last_received_message" class="headerlink" title="Permanent link"></a>
 
 ```python
 process_last_received_message(self, messages: list[dict]) -> list[dict]
@@ -1076,7 +1038,6 @@ process_last_received_message(self, messages: list[dict]) -> list[dict]
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### receive
-<a href="#autogen.ConversableAgent.receive" class="headerlink" title="Permanent link"></a>
 
 ```python
 receive(
@@ -1105,7 +1066,6 @@ receive(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_for_execution
-<a href="#autogen.ConversableAgent.register_for_execution" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_for_execution(self, name: str | None = None) -> Callable[[~F | autogen.tools.Tool], autogen.tools.Tool]
@@ -1129,7 +1089,6 @@ register_for_execution(self, name: str | None = None) -> Callable[[~F | a
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_for_llm
-<a href="#autogen.ConversableAgent.register_for_llm" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_for_llm(
@@ -1164,7 +1123,6 @@ register_for_llm(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_function
-<a href="#autogen.ConversableAgent.register_function" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_function(self, function_map: dict[str, Callable | None]) -> 
@@ -1181,7 +1139,6 @@ register_function(self, function_map: dict[str, Callable | None]) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_hook
-<a href="#autogen.ConversableAgent.register_hook" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_hook(
@@ -1204,7 +1161,6 @@ register_hook(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_model_client
-<a href="#autogen.ConversableAgent.register_model_client" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_model_client(
@@ -1226,7 +1182,6 @@ register_model_client(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_nested_chats
-<a href="#autogen.ConversableAgent.register_nested_chats" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_nested_chats(
@@ -1256,7 +1211,6 @@ register_nested_chats(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_reply
-<a href="#autogen.ConversableAgent.register_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_reply(
@@ -1300,7 +1254,6 @@ register_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### replace_reply_func
-<a href="#autogen.ConversableAgent.replace_reply_func" class="headerlink" title="Permanent link"></a>
 
 ```python
 replace_reply_func(
@@ -1322,7 +1275,6 @@ replace_reply_func(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### reset
-<a href="#autogen.ConversableAgent.reset" class="headerlink" title="Permanent link"></a>
 
 ```python
 reset(self) -> 
@@ -1334,7 +1286,6 @@ reset(self) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### reset_consecutive_auto_reply_counter
-<a href="#autogen.ConversableAgent.reset_consecutive_auto_reply_counter" class="headerlink" title="Permanent link"></a>
 
 ```python
 reset_consecutive_auto_reply_counter(self, sender: autogen.Agent | None = None) -> 
@@ -1351,7 +1302,6 @@ reset_consecutive_auto_reply_counter(self, sender: autogen.Agent | None = N
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### run_code
-<a href="#autogen.ConversableAgent.run_code" class="headerlink" title="Permanent link"></a>
 
 ```python
 run_code(
@@ -1375,7 +1325,6 @@ run_code(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### send
-<a href="#autogen.ConversableAgent.send" class="headerlink" title="Permanent link"></a>
 
 ```python
 send(
@@ -1401,7 +1350,6 @@ send(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### set_context
-<a href="#autogen.ConversableAgent.set_context" class="headerlink" title="Permanent link"></a>
 
 ```python
 set_context(
@@ -1423,7 +1371,6 @@ set_context(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### stop_reply_at_receive
-<a href="#autogen.ConversableAgent.stop_reply_at_receive" class="headerlink" title="Permanent link"></a>
 
 ```python
 stop_reply_at_receive(self, sender: autogen.Agent | None = None) -> 
@@ -1440,7 +1387,6 @@ stop_reply_at_receive(self, sender: autogen.Agent | None = None) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_agent_state_before_reply
-<a href="#autogen.ConversableAgent.update_agent_state_before_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_agent_state_before_reply(self, messages: list[dict]) -> None
@@ -1459,7 +1405,6 @@ update_agent_state_before_reply(self, messages: list[dict]) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_context
-<a href="#autogen.ConversableAgent.update_context" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_context(self, context_variables: dict[str, typing.Any]) -> None
@@ -1476,7 +1421,6 @@ update_context(self, context_variables: dict[str, typing.Any]) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_function_signature
-<a href="#autogen.ConversableAgent.update_function_signature" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_function_signature(
@@ -1498,7 +1442,6 @@ update_function_signature(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_max_consecutive_auto_reply
-<a href="#autogen.ConversableAgent.update_max_consecutive_auto_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_max_consecutive_auto_reply(
@@ -1520,7 +1463,6 @@ update_max_consecutive_auto_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_system_message
-<a href="#autogen.ConversableAgent.update_system_message" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_system_message(self, system_message: str) -> None
@@ -1537,7 +1479,6 @@ update_system_message(self, system_message: str) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_tool_signature
-<a href="#autogen.ConversableAgent.update_tool_signature" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_tool_signature(

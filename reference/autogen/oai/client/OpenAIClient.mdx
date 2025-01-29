@@ -5,7 +5,6 @@ title: autogen.oai.client.OpenAIClient
 <h2 id="autogen.oai.client.OpenAIClient" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">OpenAIClient</span>
-    <a href="#autogen.oai.client.OpenAIClient" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -24,7 +23,6 @@ OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Optional[Ba
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_usage
-<a href="#autogen.oai.client.OpenAIClient.get_usage" class="headerlink" title="Permanent link"></a>
 
 ```python
 get_usage(response: Union[ChatCompletion, Completion]) -> dict
@@ -43,7 +41,6 @@ get_usage(response: Union[ChatCompletion, Completion]) -> dict
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### cost
-<a href="#autogen.oai.client.OpenAIClient.cost" class="headerlink" title="Permanent link"></a>
 
 ```python
 cost(self, response: Union[ChatCompletion, Completion]) -> float
@@ -60,7 +57,6 @@ cost(self, response: Union[ChatCompletion, Completion]) -> float
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### create
-<a href="#autogen.oai.client.OpenAIClient.create" class="headerlink" title="Permanent link"></a>
 
 ```python
 create(self, params: dict[str, Any]) -> openai.types.chat.chat_completion.ChatCompletion
@@ -82,7 +78,6 @@ create(self, params: dict[str, Any]) -> openai.types.chat.chat_completion.Chat
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### message_retrieval
-<a href="#autogen.oai.client.OpenAIClient.message_retrieval" class="headerlink" title="Permanent link"></a>
 
 ```python
 message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[str] | list[openai.types.chat.chat_completion_message.ChatCompletionMessage]

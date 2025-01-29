@@ -73,7 +73,6 @@
       "group": "Installation",
       "pages": [
         "docs/installation/Installation",
-        "docs/installation/Docker",
         "docs/installation/Optional-Dependencies"
       ]
     },
@@ -255,13 +254,6 @@
             {
               "group": "agentchat",
               "pages": [
-                {
-                  "group": "agent",
-                  "pages": [
-                    "reference/autogen/agentchat/agent/overview",
-                    "reference/autogen/agentchat/agent/LLMAgent"
-                  ]
-                },
                 {
                   "group": "chat",
                   "pages": [
@@ -936,70 +928,75 @@
                   ]
                 },
                 {
-                  "group": "realtime_agent",
+                  "group": "realtime",
                   "pages": [
-                    "reference/autogen/agentchat/realtime_agent/overview",
-                    "reference/autogen/agentchat/realtime_agent/FunctionObserver",
-                    "reference/autogen/agentchat/realtime_agent/RealtimeAgent",
-                    "reference/autogen/agentchat/realtime_agent/RealtimeObserver",
-                    "reference/autogen/agentchat/realtime_agent/TwilioAudioAdapter",
-                    "reference/autogen/agentchat/realtime_agent/WebSocketAudioAdapter",
-                    "reference/autogen/agentchat/realtime_agent/register_swarm",
                     {
-                      "group": "clients",
+                      "group": "experimental",
                       "pages": [
-                        "reference/autogen/agentchat/realtime_agent/clients/overview",
-                        "reference/autogen/agentchat/realtime_agent/clients/GeminiRealtimeClient",
-                        "reference/autogen/agentchat/realtime_agent/clients/OpenAIRealtimeClient",
-                        "reference/autogen/agentchat/realtime_agent/clients/RealtimeClientProtocol",
-                        "reference/autogen/agentchat/realtime_agent/clients/get_client",
+                        "reference/autogen/agentchat/realtime/experimental/overview",
+                        "reference/autogen/agentchat/realtime/experimental/FunctionObserver",
+                        "reference/autogen/agentchat/realtime/experimental/RealtimeAgent",
+                        "reference/autogen/agentchat/realtime/experimental/RealtimeObserver",
+                        "reference/autogen/agentchat/realtime/experimental/TwilioAudioAdapter",
+                        "reference/autogen/agentchat/realtime/experimental/WebSocketAudioAdapter",
+                        "reference/autogen/agentchat/realtime/experimental/register_swarm",
                         {
-                          "group": "oai",
+                          "group": "clients",
                           "pages": [
-                            "reference/autogen/agentchat/realtime_agent/clients/oai/overview",
-                            "reference/autogen/agentchat/realtime_agent/clients/oai/OpenAIRealtimeWebRTCClient",
+                            "reference/autogen/agentchat/realtime/experimental/clients/overview",
+                            "reference/autogen/agentchat/realtime/experimental/clients/GeminiRealtimeClient",
+                            "reference/autogen/agentchat/realtime/experimental/clients/OpenAIRealtimeClient",
+                            "reference/autogen/agentchat/realtime/experimental/clients/RealtimeClientProtocol",
+                            "reference/autogen/agentchat/realtime/experimental/clients/get_client",
                             {
-                              "group": "utils",
+                              "group": "oai",
                               "pages": [
-                                "reference/autogen/agentchat/realtime_agent/clients/oai/utils/overview",
-                                "reference/autogen/agentchat/realtime_agent/clients/oai/utils/parse_oai_message"
+                                "reference/autogen/agentchat/realtime/experimental/clients/oai/overview",
+                                "reference/autogen/agentchat/realtime/experimental/clients/oai/OpenAIRealtimeWebRTCClient",
+                                {
+                                  "group": "utils",
+                                  "pages": [
+                                    "reference/autogen/agentchat/realtime/experimental/clients/oai/utils/overview",
+                                    "reference/autogen/agentchat/realtime/experimental/clients/oai/utils/parse_oai_message"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "group": "realtime_client",
+                              "pages": [
+                                "reference/autogen/agentchat/realtime/experimental/clients/realtime_client/overview",
+                                "reference/autogen/agentchat/realtime/experimental/clients/realtime_client/register_realtime_client"
                               ]
                             }
                           ]
                         },
                         {
-                          "group": "realtime_client",
+                          "group": "realtime_agent",
                           "pages": [
-                            "reference/autogen/agentchat/realtime_agent/clients/realtime_client/overview",
-                            "reference/autogen/agentchat/realtime_agent/clients/realtime_client/register_realtime_client"
+                            "reference/autogen/agentchat/realtime/experimental/realtime_agent/overview",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_agent/RealtimeAgentCallbacks"
+                          ]
+                        },
+                        {
+                          "group": "realtime_events",
+                          "pages": [
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/overview",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/AudioDelta",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/FunctionCall",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/SessionCreated",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/SessionUpdated",
+                            "reference/autogen/agentchat/realtime/experimental/realtime_events/SpeechStarted"
+                          ]
+                        },
+                        {
+                          "group": "websockets",
+                          "pages": [
+                            "reference/autogen/agentchat/realtime/experimental/websockets/overview",
+                            "reference/autogen/agentchat/realtime/experimental/websockets/WebSocketProtocol"
                           ]
                         }
-                      ]
-                    },
-                    {
-                      "group": "realtime_agent",
-                      "pages": [
-                        "reference/autogen/agentchat/realtime_agent/realtime_agent/overview",
-                        "reference/autogen/agentchat/realtime_agent/realtime_agent/RealtimeAgentCallbacks"
-                      ]
-                    },
-                    {
-                      "group": "realtime_events",
-                      "pages": [
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/overview",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/AudioDelta",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/FunctionCall",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/RealtimeEvent",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/SessionCreated",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/SessionUpdated",
-                        "reference/autogen/agentchat/realtime_agent/realtime_events/SpeechStarted"
-                      ]
-                    },
-                    {
-                      "group": "websockets",
-                      "pages": [
-                        "reference/autogen/agentchat/realtime_agent/websockets/overview",
-                        "reference/autogen/agentchat/realtime_agent/websockets/WebSocketProtocol"
                       ]
                     }
                   ]
@@ -1621,6 +1618,7 @@
             "notebooks/agentchat_nested_chats_chess_altmodels",
             "notebooks/agentchat_realtime_websocket",
             "notebooks/agentchat_webscraping_with_apify",
+            "notebooks/tools_browser_use_deepseek",
             "notebooks/agentchat_stream",
             "notebooks/agentchat_image_generation_capability",
             "notebooks/agentchat_realtime_swarm_websocket",

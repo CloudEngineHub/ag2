@@ -5,7 +5,6 @@ title: autogen.agentchat.contrib.agent_optimizer.AgentOptimizer
 <h2 id="autogen.agentchat.contrib.agent_optimizer.AgentOptimizer" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">AgentOptimizer</span>
-    <a href="#autogen.agentchat.contrib.agent_optimizer.AgentOptimizer" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -25,14 +24,13 @@ AgentOptimizer(
 | Name | Description |
 |--|--|
 | `max_actions_per_step` | the maximum number of actions that the optimizer can take in one step.<br/><br/>**Type:** `int` |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/reference/oai/client#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>**Type:** `dict` |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>**Type:** `dict` |
 | `optimizer_model` | the model used for the optimizer.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'gpt-4-1106-preview' |
 
 ### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### record_one_conversation
-<a href="#autogen.agentchat.contrib.agent_optimizer.AgentOptimizer.record_one_conversation" class="headerlink" title="Permanent link"></a>
 
 ```python
 record_one_conversation(
@@ -54,7 +52,6 @@ record_one_conversation(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### reset_optimizer
-<a href="#autogen.agentchat.contrib.agent_optimizer.AgentOptimizer.reset_optimizer" class="headerlink" title="Permanent link"></a>
 
 ```python
 reset_optimizer(self) -> 
@@ -66,7 +63,6 @@ reset_optimizer(self) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### step
-<a href="#autogen.agentchat.contrib.agent_optimizer.AgentOptimizer.step" class="headerlink" title="Permanent link"></a>
 
 ```python
 step(self) -> 

@@ -5,7 +5,6 @@ title: autogen.ThinkNode
 <h2 id="autogen.ThinkNode" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">ThinkNode</span>
-    <a href="#autogen.ThinkNode" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -28,7 +27,6 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### from_dict
-<a href="#autogen.ThinkNode.from_dict" class="headerlink" title="Permanent link"></a>
 
 ```python
 from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> autogen.ThinkNode
@@ -53,7 +51,7 @@ from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> au
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### trajectory
-<a href="#autogen.ThinkNode.trajectory" class="headerlink" title="Permanent link"></a>
+<br />
 
     Get a formatted string representation of the path from root to this node.
     
@@ -64,7 +62,6 @@ from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> au
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### backpropagate
-<a href="#autogen.ThinkNode.backpropagate" class="headerlink" title="Permanent link"></a>
 
 ```python
 backpropagate(self, reward: float) -> None
@@ -81,7 +78,6 @@ backpropagate(self, reward: float) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### to_dict
-<a href="#autogen.ThinkNode.to_dict" class="headerlink" title="Permanent link"></a>
 
 ```python
 to_dict(self) -> dict

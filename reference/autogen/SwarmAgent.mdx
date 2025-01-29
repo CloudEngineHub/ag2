@@ -5,7 +5,6 @@ title: autogen.SwarmAgent
 <h2 id="autogen.SwarmAgent" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">SwarmAgent</span>
-    <a href="#autogen.SwarmAgent" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -37,7 +36,7 @@ SwarmAgent(
 |--|--|
 | `name` | name of the agent.<br/><br/>**Type:** `str` |
 | `system_message` | system message for the ChatCompletion inference.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/reference/oai/client#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `functions` | **Type:** `list[typing.Callable] \| Callable`<br/><br/>**Default:** None |
 | `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.<br/><br/>The dict can contain the following keys: "content", "role", "name", "function_call".<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>When set to 0, no auto reply will be generated.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
@@ -51,7 +50,6 @@ SwarmAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### process_nested_chat_carryover
-<a href="#autogen.SwarmAgent.process_nested_chat_carryover" class="headerlink" title="Permanent link"></a>
 
 ```python
 process_nested_chat_carryover(
@@ -92,7 +90,6 @@ process_nested_chat_carryover(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### add_functions
-<a href="#autogen.SwarmAgent.add_functions" class="headerlink" title="Permanent link"></a>
 
 ```python
 add_functions(self, func_list: list[typing.Callable]) -> 
@@ -109,7 +106,6 @@ add_functions(self, func_list: list[typing.Callable]) ->
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### add_single_function
-<a href="#autogen.SwarmAgent.add_single_function" class="headerlink" title="Permanent link"></a>
 
 ```python
 add_single_function(
@@ -133,7 +129,6 @@ add_single_function(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_swarm_tool_reply
-<a href="#autogen.SwarmAgent.generate_swarm_tool_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_swarm_tool_reply(
@@ -162,7 +157,6 @@ generate_swarm_tool_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_hand_off
-<a href="#autogen.SwarmAgent.register_hand_off" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_hand_off(self, hand_to: list[autogen.ON_CONDITION | autogen.AFTER_WORK] | autogen.ON_CONDITION | autogen.AFTER_WORK) -> 
@@ -179,7 +173,6 @@ register_hand_off(self, hand_to: list[autogen.ON_CONDITION | autogen.AFTER_WO
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_update_agent_state_before_reply
-<a href="#autogen.SwarmAgent.register_update_agent_state_before_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_update_agent_state_before_reply(self, functions: list[typing.Callable] | Callable | None) -> 

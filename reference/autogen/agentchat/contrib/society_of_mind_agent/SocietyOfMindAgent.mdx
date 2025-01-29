@@ -5,7 +5,6 @@ title: autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent
 <h2 id="autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">SocietyOfMindAgent</span>
-    <a href="#autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -54,7 +53,7 @@ SocietyOfMindAgent(
 | `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'TERMINATE' |
 | `function_map` | Mapping function names (passed to openai) to callable functions, also used for tool calls.<br/><br/>**Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
 | `code_execution_config` | config for the code execution.<br/><br/>To disable code execution, set to False.<br/><br/>Otherwise, set to a dictionary with the following keys: - work_dir (Optional, str): The working directory for the code execution.<br/><br/>If None, a default working directory will be used.<br/><br/>The default working directory is the "extensions" directory under "path_to_autogen".<br/><br/>- use_docker (Optional, list, str or bool): The docker image to use for code execution.<br/><br/>Default is True, which means the code will be executed in a docker container.<br/><br/>A default list of images will be used.<br/><br/>If a list or a str of image name(s) is provided, the code will be executed in a docker container with the first image successfully pulled.<br/><br/>If False, the code will be executed in the current environment.<br/><br/>We strongly recommend using docker for code execution.<br/><br/>- timeout (Optional, int): The maximum execution time in seconds.<br/><br/>- last_n_messages (Experimental, int or str): The number of messages to look back for code execution.<br/><br/>If set to 'auto', it will scan backwards through all messages arriving since the agent last spoke, which is typically the last time execution was attempted.<br/><br/>(Default: auto)<br/><br/>**Type:** `dict \| Literal[False]`<br/><br/>**Default:** False |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/reference/oai/client#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
 | `default_auto_reply` | default auto reply when no code execution or llm-based reply is generated.<br/><br/>**Type:** `dict \| str \| None`<br/><br/>**Default:** '' |
 | `**kwargs` |  |
 
@@ -62,7 +61,7 @@ SocietyOfMindAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### chat_manager
-<a href="#autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent.chat_manager" class="headerlink" title="Permanent link"></a>
+<br />
 
     Return the group chat manager.
 
@@ -70,7 +69,6 @@ SocietyOfMindAgent(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_inner_monologue_reply
-<a href="#autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent.generate_inner_monologue_reply" class="headerlink" title="Permanent link"></a>
 
 ```python
 generate_inner_monologue_reply(
@@ -94,7 +92,6 @@ generate_inner_monologue_reply(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### update_chat_manager
-<a href="#autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent.update_chat_manager" class="headerlink" title="Permanent link"></a>
 
 ```python
 update_chat_manager(self, chat_manager: autogen.GroupChatManager | None) -> 

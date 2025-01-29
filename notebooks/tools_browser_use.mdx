@@ -1,6 +1,6 @@
 ---
 custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/tools_browser_use.ipynb
-description: Tools browser-use Integration
+description: Adding Browsing Capabilities to AG2
 source_notebook: /notebook/tools_browser_use.ipynb
 tags:
 - tools
@@ -69,6 +69,7 @@ Configure the agents for the interaction.
 
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
 llm_config = {
     "config_list": config_list,
 }
@@ -93,7 +94,10 @@ would run the browser in the background without a GUI, useful for
 automated tasks where visibility is not necessary.
 
 ```python
-browser_use_tool = BrowserUseTool(llm_config=llm_config, browser_config={"headless": False})
+browser_use_tool = BrowserUseTool(
+    llm_config=llm_config,
+    browser_config={"headless": False},
+)
 
 browser_use_tool.register_for_execution(user_proxy)
 browser_use_tool.register_for_llm(assistant)

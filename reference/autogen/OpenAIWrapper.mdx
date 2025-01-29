@@ -5,7 +5,6 @@ title: autogen.OpenAIWrapper
 <h2 id="autogen.OpenAIWrapper" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">OpenAIWrapper</span>
-    <a href="#autogen.OpenAIWrapper" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -23,38 +22,38 @@ OpenAIWrapper(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config_list` | a list of config dicts to override the base_config.<br/><br/>They can contain additional kwargs as allowed in the [create](/docs/reference/oai/client#create) method.<br/><br/>E.g., ```python config_list = [ \\{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \\{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \\{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", }, ] ```<br/><br/>**Type:** `Optional[list[dict[str, Any]]]`<br/><br/>**Default:** None |
+| `config_list` | a list of config dicts to override the base_config.<br/><br/>They can contain additional kwargs as allowed in the [create](/reference/autogen/OpenAIWrapper#create) method.<br/><br/>E.g., ```python config_list = [ \\{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \\{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \\{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", }, ] ```<br/><br/>**Type:** `Optional[list[dict[str, Any]]]`<br/><br/>**Default:** None |
 | `**base_config` | **Type:** `Any` |
 
 ### Class Attributes
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### actual_usage_summary
-<a href="#autogen.OpenAIWrapper.actual_usage_summary" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### aopenai_kwargs
-<a href="#autogen.OpenAIWrapper.aopenai_kwargs" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### extra_kwargs
-<a href="#autogen.OpenAIWrapper.extra_kwargs" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### openai_kwargs
-<a href="#autogen.OpenAIWrapper.openai_kwargs" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### total_usage_summary
-<a href="#autogen.OpenAIWrapper.total_usage_summary" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
@@ -62,7 +61,6 @@ OpenAIWrapper(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### extract_text_or_completion_object
-<a href="#autogen.OpenAIWrapper.extract_text_or_completion_object" class="headerlink" title="Permanent link"></a>
 
 ```python
 extract_text_or_completion_object(response: ModelClient.ModelClientResponseProtocol) -> list[str] | list[autogen.oai.client.ModelClient.ModelClientResponseProtocol.Choice.Message]
@@ -84,7 +82,6 @@ extract_text_or_completion_object(response: ModelClient.ModelClientResponseProt
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### instantiate
-<a href="#autogen.OpenAIWrapper.instantiate" class="headerlink" title="Permanent link"></a>
 
 ```python
 instantiate(
@@ -109,7 +106,6 @@ instantiate(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### clear_usage_summary
-<a href="#autogen.OpenAIWrapper.clear_usage_summary" class="headerlink" title="Permanent link"></a>
 
 ```python
 clear_usage_summary(self) -> None
@@ -121,7 +117,6 @@ clear_usage_summary(self) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### create
-<a href="#autogen.OpenAIWrapper.create" class="headerlink" title="Permanent link"></a>
 
 ```python
 create(self, **config: Any) -> autogen.oai.client.ModelClient.ModelClientResponseProtocol
@@ -140,7 +135,6 @@ create(self, **config: Any) -> autogen.oai.client.ModelClient.ModelClientRespon
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### print_usage_summary
-<a href="#autogen.OpenAIWrapper.print_usage_summary" class="headerlink" title="Permanent link"></a>
 
 ```python
 print_usage_summary(self, mode: Union[str, list[str]] = ['actual', 'total']) -> None
@@ -157,7 +151,6 @@ print_usage_summary(self, mode: Union[str, list[str]] = ['actual', 'total'])
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### register_model_client
-<a href="#autogen.OpenAIWrapper.register_model_client" class="headerlink" title="Permanent link"></a>
 
 ```python
 register_model_client(

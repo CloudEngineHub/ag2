@@ -5,7 +5,6 @@ title: autogen.coding.LocalCommandLineCodeExecutor
 <h2 id="autogen.coding.LocalCommandLineCodeExecutor" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">LocalCommandLineCodeExecutor</span>
-    <a href="#autogen.coding.LocalCommandLineCodeExecutor" class="headerlink" title="Permanent link"></a>
 </h2>
 
 ```python
@@ -61,19 +60,19 @@ LocalCommandLineCodeExecutor(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### DEFAULT_EXECUTION_POLICY
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.DEFAULT_EXECUTION_POLICY" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### FUNCTION_PROMPT_TEMPLATE
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.FUNCTION_PROMPT_TEMPLATE" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### SUPPORTED_LANGUAGES
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.SUPPORTED_LANGUAGES" class="headerlink" title="Permanent link"></a>
+<br />
 
     <br />
 
@@ -81,7 +80,6 @@ LocalCommandLineCodeExecutor(
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### sanitize_command
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.sanitize_command" class="headerlink" title="Permanent link"></a>
 
 ```python
 sanitize_command(lang: str, code: str) -> None
@@ -106,31 +104,31 @@ sanitize_command(lang: str, code: str) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### code_extractor
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.code_extractor" class="headerlink" title="Permanent link"></a>
+<br />
 
     (Experimental) Export a code extractor that can be used by an agent.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### functions
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.functions" class="headerlink" title="Permanent link"></a>
+<br />
 
     (Experimental) The functions that are available to the code executor.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### functions_module
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.functions_module" class="headerlink" title="Permanent link"></a>
+<br />
 
     (Experimental) The module name for the functions.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### timeout
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.timeout" class="headerlink" title="Permanent link"></a>
+<br />
 
     (Experimental) The timeout for code execution.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### work_dir
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.work_dir" class="headerlink" title="Permanent link"></a>
+<br />
 
     (Experimental) The working directory for the code execution.
 
@@ -138,7 +136,6 @@ sanitize_command(lang: str, code: str) -> None
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### execute_code_blocks
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.execute_code_blocks" class="headerlink" title="Permanent link"></a>
 
 ```python
 execute_code_blocks(self, code_blocks: list[autogen.coding.CodeBlock]) -> autogen.coding.base.CommandLineCodeResult
@@ -160,7 +157,6 @@ execute_code_blocks(self, code_blocks: list[autogen.coding.CodeBlock]) -> autog
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### format_functions_for_prompt
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.format_functions_for_prompt" class="headerlink" title="Permanent link"></a>
 
 ```python
 format_functions_for_prompt(self, prompt_template: str = 'You have access to the following user defined functions. They can be accessed from the module called `$module_name` by their function names.\n\nFor example, if there was a function called `foo` you could import it by writing `from $module_name import foo`\n\n$functions') -> str
@@ -186,7 +182,6 @@ format_functions_for_prompt(self, prompt_template: str = 'You have access to 
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### restart
-<a href="#autogen.coding.LocalCommandLineCodeExecutor.restart" class="headerlink" title="Permanent link"></a>
 
 ```python
 restart(self) -> None
