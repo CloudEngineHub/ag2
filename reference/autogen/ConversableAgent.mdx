@@ -451,6 +451,42 @@ a_receive(
 <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_run
+
+```python
+a_run(
+    self,
+    message: str,
+    *,
+    tools: autogen.tools.Tool | Iterable[autogen.tools.Tool] | None = None,
+    executor_kwargs: dict[str, typing.Any] | None = None,
+    max_turns: int | None = None,
+    msg_to: Literal['agent', 'user'] = 'agent',
+    clear_history: bool = False,
+    user_input: bool = True
+) -> autogen.ChatResult
+```
+
+    Run a chat asynchronously with the agent using the given message.
+    
+    A second agent will be created to represent the user, this agent will by known by the name 'user'.
+    
+    The user can terminate the conversation when prompted or, if agent's reply contains 'TERMINATE', it will terminate.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message` | the message to be processed.<br/><br/>**Type:** `str` |
+| `tools` | the tools to be used by the agent.<br/><br/>**Type:** `autogen.tools.Tool \| Iterable[autogen.tools.Tool] \| None`<br/><br/>**Default:** None |
+| `executor_kwargs` | the keyword arguments for the executor.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `max_turns` | maximum number of turns (a turn is equivalent to both agents having replied), defaults no None which means unlimited.<br/><br/>The original message is included.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
+| `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
+| `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### a_send
 
 ```python
@@ -1297,6 +1333,42 @@ reset_consecutive_auto_reply_counter(self, sender: autogen.Agent | None = N
 | Name | Description |
 |--|--|
 | `sender` | **Type:** `autogen.Agent \| None`<br/><br/>**Default:** None |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+
+```python
+run(
+    self,
+    message: str,
+    *,
+    tools: autogen.tools.Tool | Iterable[autogen.tools.Tool] | None = None,
+    executor_kwargs: dict[str, typing.Any] | None = None,
+    max_turns: int | None = None,
+    msg_to: Literal['agent', 'user'] = 'agent',
+    clear_history: bool = False,
+    user_input: bool = True
+) -> autogen.ChatResult
+```
+
+    Run a chat with the agent using the given message.
+    
+    A second agent will be created to represent the user, this agent will by known by the name 'user'.
+    
+    The user can terminate the conversation when prompted or, if agent's reply contains 'TERMINATE', it will terminate.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message` | the message to be processed.<br/><br/>**Type:** `str` |
+| `tools` | the tools to be used by the agent.<br/><br/>**Type:** `autogen.tools.Tool \| Iterable[autogen.tools.Tool] \| None`<br/><br/>**Default:** None |
+| `executor_kwargs` | the keyword arguments for the executor.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `max_turns` | maximum number of turns (a turn is equivalent to both agents having replied), defaults no None which means unlimited.<br/><br/>The original message is included.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
+| `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
+| `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
 
 <br />
 

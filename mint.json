@@ -1012,6 +1012,13 @@
               ]
             },
             {
+              "group": "agents",
+              "pages": [
+                "reference/autogen/agents/overview",
+                "reference/autogen/agents/WebSurferAgent"
+              ]
+            },
+            {
               "group": "browser_utils",
               "pages": [
                 "reference/autogen/browser_utils/overview",
@@ -1485,29 +1492,28 @@
                 "reference/autogen/tools/get_function_schema",
                 "reference/autogen/tools/load_basemodels_if_needed",
                 "reference/autogen/tools/serialize_to_str",
+                "reference/autogen/tools/tool",
                 {
                   "group": "dependency_injection",
                   "pages": [
                     "reference/autogen/tools/dependency_injection/overview",
                     "reference/autogen/tools/dependency_injection/Field",
                     "reference/autogen/tools/dependency_injection/get_context_params",
-                    "reference/autogen/tools/dependency_injection/inject_params"
+                    "reference/autogen/tools/dependency_injection/inject_params",
+                    "reference/autogen/tools/dependency_injection/on"
                   ]
                 },
                 {
                   "group": "experimental",
                   "pages": [
+                    "reference/autogen/tools/experimental/overview",
+                    "reference/autogen/tools/experimental/BrowserUseTool",
+                    "reference/autogen/tools/experimental/Crawl4AITool",
                     {
                       "group": "browser_use",
                       "pages": [
-                        {
-                          "group": "browser_use",
-                          "pages": [
-                            "reference/autogen/tools/experimental/browser_use/browser_use/overview",
-                            "reference/autogen/tools/experimental/browser_use/browser_use/BrowserUseResult",
-                            "reference/autogen/tools/experimental/browser_use/browser_use/BrowserUseTool"
-                          ]
-                        }
+                        "reference/autogen/tools/experimental/browser_use/overview",
+                        "reference/autogen/tools/experimental/browser_use/BrowserUseResult"
                       ]
                     }
                   ]
@@ -1621,6 +1627,7 @@
             "notebooks/tools_browser_use_deepseek",
             "notebooks/agentchat_stream",
             "notebooks/agentchat_image_generation_capability",
+            "notebooks/tools_crawl4ai",
             "notebooks/agentchat_realtime_swarm_websocket",
             "notebooks/agentchat_groupchat_research",
             "notebooks/agentchat_agentops",
@@ -1642,6 +1649,7 @@
             "notebooks/agentchat_RetrieveChat_pgvector",
             "notebooks/tools_dependency_injection",
             "notebooks/agentchats_sequential_chats",
+            "notebooks/agents_websurfer",
             "notebooks/agentchat_RetrieveChat_mongodb",
             "notebooks/agentchat_azr_ai_search",
             "notebooks/agentchat_reasoning_agent",
