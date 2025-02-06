@@ -29,6 +29,9 @@ agent equipped with built-in web surfing tools right out of the box!
 
 ## WebSurferAgent with `browser-use` tool
 
+**Warning:** [`Browser Use`](https://github.com/browser-use/browser-use)
+requires **Python 3.11 or higher**.
+
 ### Installation
 
 To get started with the `browser-use` integration in AG2, follow these
@@ -40,10 +43,28 @@ steps:
     pip install ag2[browser-use]
     ```
 
+    > **Note:** If you have been using `autogen` or `pyautogen`, all you
+    > need to do is upgrade it using:
+    >
+    > ```bash
+    > pip install -U autogen[browser-use]
+    > ```
+    >
+    > or
+    >
+    > ```bash
+    > pip install -U pyautogen[browser-use]
+    > ```
+    >
+    > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+    > package.
+
 2.  Set up Playwright:
 
     ```bash
+    # Installs Playwright and browsers for all OS
     playwright install
+    # Additional command, mandatory for Linux only
     playwright install-deps
     ```
 
@@ -66,6 +87,13 @@ nest_asyncio.apply()
 ```
 
 ### `browser-use` WebSurferAgent
+
+> **Note:** [`Browser Use`](https://github.com/browser-use/browser-use)
+> supports the following models: [Supported
+> Models](https://docs.browser-use.com/customize/supported-models#supported-models)
+>
+> We had great experience with `OpenAI`, `Anthropic`, and `Gemini`.
+> However, `DeepSeek` and `Ollama` haven’t performed as well.
 
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
@@ -133,10 +161,28 @@ steps:
     pip install ag2[crawl4ai]
     ```
 
+    > **Note:** If you have been using `autogen` or `pyautogen`, all you
+    > need to do is upgrade it using:
+    >
+    > ```bash
+    > pip install -U autogen[crawl4ai]
+    > ```
+    >
+    > or
+    >
+    > ```bash
+    > pip install -U pyautogen[crawl4ai]
+    > ```
+    >
+    > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+    > package.
+
 2.  Set up Playwright:
 
     ```bash
+    # Installs Playwright and browsers for all OS
     playwright install
+    # Additional command, mandatory for Linux only
     playwright install-deps
     ```
 
@@ -159,6 +205,14 @@ nest_asyncio.apply()
 ```
 
 ### Crawl4AI WebSurferAgent
+
+> **Note:** [`Crawl4AI`](https://github.com/unclecode/crawl4ai) is built
+> on top of [LiteLLM](https://github.com/BerriAI/litellm) and supports
+> the same models as LiteLLM.
+>
+> We had great experience with `OpenAI`, `Anthropic`, `Gemini` and
+> `Ollama`. However, as of this writing, `DeepSeek` is encountering some
+> issues.
 
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]

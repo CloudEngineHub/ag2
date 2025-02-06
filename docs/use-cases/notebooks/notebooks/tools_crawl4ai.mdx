@@ -27,10 +27,29 @@ steps:
     pip install ag2[crawl4ai]
     ```
 
+    > **Note:** If you have been using `autogen` or `pyautogen`, all you
+    > need to do is upgrade it using:
+    >
+    > ```bash
+    > pip install -U autogen[crawl4ai]
+    > ```
+    >
+    > or
+    >
+    > ```bash
+    > pip install -U pyautogen[crawl4ai]
+    > ```
+    >
+    > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+    > package.
+
 2.  Set up Playwright:
 
     ```bash
+    # Installs Playwright and browsers for all OS
     playwright install
+    # Additional command, mandatory for Linux only
+    playwright install-deps
     ```
 
 3.  For running the code in Jupyther, use `nest_asyncio` to allow nested
@@ -83,6 +102,14 @@ result = user_proxy.initiate_chat(
 ```
 
 ## Crawl4AI with LLM
+
+> **Note:** [`Crawl4AI`](https://github.com/unclecode/crawl4ai) is built
+> on top of [LiteLLM](https://github.com/BerriAI/litellm) and supports
+> the same models as LiteLLM.
+>
+> We had great experience with `OpenAI`, `Anthropic`, `Gemini` and
+> `Ollama`. However, as of this writing, `DeepSeek` is encountering some
+> issues.
 
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
