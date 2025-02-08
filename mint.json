@@ -84,10 +84,6 @@
     {
       "name": "Blog",
       "url": "docs/blog"
-    },
-    {
-      "name": "Community Talks",
-      "url": "docs/talks"
     }
   ],
   "anchors": [],
@@ -1142,8 +1138,16 @@
             {
               "group": "agents",
               "pages": [
-                "docs/api-reference/autogen/agents/overview",
-                "docs/api-reference/autogen/agents/WebSurferAgent"
+                {
+                  "group": "experimental",
+                  "pages": [
+                    "docs/api-reference/autogen/agents/experimental/overview",
+                    "docs/api-reference/autogen/agents/experimental/DiscordAgent",
+                    "docs/api-reference/autogen/agents/experimental/SlackAgent",
+                    "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/WebSurferAgent"
+                  ]
+                }
               ]
             },
             {
@@ -1644,6 +1648,12 @@
                     "docs/api-reference/autogen/tools/experimental/overview",
                     "docs/api-reference/autogen/tools/experimental/BrowserUseTool",
                     "docs/api-reference/autogen/tools/experimental/Crawl4AITool",
+                    "docs/api-reference/autogen/tools/experimental/DiscordRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/DiscordSendTool",
+                    "docs/api-reference/autogen/tools/experimental/SlackRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/SlackSendTool",
+                    "docs/api-reference/autogen/tools/experimental/TelegramRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/TelegramSendTool",
                     {
                       "group": "browser_use",
                       "pages": [
