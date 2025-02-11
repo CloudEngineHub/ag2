@@ -126,7 +126,7 @@ dependencies for each extension. In this example, we need
 `pip install docx2txt`
 
 We start by creating a Neo4j property graph (knowledge graph) with a
-sample employee handbook of a finctional company called BUZZ
+sample employee handbook of a fictional company called BUZZ
 
 ```python
 # load documents
@@ -339,3 +339,7 @@ from autogen.agentchat.contrib.graph_rag.neo4j_graph_rag_capability import Neo4j
 # Ask questions about both documents
 user_proxy.initiate_chat(graph_rag_agent, message="What is Equal Employment Opportunity Policy at BUZZ?")
 ```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_graph_rag_neo4j.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

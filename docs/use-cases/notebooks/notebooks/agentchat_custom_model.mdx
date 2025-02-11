@@ -239,7 +239,7 @@ for full code examples of the different methods.
 
 ## Set the config for the custom model
 
-You can add any paramteres that are needed for the custom model loading
+You can add any parameters that are needed for the custom model loading
 in the same configuration list.
 
 It is important to add the `model_client_cls` field and set it to a
@@ -267,7 +267,7 @@ config_list_custom = autogen.config_list_from_json(
 
 ## Construct Agents
 
-Consturct a simple conversation between a User proxy and an Assistent
+Construct a simple conversation between a User proxy and an Assistant
 agent
 
 ```python
@@ -369,3 +369,7 @@ assistant.register_model_client(
 ```python
 user_proxy.initiate_chat(assistant, message="Write python code to print Hello World!")
 ```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_custom_model.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

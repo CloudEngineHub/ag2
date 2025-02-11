@@ -154,17 +154,15 @@ Cognitive Search service.
 
 ```python
 def search(query: str):
-    payload = json.dumps(
-        {
-            "search": query,
-            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
-            "queryType": "semantic",
-            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
-            "captions": "extractive",
-            "answers": "extractive|count-3",
-            "queryLanguage": "en-US",
-        }
-    )
+    payload = json.dumps({
+        "search": query,
+        "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
+        "queryType": "semantic",
+        "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
+        "captions": "extractive",
+        "answers": "extractive|count-3",
+        "queryLanguage": "en-US",
+    })
 
     response = list(client.search(payload))
 
@@ -299,3 +297,7 @@ TERMINATE
 
 --------------------------------------------------------------------------------
 ```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_azr_ai_search.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

@@ -120,27 +120,25 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = user.initiate_chats(
-    [
-        {
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "last_msg",
-        },
-        {
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": writer,
-            "message": writing_tasks[0],
-            "carryover": "I want to include a figure or a table of data in the blogpost.",
-        },
-    ]
-)
+chat_results = user.initiate_chats([
+    {
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "last_msg",
+    },
+    {
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": writer,
+        "message": writing_tasks[0],
+        "carryover": "I want to include a figure or a table of data in the blogpost.",
+    },
+])
 ```
 
 ```` text
@@ -582,7 +580,7 @@ Conversation cost:  ({'total_cost': 0.06447, 'gpt-4': {'cost': 0.06447, 'prompt_
 ### Scenario 2: With human inputs revising tasks in the middle
 
 Since AutoGen agents support soliciting human inputs during a chat if
-`human_input_mode` is specificed properly, the actual task might be
+`human_input_mode` is specified properly, the actual task might be
 revised in the middle of a chat.
 
 The example below showcases that even if a task is revised in the middle
@@ -603,26 +601,24 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = user.initiate_chats(
-    [
-        {
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": writer,
-            "message": writing_tasks[0],
-        },
-    ]
-)
+chat_results = user.initiate_chats([
+    {
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": writer,
+        "message": writing_tasks[0],
+    },
+])
 ```
 
 ```` text
@@ -1205,13 +1201,11 @@ user = autogen.UserProxyAgent(
         "use_docker": False,
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
-user.initiate_chats(
-    [
-        {"recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
-        {"recipient": manager_1, "message": financial_tasks[1], "summary_method": "reflection_with_llm"},
-        {"recipient": manager_2, "message": writing_tasks[0]},
-    ]
-)
+user.initiate_chats([
+    {"recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
+    {"recipient": manager_1, "message": financial_tasks[1], "summary_method": "reflection_with_llm"},
+    {"recipient": manager_2, "message": writing_tasks[0]},
+])
 ```
 
 ```` text
@@ -1471,3 +1465,7 @@ TERMINATE
  ChatResult(chat_history=[{'content': 'Investigate possible reasons of the stock performance.\nContext: \nThe script has executed successfully and provided the following results:\n\n- The current stock price for NVIDIA Corporation (NVDA) is $722.48.\n- The current stock price for Tesla, Inc. (TSLA) is $188.13.\n- NVDA has experienced a percentage increase of 28.14% over the past month.\n- TSLA has experienced a percentage decrease of -14.45% over the past month.\n\nThese results indicate that over the past month, NVIDIA’s stock has seen a significant increase in value, whereas Tesla’s stock has decreased in value. Keep in mind that stock prices and their performance are subject to rapid change and can vary within minutes.\n\nIf you require any further assistance, please let me know. Otherwise, that concludes our task.\n\n', 'role': 'assistant'}], summary="Possible reasons for NVIDIA Corporation (NVDA) stock's performance increase could include strong financial results, positive developments in the semiconductor industry, favorable media coverage, technological breakthroughs, positive investor expectations, or benefits from the regulatory environment. Supply chain efficiency and maintaining a competitive edge could also be factors. On the other hand, possible reasons for the decrease in Tesla, Inc. (TSLA) stock might be disappointing earnings, negative industry trends, adverse media coverage or investor sentiment, macroeconomic factors, setbacks in technology, regulatory challenges, supply chain disruptions, or increased competition. To understand the specific causes behind NVDA's and TSLA's stock performance, one should conduct thorough research, utilizing credible sources such as the company’s financial statements, official press releases, SEC filings, market analyst reports, and established news articles.", cost=({'total_cost': 0.04563, 'gpt-4': {'cost': 0.04563, 'prompt_tokens': 1189, 'completion_tokens': 166, 'total_tokens': 1355}}, {'total_cost': 0.04563, 'gpt-4': {'cost': 0.04563, 'prompt_tokens': 1189, 'completion_tokens': 166, 'total_tokens': 1355}}), human_input=[]),
  ChatResult(chat_history=[{'content': "Develop an engaging blog post using any information provided.\nContext: \nThe script has executed successfully and provided the following results:\n\n- The current stock price for NVIDIA Corporation (NVDA) is $722.48.\n- The current stock price for Tesla, Inc. (TSLA) is $188.13.\n- NVDA has experienced a percentage increase of 28.14% over the past month.\n- TSLA has experienced a percentage decrease of -14.45% over the past month.\n\nThese results indicate that over the past month, NVIDIA’s stock has seen a significant increase in value, whereas Tesla’s stock has decreased in value. Keep in mind that stock prices and their performance are subject to rapid change and can vary within minutes.\n\nIf you require any further assistance, please let me know. Otherwise, that concludes our task.\n\n\nPossible reasons for NVIDIA Corporation (NVDA) stock's performance increase could include strong financial results, positive developments in the semiconductor industry, favorable media coverage, technological breakthroughs, positive investor expectations, or benefits from the regulatory environment. Supply chain efficiency and maintaining a competitive edge could also be factors. On the other hand, possible reasons for the decrease in Tesla, Inc. (TSLA) stock might be disappointing earnings, negative industry trends, adverse media coverage or investor sentiment, macroeconomic factors, setbacks in technology, regulatory challenges, supply chain disruptions, or increased competition. To understand the specific causes behind NVDA's and TSLA's stock performance, one should conduct thorough research, utilizing credible sources such as the company’s financial statements, official press releases, SEC filings, market analyst reports, and established news articles.", 'role': 'assistant'}], summary="Develop an engaging blog post using any information provided.\nContext: \nThe script has executed successfully and provided the following results:\n\n- The current stock price for NVIDIA Corporation (NVDA) is $722.48.\n- The current stock price for Tesla, Inc. (TSLA) is $188.13.\n- NVDA has experienced a percentage increase of 28.14% over the past month.\n- TSLA has experienced a percentage decrease of -14.45% over the past month.\n\nThese results indicate that over the past month, NVIDIA’s stock has seen a significant increase in value, whereas Tesla’s stock has decreased in value. Keep in mind that stock prices and their performance are subject to rapid change and can vary within minutes.\n\nIf you require any further assistance, please let me know. Otherwise, that concludes our task.\n\n\nPossible reasons for NVIDIA Corporation (NVDA) stock's performance increase could include strong financial results, positive developments in the semiconductor industry, favorable media coverage, technological breakthroughs, positive investor expectations, or benefits from the regulatory environment. Supply chain efficiency and maintaining a competitive edge could also be factors. On the other hand, possible reasons for the decrease in Tesla, Inc. (TSLA) stock might be disappointing earnings, negative industry trends, adverse media coverage or investor sentiment, macroeconomic factors, setbacks in technology, regulatory challenges, supply chain disruptions, or increased competition. To understand the specific causes behind NVDA's and TSLA's stock performance, one should conduct thorough research, utilizing credible sources such as the company’s financial statements, official press releases, SEC filings, market analyst reports, and established news articles.", cost=({'total_cost': 0.016829999999999998, 'gpt-4': {'cost': 0.016829999999999998, 'prompt_tokens': 559, 'completion_tokens': 1, 'total_tokens': 560}}, {'total_cost': 0.016829999999999998, 'gpt-4': {'cost': 0.016829999999999998, 'prompt_tokens': 559, 'completion_tokens': 1, 'total_tokens': 560}}), human_input=[])]
 ```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_multi_task_chats.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

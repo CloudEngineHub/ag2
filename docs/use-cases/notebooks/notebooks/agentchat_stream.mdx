@@ -138,12 +138,10 @@ def get_market_news(ind, ind_upper):
         ]
     }
     feeds = data["feed"][ind:ind_upper]
-    feeds_summary = "\n".join(
-        [
-            f"News summary: {f['title']}. {f['summary']} overall_sentiment_score: {f['overall_sentiment_score']}"
-            for f in feeds
-        ]
-    )
+    feeds_summary = "\n".join([
+        f"News summary: {f['title']}. {f['summary']} overall_sentiment_score: {f['overall_sentiment_score']}"
+        for f in feeds
+    ])
     return feeds_summary
 
 
@@ -316,3 +314,7 @@ assistant (to user):
 
 --------------------------------------------------------------------------------
 ```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_stream.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>
