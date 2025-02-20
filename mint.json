@@ -958,29 +958,6 @@
                       ]
                     },
                     {
-                      "group": "rag",
-                      "pages": [
-                        "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/handle_input",
-                        {
-                          "group": "docling_query_engine",
-                          "pages": [
-                            "docs/api-reference/autogen/agentchat/contrib/rag/docling_query_engine/overview",
-                            "docs/api-reference/autogen/agentchat/contrib/rag/docling_query_engine/DoclingMdQueryEngine"
-                          ]
-                        },
-                        {
-                          "group": "document_utils",
-                          "pages": [
-                            "docs/api-reference/autogen/agentchat/contrib/rag/document_utils/overview",
-                            "docs/api-reference/autogen/agentchat/contrib/rag/document_utils/download_url",
-                            "docs/api-reference/autogen/agentchat/contrib/rag/document_utils/is_url",
-                            "docs/api-reference/autogen/agentchat/contrib/rag/document_utils/list_files"
-                          ]
-                        }
-                      ]
-                    },
-                    {
                       "group": "reasoning_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/overview",
@@ -1108,6 +1085,7 @@
                       "group": "experimental",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/realtime/experimental/overview",
+                        "docs/api-reference/autogen/agentchat/realtime/experimental/AudioObserver",
                         "docs/api-reference/autogen/agentchat/realtime/experimental/FunctionObserver",
                         "docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeAgent",
                         "docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeObserver",
@@ -1158,6 +1136,7 @@
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/overview",
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/AudioDelta",
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/FunctionCall",
+                            "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/InputAudioBufferDelta",
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent",
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/SessionCreated",
                             "docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/SessionUpdated",
@@ -1194,9 +1173,35 @@
                     "docs/api-reference/autogen/agents/experimental/overview",
                     "docs/api-reference/autogen/agents/experimental/DeepResearchAgent",
                     "docs/api-reference/autogen/agents/experimental/DiscordAgent",
+                    "docs/api-reference/autogen/agents/experimental/DoclingDocIngestAgent",
+                    "docs/api-reference/autogen/agents/experimental/DocumentAgent",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
-                    "docs/api-reference/autogen/agents/experimental/WebSurferAgent"
+                    "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
+                    {
+                      "group": "document_agent",
+                      "pages": [
+                        "docs/api-reference/autogen/agents/experimental/document_agent/overview",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
+                        {
+                          "group": "docling_query_engine",
+                          "pages": [
+                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/DoclingMdQueryEngine"
+                          ]
+                        },
+                        {
+                          "group": "document_utils",
+                          "pages": [
+                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/download_url",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/is_url",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/list_files",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/preprocess_path"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -1551,7 +1556,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/client/overview",
                     "docs/api-reference/autogen/oai/client/OpenAIClient",
-                    "docs/api-reference/autogen/oai/client/PlaceHolderClient"
+                    "docs/api-reference/autogen/oai/client/PlaceHolderClient",
+                    "docs/api-reference/autogen/oai/client/log_cache_seed_value"
                   ]
                 },
                 {
