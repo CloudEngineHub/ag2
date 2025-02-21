@@ -181,6 +181,7 @@
             "docs/user-guide/reference-agents/index",
             "docs/user-guide/reference-agents/captainagent",
             "docs/user-guide/reference-agents/communication-agents",
+            "docs/user-guide/reference-agents/documentagent",
             "docs/user-guide/reference-agents/reasoningagent",
             "docs/user-guide/reference-agents/websurferagent"
           ]
@@ -234,6 +235,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_teachable_oai_assistants",
             "docs/use-cases/notebooks/notebooks/tools_interoperability",
             "docs/use-cases/notebooks/notebooks/agentchat_realtime_websocket",
+            "docs/use-cases/notebooks/notebooks/agents_document_agent",
             "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_pgvector",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
             "docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
@@ -286,6 +288,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_MathChat",
             "docs/use-cases/notebooks/notebooks/agentchat_small_llm_rag_planning",
             "docs/use-cases/notebooks/notebooks/agentchat_groupchat_RAG",
+            "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
             "docs/use-cases/notebooks/notebooks/agentchat_assistant_agent_standalone",
             "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
             "docs/use-cases/notebooks/notebooks/agentchat_swarm",
@@ -844,6 +847,12 @@
                     {
                       "group": "graph_rag",
                       "pages": [
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/overview",
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/Document",
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/DocumentType",
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/GraphQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/GraphRagCapability",
+                        "docs/api-reference/autogen/agentchat/contrib/graph_rag/GraphStoreQueryResult",
                         {
                           "group": "document",
                           "pages": [
@@ -955,6 +964,13 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/overview",
                         "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/QdrantRetrieveUserProxyAgent"
+                      ]
+                    },
+                    {
+                      "group": "rag",
+                      "pages": [
+                        "docs/api-reference/autogen/agentchat/contrib/rag/overview",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/VectorDbQueryEngine"
                       ]
                     },
                     {
@@ -1395,7 +1411,9 @@
                 "docs/api-reference/autogen/interop/CrewAIInteroperability",
                 "docs/api-reference/autogen/interop/Interoperability",
                 "docs/api-reference/autogen/interop/Interoperable",
+                "docs/api-reference/autogen/interop/LangChainChatModelFactory",
                 "docs/api-reference/autogen/interop/LangChainInteroperability",
+                "docs/api-reference/autogen/interop/LiteLLmConfigFactory",
                 "docs/api-reference/autogen/interop/PydanticAIInteroperability",
                 "docs/api-reference/autogen/interop/register_interoperable_class",
                 {
