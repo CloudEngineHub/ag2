@@ -125,7 +125,20 @@
                 "docs/user-guide/basic-concepts/orchestration/ending-a-chat"
               ]
             },
-            "docs/user-guide/basic-concepts/tools"
+            {
+              "group": "Tools",
+              "pages": [
+                "docs/user-guide/basic-concepts/tools/tools",
+                {
+                  "group": "Experimental",
+                  "pages": [
+                    "docs/user-guide/basic-concepts/tools/experimental/browser-use",
+                    "docs/user-guide/basic-concepts/tools/experimental/crawl4ai",
+                    "docs/user-guide/basic-concepts/tools/experimental/deep-research"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
@@ -337,6 +350,22 @@
         "docs/contributor-guide/documentation",
         "docs/contributor-guide/file-bug-report",
         "docs/contributor-guide/maintainer",
+        {
+          "group": "How AG2 Works",
+          "pages": [
+            "docs/contributor-guide/how-ag2-works/overview",
+            "docs/contributor-guide/how-ag2-works/initiate-chat",
+            "docs/contributor-guide/how-ag2-works/generate-reply",
+            "docs/contributor-guide/how-ag2-works/hooks"
+          ]
+        },
+        {
+          "group": "Building Agents & Tools",
+          "pages": [
+            "docs/contributor-guide/building/creating-a-tool",
+            "docs/contributor-guide/building/creating-an-agent"
+          ]
+        },
         "docs/contributor-guide/pre-commit",
         "docs/contributor-guide/tests",
         "docs/contributor-guide/Research"
@@ -996,7 +1025,7 @@
                       "group": "rag",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/VectorDbQueryEngine"
+                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },
                     {
@@ -1209,6 +1238,14 @@
               "group": "agents",
               "pages": [
                 {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/agents/contrib/overview",
+                    "docs/api-reference/autogen/agents/contrib/TimeReplyAgent",
+                    "docs/api-reference/autogen/agents/contrib/TimeToolAgent"
+                  ]
+                },
+                {
                   "group": "experimental",
                   "pages": [
                     "docs/api-reference/autogen/agents/experimental/overview",
@@ -1216,20 +1253,24 @@
                     "docs/api-reference/autogen/agents/experimental/DiscordAgent",
                     "docs/api-reference/autogen/agents/experimental/DocAgent",
                     "docs/api-reference/autogen/agents/experimental/DoclingDocIngestAgent",
+                    "docs/api-reference/autogen/agents/experimental/InMemoryQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
                     {
                       "group": "document_agent",
                       "pages": [
                         "docs/api-reference/autogen/agents/experimental/document_agent/overview",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/InMemoryQueryEngine",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/VectorChromaQueryEngine",
                         "docs/api-reference/autogen/agents/experimental/document_agent/docling_parse_docs",
                         "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
                         {
-                          "group": "docling_query_engine",
+                          "group": "chroma_query_engine",
                           "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/DoclingMdQueryEngine"
+                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine"
                           ]
                         },
                         {
@@ -1240,6 +1281,15 @@
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/is_url",
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/list_files",
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/preprocess_path"
+                          ]
+                        },
+                        {
+                          "group": "inmemory_query_engine",
+                          "pages": [
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/DocumentStore",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/QueryAnswer"
                           ]
                         }
                       ]
@@ -1802,6 +1852,13 @@
                 "docs/api-reference/autogen/tools/load_basemodels_if_needed",
                 "docs/api-reference/autogen/tools/serialize_to_str",
                 "docs/api-reference/autogen/tools/tool",
+                {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/tools/contrib/overview",
+                    "docs/api-reference/autogen/tools/contrib/TimeTool"
+                  ]
+                },
                 {
                   "group": "dependency_injection",
                   "pages": [
