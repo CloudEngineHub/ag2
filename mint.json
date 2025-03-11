@@ -151,6 +151,7 @@
               "group": "GroupChat",
               "pages": [
                 "docs/user-guide/advanced-concepts/groupchat/groupchat",
+                "docs/user-guide/advanced-concepts/groupchat/tools",
                 "docs/user-guide/advanced-concepts/groupchat/custom-group-chat",
                 "docs/user-guide/advanced-concepts/groupchat/resuming-group-chat"
               ]
@@ -168,9 +169,9 @@
               "group": "RealtimeAgent",
               "pages": [
                 "docs/user-guide/advanced-concepts/realtime-agent/index",
-                "docs/user-guide/advanced-concepts/realtime-agent/twilio",
                 "docs/user-guide/advanced-concepts/realtime-agent/websocket",
-                "docs/user-guide/advanced-concepts/realtime-agent/webrtc"
+                "docs/user-guide/advanced-concepts/realtime-agent/webrtc",
+                "docs/user-guide/advanced-concepts/realtime-agent/twilio"
               ]
             },
             "docs/user-guide/advanced-concepts/code-execution",
@@ -211,7 +212,15 @@
           "pages": [
             "docs/user-guide/reference-agents/index",
             "docs/user-guide/reference-agents/captainagent",
-            "docs/user-guide/reference-agents/communication-agents",
+            {
+              "group": "Communication Platforms",
+              "pages": [
+                "docs/user-guide/reference-agents/communication-platforms/overview",
+                "docs/user-guide/reference-agents/communication-platforms/discordagent",
+                "docs/user-guide/reference-agents/communication-platforms/slackagent",
+                "docs/user-guide/reference-agents/communication-platforms/telegramagent"
+              ]
+            },
             "docs/user-guide/reference-agents/docagent",
             "docs/user-guide/reference-agents/reasoningagent",
             "docs/user-guide/reference-agents/websurferagent",
@@ -223,8 +232,16 @@
           "pages": [
             "docs/user-guide/reference-tools/index",
             "docs/user-guide/reference-tools/browser-use",
-            "docs/user-guide/reference-tools/crawl4ai",
-            "docs/user-guide/reference-tools/deep-research"
+            "docs/user-guide/reference-tools/deep-research",
+            {
+              "group": "Communication Platforms",
+              "pages": [
+                "docs/user-guide/reference-tools/communication-platforms/discord",
+                "docs/user-guide/reference-tools/communication-platforms/slack",
+                "docs/user-guide/reference-tools/communication-platforms/telegram"
+              ]
+            },
+            "docs/user-guide/reference-tools/crawl4ai"
           ]
         }
       ]
@@ -420,9 +437,7 @@
             "docs/api-reference/autogen/AgentNameConflictError",
             "docs/api-reference/autogen/AssistantAgent",
             "docs/api-reference/autogen/Cache",
-            "docs/api-reference/autogen/ChatCompletion",
             "docs/api-reference/autogen/ChatResult",
-            "docs/api-reference/autogen/Completion",
             "docs/api-reference/autogen/ContextExpression",
             "docs/api-reference/autogen/ConversableAgent",
             "docs/api-reference/autogen/GroupChat",
@@ -1037,6 +1052,7 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
                         "docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/MongoDBQueryEngine",
                         "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },
@@ -1338,7 +1354,6 @@
               "group": "code_utils",
               "pages": [
                 "docs/api-reference/autogen/code_utils/overview",
-                "docs/api-reference/autogen/code_utils/PassAssertionFilter",
                 "docs/api-reference/autogen/code_utils/check_can_use_docker_or_throw",
                 "docs/api-reference/autogen/code_utils/content_str",
                 "docs/api-reference/autogen/code_utils/create_virtual_env",
@@ -1346,12 +1361,7 @@
                 "docs/api-reference/autogen/code_utils/eval_function_completions",
                 "docs/api-reference/autogen/code_utils/execute_code",
                 "docs/api-reference/autogen/code_utils/extract_code",
-                "docs/api-reference/autogen/code_utils/generate_assertions",
-                "docs/api-reference/autogen/code_utils/generate_code",
                 "docs/api-reference/autogen/code_utils/get_powershell_command",
-                "docs/api-reference/autogen/code_utils/implement",
-                "docs/api-reference/autogen/code_utils/improve_code",
-                "docs/api-reference/autogen/code_utils/improve_function",
                 "docs/api-reference/autogen/code_utils/in_docker_container",
                 "docs/api-reference/autogen/code_utils/infer_lang",
                 "docs/api-reference/autogen/code_utils/is_docker_running",
@@ -1546,7 +1556,6 @@
                 "docs/api-reference/autogen/math_utils/is_equiv_chain_of_thought",
                 "docs/api-reference/autogen/math_utils/last_boxed_only_string",
                 "docs/api-reference/autogen/math_utils/remove_boxed",
-                "docs/api-reference/autogen/math_utils/solve_problem",
                 "docs/api-reference/autogen/math_utils/voting_counts"
               ]
             },
@@ -1853,7 +1862,8 @@
                     "docs/api-reference/autogen/tools/dependency_injection/Field",
                     "docs/api-reference/autogen/tools/dependency_injection/get_context_params",
                     "docs/api-reference/autogen/tools/dependency_injection/inject_params",
-                    "docs/api-reference/autogen/tools/dependency_injection/on"
+                    "docs/api-reference/autogen/tools/dependency_injection/on",
+                    "docs/api-reference/autogen/tools/dependency_injection/remove_params"
                   ]
                 },
                 {
