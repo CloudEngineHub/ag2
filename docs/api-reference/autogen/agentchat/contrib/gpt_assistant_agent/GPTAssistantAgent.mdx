@@ -1361,7 +1361,7 @@ run(
 ```python
 run_code(
     self,
-    code,
+    code: str,
     **kwargs: Any
 ) -> tuple[int, str, str | None]
 ```
@@ -1371,7 +1371,7 @@ run_code(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code` | the code to be executed.<br/><br/> |
+| `code` | the code to be executed.<br/><br/>**Type:** str |
 | `**kwargs` | other keyword arguments.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
