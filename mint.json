@@ -300,6 +300,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_webscraping_with_apify",
             "docs/use-cases/notebooks/notebooks/agentchat_swarm",
             "docs/use-cases/notebooks/notebooks/agentchat_function_call_currency_calculator",
+            "docs/use-cases/notebooks/notebooks/LlamaIndex_query_engine",
             "docs/use-cases/notebooks/notebooks/agentchat_with_memory",
             "docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_swarm_websocket",
             "docs/use-cases/notebooks/notebooks/agentchat_nested_sequential_chats",
@@ -330,6 +331,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_swarm_enhanced",
             "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
             "docs/use-cases/notebooks/notebooks/agentchat_openlit",
+            "docs/use-cases/notebooks/notebooks/Chromadb_query_engine",
             "docs/use-cases/notebooks/notebooks/agentchat_web_info",
             "docs/use-cases/notebooks/notebooks/agentchat_auto_feedback_from_code_execution",
             "docs/use-cases/notebooks/notebooks/agentchat_realtime_webrtc",
@@ -464,6 +466,8 @@
             "docs/api-reference/autogen/GroupChat",
             "docs/api-reference/autogen/GroupChatManager",
             "docs/api-reference/autogen/InvalidCarryOverTypeError",
+            "docs/api-reference/autogen/LLMConfig",
+            "docs/api-reference/autogen/LLMConfigFilter",
             "docs/api-reference/autogen/ModelClient",
             "docs/api-reference/autogen/NoEligibleSpeakerError",
             "docs/api-reference/autogen/ON_CONDITION",
@@ -1073,6 +1077,7 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
                         "docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/LlamaIndexQueryEngine",
                         "docs/api-reference/autogen/agentchat/contrib/rag/MongoDBQueryEngine",
                         "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
@@ -1648,6 +1653,22 @@
               ]
             },
             {
+              "group": "json_utils",
+              "pages": [
+                "docs/api-reference/autogen/json_utils/overview",
+                "docs/api-reference/autogen/json_utils/resolve_json_references"
+              ]
+            },
+            {
+              "group": "llm_config",
+              "pages": [
+                "docs/api-reference/autogen/llm_config/overview",
+                "docs/api-reference/autogen/llm_config/LLMConfig",
+                "docs/api-reference/autogen/llm_config/LLMConfigEntry",
+                "docs/api-reference/autogen/llm_config/register_llm_config"
+              ]
+            },
+            {
               "group": "logger",
               "pages": [
                 "docs/api-reference/autogen/logger/overview",
@@ -1737,11 +1758,23 @@
             {
               "group": "oai",
               "pages": [
+                "docs/api-reference/autogen/oai/overview",
+                "docs/api-reference/autogen/oai/AnthropicLLMConfigEntry",
+                "docs/api-reference/autogen/oai/BedrockLLMConfigEntry",
+                "docs/api-reference/autogen/oai/CerebrasLLMConfigEntry",
+                "docs/api-reference/autogen/oai/CohereLLMConfigEntry",
+                "docs/api-reference/autogen/oai/GeminiLLMConfigEntry",
+                "docs/api-reference/autogen/oai/GroqLLMConfigEntry",
+                "docs/api-reference/autogen/oai/MistralLLMConfigEntry",
+                "docs/api-reference/autogen/oai/OllamaLLMConfigEntry",
+                "docs/api-reference/autogen/oai/OpenAILLMConfigEntry",
+                "docs/api-reference/autogen/oai/TogetherLLMConfigEntry",
                 {
                   "group": "anthropic",
                   "pages": [
                     "docs/api-reference/autogen/oai/anthropic/overview",
                     "docs/api-reference/autogen/oai/anthropic/AnthropicClient",
+                    "docs/api-reference/autogen/oai/anthropic/AnthropicLLMConfigEntry",
                     "docs/api-reference/autogen/oai/anthropic/oai_messages_to_anthropic_messages"
                   ]
                 },
@@ -1750,6 +1783,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/bedrock/overview",
                     "docs/api-reference/autogen/oai/bedrock/BedrockClient",
+                    "docs/api-reference/autogen/oai/bedrock/BedrockLLMConfigEntry",
                     "docs/api-reference/autogen/oai/bedrock/calculate_cost",
                     "docs/api-reference/autogen/oai/bedrock/convert_stop_reason_to_finish_reason",
                     "docs/api-reference/autogen/oai/bedrock/extract_system_messages",
@@ -1765,6 +1799,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/cerebras/overview",
                     "docs/api-reference/autogen/oai/cerebras/CerebrasClient",
+                    "docs/api-reference/autogen/oai/cerebras/CerebrasLLMConfigEntry",
                     "docs/api-reference/autogen/oai/cerebras/calculate_cerebras_cost",
                     "docs/api-reference/autogen/oai/cerebras/oai_messages_to_cerebras_messages"
                   ]
@@ -1773,7 +1808,10 @@
                   "group": "client",
                   "pages": [
                     "docs/api-reference/autogen/oai/client/overview",
+                    "docs/api-reference/autogen/oai/client/AzureOpenAILLMConfigEntry",
+                    "docs/api-reference/autogen/oai/client/DeepSeekLLMConfigEntry",
                     "docs/api-reference/autogen/oai/client/OpenAIClient",
+                    "docs/api-reference/autogen/oai/client/OpenAILLMConfigEntry",
                     "docs/api-reference/autogen/oai/client/PlaceHolderClient",
                     "docs/api-reference/autogen/oai/client/log_cache_seed_value"
                   ]
@@ -1793,6 +1831,7 @@
                     "docs/api-reference/autogen/oai/cohere/overview",
                     "docs/api-reference/autogen/oai/cohere/CohereClient",
                     "docs/api-reference/autogen/oai/cohere/CohereError",
+                    "docs/api-reference/autogen/oai/cohere/CohereLLMConfigEntry",
                     "docs/api-reference/autogen/oai/cohere/CohereRateLimitError",
                     "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost",
                     "docs/api-reference/autogen/oai/cohere/clean_return_response_format",
@@ -1804,6 +1843,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/gemini/overview",
                     "docs/api-reference/autogen/oai/gemini/GeminiClient",
+                    "docs/api-reference/autogen/oai/gemini/GeminiLLMConfigEntry",
                     "docs/api-reference/autogen/oai/gemini/calculate_gemini_cost",
                     "docs/api-reference/autogen/oai/gemini/get_image_data"
                   ]
@@ -1813,6 +1853,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/groq/overview",
                     "docs/api-reference/autogen/oai/groq/GroqClient",
+                    "docs/api-reference/autogen/oai/groq/GroqLLMConfigEntry",
                     "docs/api-reference/autogen/oai/groq/calculate_groq_cost",
                     "docs/api-reference/autogen/oai/groq/oai_messages_to_groq_messages"
                   ]
@@ -1822,6 +1863,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/mistral/overview",
                     "docs/api-reference/autogen/oai/mistral/MistralAIClient",
+                    "docs/api-reference/autogen/oai/mistral/MistralLLMConfigEntry",
                     "docs/api-reference/autogen/oai/mistral/calculate_mistral_cost",
                     "docs/api-reference/autogen/oai/mistral/tool_def_to_mistral"
                   ]
@@ -1893,6 +1935,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/ollama/overview",
                     "docs/api-reference/autogen/oai/ollama/OllamaClient",
+                    "docs/api-reference/autogen/oai/ollama/OllamaLLMConfigEntry",
                     "docs/api-reference/autogen/oai/ollama/is_valid_tool_call_item",
                     "docs/api-reference/autogen/oai/ollama/response_to_tool_call"
                   ]
@@ -1916,6 +1959,7 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/together/overview",
                     "docs/api-reference/autogen/oai/together/TogetherClient",
+                    "docs/api-reference/autogen/oai/together/TogetherLLMConfigEntry",
                     "docs/api-reference/autogen/oai/together/calculate_together_cost",
                     "docs/api-reference/autogen/oai/together/oai_messages_to_together_messages"
                   ]
