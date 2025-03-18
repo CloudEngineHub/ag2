@@ -1,14 +1,14 @@
 ---
-sidebarTitle: LLMConfigFilter
-title: autogen.LLMConfigFilter
+sidebarTitle: DeepSeekLLMConfigEntry
+title: autogen.oai.DeepSeekLLMConfigEntry
 ---
-<h2 id="autogen.LLMConfigFilter" class="doc doc-heading">
+<h2 id="autogen.oai.DeepSeekLLMConfigEntry" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">LLMConfigFilter</span>
+    <span class="doc doc-object-name doc-class-name">DeepSeekLLMConfigEntry</span>
 </h2>
 
 ```python
-LLMConfigFilter(**kwargs: Any)
+DeepSeekLLMConfigEntry(**data: Any)
 ```
 
     Usage docs: https://docs.pydantic.dev/2.10/concepts/models/
@@ -18,12 +18,24 @@ LLMConfigFilter(**kwargs: Any)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` | **Type:** Any |
+| `**data` | **Type:** Any |
 
 ### Class Attributes
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### filter_dict
+#### api_type
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### base_url
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### max_tokens
 <br />
 
     <br />
@@ -34,17 +46,25 @@ LLMConfigFilter(**kwargs: Any)
 
     <br />
 
-### Instance Methods
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### temperature
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### top_p
+<br />
+
+    <br />
+
+### Static Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### get
+#### check_top_p
 
 ```python
-get(
-    self,
-    key: str,
-    default: Any | None = None
-) -> Any
+check_top_p(v: Any, info: ValidationInfo) -> Any
 ```
 
     
@@ -52,27 +72,18 @@ get(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `key` | **Type:** str |
-| `default` | **Type:** Any \| None<br/><br/>**Default:** None |
+| `v` | **Type:** Any |
+| `info` | **Type:** ValidationInfo |
 
 <br />
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### items
-
-```python
-items(self) -> Iterable[tuple[str, Any]]
-```
-
-    
-
-<br />
+### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### keys
+#### create_client
 
 ```python
-keys(self) -> Iterable[str]
+create_client(self) -> None
 ```
 
     
@@ -136,16 +147,5 @@ model_dump_json(
 | Type | Description |
 |--|--|
 | str | A JSON string representation of the model. |
-
-<br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### values
-
-```python
-values(self) -> Iterable[Any]
-```
-
-    
 
 <br />

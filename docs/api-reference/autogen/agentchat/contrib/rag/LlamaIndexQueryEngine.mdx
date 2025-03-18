@@ -11,7 +11,7 @@ title: autogen.agentchat.contrib.rag.LlamaIndexQueryEngine
 LlamaIndexQueryEngine(
     vector_store: BasePydanticVectorStore,
     llm: ForwardRef('LLM') | None = None,
-    file_reader_class: ForwardRef('BaseReader') | None = None
+    file_reader_class: type['SimpleDirectoryReader'] | None = None
 )
 ```
 
@@ -23,7 +23,7 @@ LlamaIndexQueryEngine(
 |--|--|
 | `vector_store` | **Type:** BasePydanticVectorStore |
 | `llm` | **Type:** ForwardRef('LLM') \| None<br/><br/>**Default:** None |
-| `file_reader_class` | **Type:** ForwardRef('BaseReader') \| None<br/><br/>**Default:** None |
+| `file_reader_class` | **Type:** type['SimpleDirectoryReader'] \| None<br/><br/>**Default:** None |
 
 ### Instance Methods
 

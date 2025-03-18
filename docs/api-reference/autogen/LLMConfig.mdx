@@ -21,6 +21,29 @@ LLMConfig(**kwargs: Any)
 ### Static Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### from_json
+
+```python
+from_json(
+    *,
+    env: str | None = None,
+    path: str | Path | None = None,
+    **kwargs: Any
+) -> LLMConfig
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `env` | **Type:** str \| None<br/><br/>**Default:** None |
+| `path` | **Type:** str \| pathlib.Path \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_current_llm_config
 
 ```python
@@ -32,27 +55,6 @@ get_current_llm_config() -> LLMConfig | None
 <br />
 
 ### Instance Methods
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### apply_filter
-
-```python
-apply_filter(
-    self,
-    filter: LLMConfigFilter | None,
-    exclude: bool = False
-) -> LLMConfig
-```
-
-    
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `filter` | **Type:** autogen.llm_config.LLMConfigFilter \| None |
-| `exclude` | **Type:** bool<br/><br/>**Default:** False |
-
-<br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get
@@ -230,5 +232,27 @@ values(self) -> Iterable[Any]
 ```
 
     
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### where
+
+```python
+where(
+    self,
+    *,
+    exclude: bool = False,
+    **kwargs: Any
+) -> LLMConfig
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `exclude` | **Type:** bool<br/><br/>**Default:** False |
+| `**kwargs` | **Type:** Any |
 
 <br />

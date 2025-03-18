@@ -1,14 +1,14 @@
 ---
-sidebarTitle: BedrockLLMConfigEntry
-title: autogen.oai.bedrock.BedrockLLMConfigEntry
+sidebarTitle: AzureOpenAILLMConfigEntry
+title: autogen.oai.AzureOpenAILLMConfigEntry
 ---
-<h2 id="autogen.oai.bedrock.BedrockLLMConfigEntry" class="doc doc-heading">
+<h2 id="autogen.oai.AzureOpenAILLMConfigEntry" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">BedrockLLMConfigEntry</span>
+    <span class="doc doc-object-name doc-class-name">AzureOpenAILLMConfigEntry</span>
 </h2>
 
 ```python
-BedrockLLMConfigEntry(**data: Any)
+AzureOpenAILLMConfigEntry(**data: Any)
 ```
 
     Usage docs: https://docs.pydantic.dev/2.10/concepts/models/
@@ -29,49 +29,7 @@ BedrockLLMConfigEntry(**data: Any)
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### aws_access_key
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### aws_profile_name
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### aws_region
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### aws_secret_key
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### aws_session_token
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### cache_seed
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### k
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### maxTokens
+#### azure_ad_token_provider
 <br />
 
     <br />
@@ -82,61 +40,13 @@ BedrockLLMConfigEntry(**data: Any)
 
     <br />
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### price
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### seed
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### stream
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### supports_system_prompts
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### temperature
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### topP
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### top_k
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### top_p
-<br />
-
-    <br />
-
 ### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### create_client
 
 ```python
-create_client(self) -> 
+create_client(self) -> ModelClient
 ```
 
     
