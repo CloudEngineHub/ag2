@@ -193,7 +193,6 @@ exitcode: 0 (execution succeeded)
 Code output:
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
-
 --------------------------------------------------------------------------------
 assistant (to user_proxy):
 
@@ -256,7 +255,6 @@ CurrencySymbol = Literal["USD", "EUR"]
 
 # Define our function that we expect to call
 
-
 def exchange_rate(base_currency: CurrencySymbol, quote_currency: CurrencySymbol) -> float:
     if base_currency == quote_currency:
         return 1.0
@@ -267,9 +265,7 @@ def exchange_rate(base_currency: CurrencySymbol, quote_currency: CurrencySymbol)
     else:
         raise ValueError(f"Unknown currencies {base_currency}, {quote_currency}")
 
-
 # Register the function with the agent
-
 
 @user_proxy.register_for_execution()
 @chatbot.register_for_llm(description="Currency exchange calculator.")
@@ -285,9 +281,7 @@ def currency_calculator(
     quote_amount = exchange_rate(base_currency, quote_currency) * base_amount
     return f"{format(quote_amount, '.2f')} {quote_currency}"
 
-
 # Weather function
-
 
 # Example function to make available to model
 def get_current_weather(location, unit="fahrenheit"):
@@ -301,9 +295,7 @@ def get_current_weather(location, unit="fahrenheit"):
     else:
         return json.dumps({"location": location, "temperature": "unknown"})
 
-
 # Register the function with the agent
-
 
 @user_proxy.register_for_execution()
 @chatbot.register_for_llm(description="Weather forecast for US cities.")
@@ -330,7 +322,6 @@ What's the weather in New York and can you tell me how much is 123.45 EUR in USD
 
 --------------------------------------------------------------------------------
 chatbot (to user_proxy):
-
 
 ***** Suggested tool call (tooluse__h3d1AEDR3Sm2XRoGCjc2Q): weather_forecast *****
 Arguments:
@@ -364,12 +355,9 @@ user_proxy (to chatbot):
 --------------------------------------------------------------------------------
 chatbot (to user_proxy):
 
-
-
 TERMINATE
 
 --------------------------------------------------------------------------------
-
 
 The weather in New York is 11 degrees Fahrenheit. 123.45 EUR is equivalent to 135.30 USD.
 ```
@@ -464,7 +452,6 @@ code_interpreter = UserProxyAgent(
     is_termination_msg=lambda x: x.get("content", "").find("TERMINATE") >= 0,
 )
 
-
 @code_interpreter.register_for_execution()  # Decorator factory for registering a function to be executed by an agent
 @charlie.register_for_llm(
     name="get_headlines", description="Get the headline of a particular day."
@@ -482,7 +469,6 @@ def get_headlines(headline_date: Annotated[str, "Date in MMDDYY format, e.g., 06
         "06192024": "OpenAI founder Sutskever sets up new AI company devoted to safe superintelligence.",
     }
     return mock_news.get(headline_date, "No news available for today.")
-
 
 user_proxy = UserProxyAgent(
     "user_proxy",
@@ -519,7 +505,6 @@ Next speaker: research_assistant
 
 research_assistant (to chat_manager):
 
-
 ***** Suggested tool call (tooluse_7lcHbL3TT5WHyTl8Ee0Kmg): get_headlines *****
 Arguments:
 {"headline_date": "06202024"}
@@ -528,7 +513,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: code_interpreter
-
 
 >>>>>>>> EXECUTING FUNCTION get_headlines...
 code_interpreter (to chat_manager):
@@ -585,8 +569,6 @@ Pass to the judge.
 Next speaker: judge
 
 judge (to chat_manager):
-
-
 
 After carefully evaluating the arguments presented by both sonnet_agent and mistral_agent, I have reached a decision.
 

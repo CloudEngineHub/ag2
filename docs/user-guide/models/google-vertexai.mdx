@@ -188,7 +188,6 @@ result = user_proxy.initiate_chat(
 ```console
 user_proxy (to assistant):
 
-
     Compute the integral of the function f(x)=x^2 on the interval 0 to 1 using a Python script,
     which returns the value of the definite integral
 
@@ -212,7 +211,6 @@ print(f"The definite integral of x^2 from 0 to 1 is: {result}")
 
 Let me know when you have executed this code.
 
-
 --------------------------------------------------------------------------------
 
 >>>>>>>> EXECUTING CODE BLOCK 0 (inferred language is python)...
@@ -221,7 +219,6 @@ user_proxy (to assistant):
 exitcode: 0 (execution succeeded)
 Code output:
 The definite integral of x^2 from 0 to 1 is: 0.33333333333333337
-
 
 --------------------------------------------------------------------------------
 assistant (to user_proxy):
@@ -233,7 +230,6 @@ This aligns with the analytical solution. The indefinite integral of x^2 is (x^3
 Therefore, the script successfully computed the integral of x^2 from 0 to 1.
 
 TERMINATE
-
 
 --------------------------------------------------------------------------------
 ```
@@ -322,7 +318,6 @@ You can read more on the topic in the [official Google docs](https://cloud.googl
 <br/>
 Note, that you will need to refresh your token regularly, by default every 1 hour.
 
-
 ```python
 import google.auth
 
@@ -367,7 +362,6 @@ result = user_proxy.initiate_chat(
 
 ```console
 user_proxy (to assistant):
-
 
     Compute the integral of the function f(x)=x^3 on the interval 0 to 10 using a Python script,
     which returns the value of the definite integral.

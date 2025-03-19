@@ -145,7 +145,6 @@ If the `gcp_auth_token` is not provided in the configuration, the client will us
 - Service account key: You can set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to point to your service account key file.
 - Cloud Shell or GCP Compute Engine: When running in a GCP-managed environment, default authentication is automatically applied.
 
-
 Example of setting up the environment variable:
 
 ```bash
@@ -231,7 +230,6 @@ exitcode: 0 (execution succeeded)
 Code output:
 The first 10 numbers of the Fibonacci sequence are:
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-
 
 --------------------------------------------------------------------------------
 assistant (to user_proxy):
@@ -341,7 +339,6 @@ config_list_gpt4 = [
     }
 ]
 
-
 config_list_gpt35 = [
     {
         # Choose your model name.
@@ -387,7 +384,6 @@ code_interpreter = UserProxyAgent(
     is_termination_msg=lambda x: x.get("content", "").find("TERMINATE") >= 0,
 )
 
-
 @code_interpreter.register_for_execution()  # Decorator factory for registering a function to be executed by an agent
 @charlie.register_for_llm(
     name="get_headlines", description="Get the headline of a particular day."
@@ -398,7 +394,6 @@ def get_headlines(headline_date: Annotated[str, "Date in MMDDYY format, e.g., 06
         "06192024": "OpenAI founder Sutskever sets up new AI company devoted to safe superintelligence.",
     }
     return mock_news.get(headline_date, "No news available for today.")
-
 
 groupchat = GroupChat(
     agents=[alice, bob, charlie, dan, code_interpreter],
@@ -447,7 +442,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: code-interpreter
-
 
 >>>>>>>> EXECUTING FUNCTION get_headlines...
 [runtime logging] log_function_use: autogen logger is None
@@ -639,7 +633,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: code-interpreter
-
 
 >>>>>>>> EXECUTING FUNCTION get_headlines...
 [runtime logging] log_function_use: autogen logger is None

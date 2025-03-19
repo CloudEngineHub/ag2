@@ -181,11 +181,9 @@ import httpx
 
 from autogen import LLMConfig
 
-
 class MyHttpClient(httpx.Client):
     def __deepcopy__(self, memo):
         return self
-
 
 config_list = [
     {
@@ -268,7 +266,6 @@ else:
 
 For more details, refer to the [Authenticate and authorize in Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/api-management/api-management-authenticate-authorize-azure-openai) and [How to configure Azure OpenAI Service with Microsoft Entra ID authentication](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/managed-identity).
 
-
 #### Step 6: Configure Azure OpenAI with AAD Auth in AG2
 To use AAD authentication with Azure OpenAI in AG2, configure the `llm_config` with the necessary parameters.
 
@@ -334,7 +331,6 @@ This is commonly used for things like `temperature`, or `timeout`.
 
 ```python
 from autogen import LLMConfig
-
 
 llm_config = LLMConfig(
     config_list = [

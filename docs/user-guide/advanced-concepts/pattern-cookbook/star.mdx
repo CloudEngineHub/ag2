@@ -58,7 +58,6 @@ This pattern is particularly effective for tasks where a clear division of exper
 
 The star structure enables quick routing of questions to the right expert while ensuring all information passes through a central point for consistency and synthesis. This creates a scalable system that can handle diverse domains of knowledge while presenting unified responses.
 
-
 ## Agent Flow
 
 ```mermaid
@@ -293,7 +292,6 @@ food_specialist = ConversableAgent(
 # COORDINATOR FUNCTIONS
 # ========================
 
-
 def compile_final_response(response_content: str, context_variables: dict) -> SwarmResult:
     """Compile the final comprehensive response from all specialist inputs"""
     context_variables["final_response"] = response_content
@@ -334,7 +332,6 @@ coordinator_agent = ConversableAgent(
     llm_config=llm_config,
     functions=[compile_final_response],
 )
-
 
 @coordinator_agent.register_for_llm(description="Currency exchange calculator.")
 def analyze_query(
@@ -476,7 +473,6 @@ What should I do in Seattle this weekend? I'm visiting from Friday 7th March 202
 
 Next speaker: coordinator_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 coordinator_agent (to chat_manager):
 
@@ -488,7 +484,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION analyze_query...
 Call ID: call_BCFizrGLaMiZzIKu46qdNp5X
@@ -511,7 +506,6 @@ coordinator_agent (to chat_manager):
 
 Next speaker: weather_specialist
 
-
 >>>>>>>> USING AUTO REPLY...
 weather_specialist (to chat_manager):
 
@@ -523,7 +517,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION provide_weather_info...
 Call ID: call_QkADznRLzxAuYisnzi824ie9
@@ -557,7 +550,6 @@ Arguments:
 
 Next speaker: _Swarm_Tool_Executor
 
-
 >>>>>>>> EXECUTING FUNCTION transfer_coordinator_agent_to_events_specialist...
 Call ID: call_qUFxfLaH9thn3Tob92cgDWCt
 Input arguments: {}
@@ -571,7 +563,6 @@ Swarm agent --> events_specialist
 
 Next speaker: events_specialist
 
-
 >>>>>>>> USING AUTO REPLY...
 events_specialist (to chat_manager):
 
@@ -583,7 +574,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION provide_events_info...
 Call ID: call_pOQURHVEJhXkNu4OJlxJBXdp
@@ -598,7 +588,6 @@ Events information provided and stored.
 
 Next speaker: coordinator_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 coordinator_agent (to chat_manager):
 
@@ -610,7 +599,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION transfer_coordinator_agent_to_traffic_specialist...
 Call ID: call_RpF1biLTWObWg5pZ5IATlcvb
@@ -625,7 +613,6 @@ Swarm agent --> traffic_specialist
 
 Next speaker: traffic_specialist
 
-
 >>>>>>>> USING AUTO REPLY...
 traffic_specialist (to chat_manager):
 
@@ -637,7 +624,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION provide_traffic_info...
 Call ID: call_eORP5UukseSlhDhOQ4kiaH6S
@@ -652,7 +638,6 @@ Traffic/transportation information provided and stored.
 
 Next speaker: coordinator_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 coordinator_agent (to chat_manager):
 
@@ -664,7 +649,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION transfer_coordinator_agent_to_food_specialist...
 Call ID: call_HyEiqEUhl835lodcZMhvlmRv
@@ -679,7 +663,6 @@ Swarm agent --> food_specialist
 
 Next speaker: food_specialist
 
-
 >>>>>>>> USING AUTO REPLY...
 food_specialist (to chat_manager):
 
@@ -691,7 +674,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION provide_food_info...
 Call ID: call_1LulzE1uNEaf0T7dIXgRM28G
@@ -706,7 +688,6 @@ Dining recommendations provided and stored.
 
 Next speaker: coordinator_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 coordinator_agent (to chat_manager):
 
@@ -718,7 +699,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION compile_final_response...
 Call ID: call_j9yZbAwdHrXgg2AhIHrpHZFY
@@ -777,7 +757,6 @@ City guide response completed successfully!
 
 ---
 
-
 ===== FINAL CONTEXT VARIABLES =====
 
 {
@@ -799,7 +778,6 @@ City guide response completed successfully!
   "food_info": "Seattle Dining Recommendations:\n1. Notable Restaurants:\n   - **Fine Dining:** \n      - Canlis: An iconic fine-dining restaurant offering Pacific Northwest cuisine with stunning views of Lake Union.\n   - **Mid-Range:** \n      - The Pink Door: An eclectic Italian restaurant located near Pike Place Market, known for its live music and unique ambiance.\n   - **Affordable Eats:** \n      - Paseo: Famous for their Caribbean sandwiches, especially the \"Cuban\" sandwich that locals rave about.\n\n2. Local Specialties and Must-Try Dishes:\n   - **Seafood:** Try the clam chowder or fresh oysters from local seafood spots.\n   - **Coffee:** Enjoy a cup from one of Seattle's many coffee shops (Starbucks originated here, but try local roasters like Victrola Coffee).\n   - **Pacific Northwest Cuisine:** Dishes featuring local ingredients such as salmon, Dungeness crab, and fresh vegetables.\n\n3. Food Districts or Areas with Good Dining Options:\n   - **Pike Place Market:** A food lover's paradise with numerous restaurants, fishmongers, and artisanal food vendors.\n   - **Capitol Hill:** Known for diverse dining options, from trendy cafes to vegan restaurants.\n   - **Ballard:** Offers a blend of established eateries and new, hip dining options, including breweries.\n\n4. Famous Food Markets or Unique Food Experiences:\n   - **Pike Place Market:** Best known for the fish market where fishmongers toss seafood. Explore the local produce and crafts as well.\n   - **Ballard Farmers Market:** Held every Sunday, showcasing local farmers and vendors.\n   - **Food Tours:** Consider a guided food tour to explore the city's culinary highlights. Options include Seattle food tours focused on specific cuisines or neighborhoods.",
   "final_response": "**Seattle Weekend Guide (March 7-9, 2025)**\n\n---\n\n### **Weather Forecast**\n- **Friday (March 7):** High 50\u00b0F (10\u00b0C), Low 42\u00b0F (6\u00b0C) - Light rain expected.\n- **Saturday (March 8):** High 48\u00b0F (9\u00b0C), Low 41\u00b0F (5\u00b0C) - Moderate rain expected.\n- **Sunday (March 9):** High 52\u00b0F (11\u00b0C), Low 43\u00b0F (6\u00b0C) - Showers likely.\n- **Recommendations:** Dress in layers and wear a waterproof jacket. Consider waterproof shoes and bring an umbrella to stay dry.\n\n---\n\n### **Local Events**\n1. **Seattle International Film Festival (SIFF):** Running from March 6 to March 9, featuring a variety of independent films across multiple venues.\n2. **Seattle Sounders FC vs. Vancouver Whitecaps FC:** Major League Soccer match on March 8 at Lumen Field.\n3. **Attractions:** \n   - Pike Place Market, Space Needle, Chihuly Garden and Glass, Seattle Art Museum, Museum of Pop Culture (MoPOP).\n4. **Outdoor Activities:** \n   - Discovery Park and Alki Beach are great for a nature escape, weather permitting.\n\n---\n\n### **Transportation Tips**\n- **Getting Around:** Use King County Metro buses, light rail, rental bikes, or rideshares (Uber, Lyft). \n- **Traffic:** Expect congestion around major events; avoid I-5 during rush hours for smoother travel. \n- **Parking:** Look for garages or use ParkMobile for on-street parking. Public transit is a hassle-free option!\n\n---\n\n### **Dining Recommendations**\n1. **Restaurants:**\n   - **Fine Dining:** Canlis (Pacific Northwest cuisine with views).\n   - **Mid-Range:** The Pink Door (Eclectic Italian with live music).\n   - **Affordable:** Paseo (Famous Caribbean sandwiches).\n2. **Local Specialties:** Don\u2019t miss the seafood, local coffee, and Pacific Northwest dishes.\n3. **Dining Areas:** Explore Pike Place Market, Capitol Hill, and Ballard for a vibrant dining scene.\n\n---"
 }
-
 
 ===== SPEAKER ORDER =====
 

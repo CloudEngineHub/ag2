@@ -192,7 +192,6 @@ User (to DeepSeek_Assistant):
 exitcode: 0 (execution succeeded)
 Code output: Number of prime numbers from 1 to 10000: 1229
 
-
 --------------------------------------------------------------------------------
 DeepSeek_Assistant (to User):
 
@@ -260,7 +259,6 @@ CurrencySymbol = Literal["USD", "EUR"]
 
 # Define our function that we expect to call
 
-
 def exchange_rate(base_currency: CurrencySymbol, quote_currency: CurrencySymbol) -> float:
     if base_currency == quote_currency:
         return 1.0
@@ -271,9 +269,7 @@ def exchange_rate(base_currency: CurrencySymbol, quote_currency: CurrencySymbol)
     else:
         raise ValueError(f"Unknown currencies {base_currency}, {quote_currency}")
 
-
 # Register the function with the agent
-
 
 @user_proxy.register_for_execution()
 @chatbot.register_for_llm(description="Currency exchange calculator.")
@@ -285,9 +281,7 @@ def currency_calculator(
     quote_amount = exchange_rate(base_currency, quote_currency) * base_amount
     return f"{format(quote_amount, '.2f')} {quote_currency}"
 
-
 # Weather function
-
 
 # Example function to make available to model
 def get_current_weather(location, unit="fahrenheit"):
@@ -301,9 +295,7 @@ def get_current_weather(location, unit="fahrenheit"):
     else:
         return json.dumps({"location": location, "temperature": "unknown"})
 
-
 # Register the function with the agent
-
 
 @user_proxy.register_for_execution()
 @chatbot.register_for_llm(description="Weather forecast for US cities.")
@@ -328,7 +320,6 @@ What's the weather in New York and can you tell me how much is 123.45 EUR in USD
 
 --------------------------------------------------------------------------------
 chatbot (to user_proxy):
-
 
 ***** Suggested tool call (call_0_5c4b1925-5eec-4190-9887-fecf4dcc4c07): weather_forecast *****
 Arguments:

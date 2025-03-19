@@ -224,7 +224,6 @@ User (to Ollama Assistant):
 exitcode: 0 (execution succeeded)
 Code output: 1229
 
-
 --------------------------------------------------------------------------------
 Ollama Assistant (to User):
 
@@ -364,7 +363,6 @@ def exchange_rate(base_currency: CurrencySymbol, quote_currency: CurrencySymbol)
     else:
         raise ValueError(f"Unknown currencies {base_currency}, {quote_currency}")
 
-
 # Register the function with the agent
 
 @user_proxy.register_for_execution()
@@ -380,7 +378,6 @@ def currency_calculator(
     quote_amount = exchange_rate(base_currency, quote_currency) * base_amount
     return f"{format(quote_amount, '.2f')} {quote_currency}"
 
-
 # Weather function
 
 # Example function to make available to model
@@ -394,7 +391,6 @@ def get_current_weather(location, unit="fahrenheit"):
         return json.dumps({"location": "New York", "temperature": "11", "unit": unit})
     else:
         return json.dumps({"location": location, "temperature": "unknown"})
-
 
 # Register the function with the agent
 
@@ -454,7 +450,6 @@ User (to Ollama Assistant):
 exitcode: 0 (execution succeeded)
 Code output: 1229
 
-
 --------------------------------------------------------------------------------
 Ollama Assistant (to User):
 
@@ -469,7 +464,6 @@ What's the weather in New York and can you tell me how much is 123.45 EUR in USD
 
 --------------------------------------------------------------------------------
 chatbot (to user_proxy):
-
 
 ***** Suggested tool call (ollama_func_4506): weather_forecast *****
 Arguments:
