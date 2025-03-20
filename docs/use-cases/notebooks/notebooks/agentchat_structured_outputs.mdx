@@ -62,20 +62,13 @@ AG2 has structured output support for following client providers:
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`LLMConfig.from_json`](https://docs.ag2.ai/docs/api-reference/autogen/LLMConfig#from-json)
 function loads a list of configurations from an environment variable or
 a json file. Structured Output is supported by OpenAI’s models from
 gpt-4-0613 and gpt-3.5-turbo-0613.
 
 ```python
 import autogen
-
-config_list = autogen.config_list_from_json(
-    "OAI_CONFIG_LIST",
-    filter_dict={
-        "model": ["gpt-4o", "gpt-4o-mini"],
-    },
-)
 ```
 
 
@@ -125,11 +118,12 @@ The `response_format` is added to the LLM configuration and then this
 configuration is applied to the agent.
 
 ```python
-llm_config = {
-    "config_list": config_list,
-    "cache_seed": 42,
-    "response_format": MathReasoning,
-}
+llm_config = autogen.LLMConfig.from_json(
+    path="OAI_CONFIG_LIST",
+    cache_seed=42,
+    response_format=MathReasoning,
+).where(tags=["gpt-4o", "gpt-4o-mini"])
+
 
 user_proxy = autogen.UserProxyAgent(
     name="User_proxy",
@@ -198,8 +192,8 @@ Observe how the Math_solver agent now communicates using the format we
 have defined in our `MathReasoning.format` method.
 
 ```python
-for config in config_list:
-    config["response_format"] = MathReasoning
+for config in llm_config.config_list:
+    config.response_format = MathReasoning
 
 user_proxy = autogen.UserProxyAgent(
     name="User_proxy",
