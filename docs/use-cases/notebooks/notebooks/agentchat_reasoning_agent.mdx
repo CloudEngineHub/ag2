@@ -58,15 +58,17 @@ the reasoning space:
 1.  **Thinker Agent**: Generates potential next steps in the reasoning
     process
 2.  **Grader Agent**: Evaluates the quality of each reasoning step
-3.  **Code Execution**: a child user agent will execute code
+3.  **Interim Execution**: Option to execute the selected steps,
+    enabling stepwise reasoning.
+4.  **Code Execution**: a child user agent will execute code
     automatically during reasoning
-4.  **Tree Structure**: Organizes thoughts hierarchically for systematic
+5.  **Tree Structure**: Organizes thoughts hierarchically for systematic
     exploration
-5.  **Visualization Tools**: Built-in Graphviz support for analyzing
+6.  **Visualization Tools**: Built-in Graphviz support for analyzing
     reasoning paths
-6.  **Logging Features**: Log and save thinking trajectories to finetune
+7.  **Logging Features**: Log and save thinking trajectories to finetune
     the language model
-7.  **Configuration Options**: The agent is highly configurable through
+8.  **Configuration Options**: The agent is highly configurable through
     a single `reason_config` dictionary
 
 ```python
@@ -123,6 +125,10 @@ conclusion 3. Never explore alternative branches
 Note: The effectiveness depends on the underlying model’s training.
 Models not specifically trained for step-by-step reasoning may show
 limited improvement with this approach.
+
+Note 2: To enable the execution of each selected step before generating
+the next step suggestions, pass `"interim_execution": True` in
+reason_config.
 
 ```python
 reason_agent = ReasoningAgent(
