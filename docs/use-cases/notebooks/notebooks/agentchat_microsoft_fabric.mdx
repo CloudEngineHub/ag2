@@ -117,7 +117,7 @@ import autogen
 http_client = get_openai_httpx_sync_client()  # http_client is needed for openai>1
 http_client.__deepcopy__ = types.MethodType(
     lambda self, memo: self, http_client
-)  # https://docs.ag2.ai/docs/topics/llm_configuration#adding-http-client-in-llm-config-for-proxy\n",
+)  # https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive/#adding-http-client-in-llm_config-for-proxy\n",
 
 # Set temperature, timeout and other LLM configurations
 llm_config = autogen.LLMConfig(
@@ -170,7 +170,7 @@ import autogen
 http_client = get_openai_httpx_sync_client()  # http_client is needed for openai>1
 http_client.__deepcopy__ = types.MethodType(
     lambda self, memo: self, http_client
-)  # https://docs.ag2.ai/docs/topics/llm_configuration#adding-http-client-in-llm-config-for-proxy
+)  # https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive/#adding-http-client-in-llm_config-for-proxy
 
 
 # Set temperature, timeout and other LLM configurations
