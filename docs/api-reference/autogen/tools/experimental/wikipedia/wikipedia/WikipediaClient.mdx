@@ -1,0 +1,70 @@
+---
+sidebarTitle: WikipediaClient
+title: autogen.tools.experimental.wikipedia.wikipedia.WikipediaClient
+---
+<h2 id="autogen.tools.experimental.wikipedia.wikipedia.WikipediaClient" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">WikipediaClient</span>
+</h2>
+
+```python
+WikipediaClient(language: str = 'en', tool_name: str = 'wikipedia-client')
+```
+
+    A client for interfacing with the Wikipedia API.<br/>This client supports basic search functionality and page retrieval for a specific
+    language edition of Wikipedia.<br/>Initialize the WikipediaClient.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `language` | **Type:** str<br/><br/>**Default:** 'en' |
+| `tool_name` | **Type:** str<br/><br/>**Default:** 'wikipedia-client' |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_page
+
+```python
+get_page(self, title: str) -> Any | None
+```
+
+    Retrieve a Wikipedia page by its title.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `title` | The title of the Wikipedia page to retrieve.<br/><br/>**Type:** str |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Any \| None | Optional[wikipediaapi.WikipediaPage]: A WikipediaPage object if the page exists; otherwise, None. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### search
+
+```python
+search(
+    self,
+    query: str,
+    limit: int = 3
+) -> Any
+```
+
+    Search Wikipedia for pages matching the given query.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `query` | The search query string.<br/><br/>**Type:** str |
+| `limit` | Maximum number of results to return.<br/><br/>Defaults to 3.<br/><br/>**Type:** int<br/><br/>**Default:** 3 |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Any | list: A list of dictionaries containing search results. Each dictionary includes properties such as 'title', 'size', 'wordcount', and 'timestamp'. |
+
+<br />
