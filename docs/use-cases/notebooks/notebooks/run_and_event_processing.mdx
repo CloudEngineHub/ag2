@@ -33,7 +33,7 @@ If you want the *original* console output experience, you can use the
 
 # 1. Import our agent class
 from autogen import ConversableAgent, LLMConfig
-from autogen.io.run_response import RunResponseProtocol
+from autogen.io.run_response import Cost, RunResponseProtocol
 
 # 2. Define our LLM configuration for OpenAI's GPT-4o mini,
 #    uses the OPENAI_API_KEY environment variable
@@ -72,7 +72,9 @@ print(f"{response.messages=}")
 print(f"{response.events=}")
 print(f"{response.context_variables=}")
 print(f"{response.last_speaker=}")
+print(f"{response.cost=}")
 assert response.last_speaker in [jack, emma], "Last speaker should be one of the agents"
+assert isinstance(response.cost, Cost)
 ```
 
 ## With console processor
