@@ -612,6 +612,46 @@ ans = user_proxy.initiate_chat(forest_agent, message=question, summary_method=la
 print(ans.summary)
 ```
 
+## Scope
+
+The effectiveness of a LLM agent on a given task can be significantly
+enhanced through prompt optimization. To support this for the
+`ReasoningAgent`, a `scope` parameter can be specified during
+initialization. This parameter will provide valuable context about the
+agent’s intended use, the reasoning process it should follow, and any
+constraints or pitfalls to avoid. This information is incorporated into
+the agent’s thought process to guide its behavior more effectively.
+
+Note: The `scope` differs from the `system_message` in that it informs
+the agent’s reasoning throughout the entire thinking process, whereas
+the `system_message` is used solely when generating the final response.
+
+```python
+scope = """You assess ethical risks of AI systems used in services. 
+Begin by identifying stakeholders and their interests.
+Then, evaluate potential ethical risks (bias, transparency, impact).
+Finally, suggest mitigation strategies and ethical safeguards"""
+
+with llm_config:
+    reason_agent = ReasoningAgent(
+        name="reason_agent",
+        reason_config={"method": "dfs", "max_depth": 3},  # Using DFS
+        silent=False,
+        scope=scope,
+    )
+```
+
+
+```python
+question = "What are the ethical risks of using AI in healthcare?"
+ans = user_proxy.initiate_chat(reason_agent, message=question, summary_method=last_meaningful_msg)
+```
+
+
+```python
+print(ans.summary)
+```
+
 <div className="edit-url-container">
     <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_reasoning_agent.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
 </div>

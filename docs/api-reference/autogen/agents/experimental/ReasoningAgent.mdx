@@ -17,6 +17,7 @@ ReasoningAgent(
     answer_approach: Literal['pool', 'best'] = 'pool',
     reason_config: dict[str, Any] | None = None,
     code_execution_config: dict[str, Any] | Literal[False] = False,
+    scope: str | None = None,
     **kwargs: Any
 )
 ```
@@ -36,6 +37,7 @@ ReasoningAgent(
 | `answer_approach` | **Type:** Literal['pool', 'best']<br/><br/>**Default:** 'pool' |
 | `reason_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `code_execution_config` | **Type:** dict[str, typing.Any] \| Literal[False]<br/><br/>**Default:** False |
+| `scope` | **Type:** str \| None<br/><br/>**Default:** None |
 | `**kwargs` | **Type:** Any |
 
 ### Instance Attributes

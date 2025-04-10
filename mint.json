@@ -101,10 +101,11 @@
     {
       "group": "User Guide",
       "pages": [
+        "docs/user-guide/quick-start",
+        "docs/user-guide/basic-concepts/installing-ag2",
         {
           "group": "Basic Concepts",
           "pages": [
-            "docs/user-guide/basic-concepts/installing-ag2",
             {
               "group": "LLM Configuration",
               "pages": [
@@ -115,7 +116,7 @@
             "docs/user-guide/basic-concepts/conversable-agent",
             "docs/user-guide/basic-concepts/human-in-the-loop",
             {
-              "group": "Orchestrating Agents",
+              "group": "Agent Orchestration",
               "pages": [
                 "docs/user-guide/basic-concepts/orchestration/orchestrations",
                 "docs/user-guide/basic-concepts/orchestration/sequential-chat",
@@ -275,7 +276,54 @@
             },
             "docs/user-guide/reference-tools/crawl4ai"
           ]
-        }
+        },
+        "docs/faq/FAQ"
+      ]
+    },
+    {
+      "group": "Contributor Guide",
+      "pages": [
+        "docs/contributor-guide/contributing",
+        "docs/contributor-guide/setup-development-environment",
+        "docs/contributor-guide/documentation",
+        "docs/contributor-guide/file-bug-report",
+        "docs/contributor-guide/maintainer",
+        {
+          "group": "How AG2 Works",
+          "pages": [
+            "docs/contributor-guide/how-ag2-works/overview",
+            "docs/contributor-guide/how-ag2-works/initiate-chat",
+            "docs/contributor-guide/how-ag2-works/generate-reply",
+            "docs/contributor-guide/how-ag2-works/hooks"
+          ]
+        },
+        {
+          "group": "Building Agents & Tools",
+          "pages": [
+            "docs/contributor-guide/building/creating-a-tool",
+            "docs/contributor-guide/building/creating-an-agent"
+          ]
+        },
+        "docs/contributor-guide/pre-commit",
+        "docs/contributor-guide/tests",
+        "docs/contributor-guide/Research"
+      ]
+    },
+    {
+      "group": "Ecosystem",
+      "pages": [
+        "docs/ecosystem/agentops",
+        "docs/ecosystem/azure_cosmos_db",
+        "docs/ecosystem/composio",
+        "docs/ecosystem/databricks",
+        "docs/ecosystem/llamaindex",
+        "docs/ecosystem/mem0",
+        "docs/ecosystem/memgpt",
+        "docs/ecosystem/microsoft-fabric",
+        "docs/ecosystem/ollama",
+        "docs/ecosystem/pgvector",
+        "docs/ecosystem/portkey",
+        "docs/ecosystem/promptflow"
       ]
     },
     {
@@ -416,58 +464,6 @@
           ]
         },
         "docs/use-cases/community-gallery/community-gallery"
-      ]
-    },
-    {
-      "group": "Contributor Guide",
-      "pages": [
-        "docs/contributor-guide/contributing",
-        "docs/contributor-guide/setup-development-environment",
-        "docs/contributor-guide/documentation",
-        "docs/contributor-guide/file-bug-report",
-        "docs/contributor-guide/maintainer",
-        {
-          "group": "How AG2 Works",
-          "pages": [
-            "docs/contributor-guide/how-ag2-works/overview",
-            "docs/contributor-guide/how-ag2-works/initiate-chat",
-            "docs/contributor-guide/how-ag2-works/generate-reply",
-            "docs/contributor-guide/how-ag2-works/hooks"
-          ]
-        },
-        {
-          "group": "Building Agents & Tools",
-          "pages": [
-            "docs/contributor-guide/building/creating-a-tool",
-            "docs/contributor-guide/building/creating-an-agent"
-          ]
-        },
-        "docs/contributor-guide/pre-commit",
-        "docs/contributor-guide/tests",
-        "docs/contributor-guide/Research"
-      ]
-    },
-    {
-      "group": "FAQs",
-      "pages": [
-        "docs/faq/FAQ"
-      ]
-    },
-    {
-      "group": "Ecosystem",
-      "pages": [
-        "docs/ecosystem/agentops",
-        "docs/ecosystem/azure_cosmos_db",
-        "docs/ecosystem/composio",
-        "docs/ecosystem/databricks",
-        "docs/ecosystem/llamaindex",
-        "docs/ecosystem/mem0",
-        "docs/ecosystem/memgpt",
-        "docs/ecosystem/microsoft-fabric",
-        "docs/ecosystem/ollama",
-        "docs/ecosystem/pgvector",
-        "docs/ecosystem/portkey",
-        "docs/ecosystem/promptflow"
       ]
     },
     {
