@@ -59,7 +59,9 @@ with llm_config:
     )
 
 # 4. Run the chat
-response: RunResponseProtocol = jack.run(emma, message="Emma, tell me a joke about goldfish and peanut butter.")
+response: RunResponseProtocol = jack.run(
+    emma, message="Emma, tell me a joke about goldfish and peanut butter.", summary_method="reflection_with_llm"
+)
 
 for event in response.events:
     print(event)
@@ -73,7 +75,7 @@ print(f"{response.events=}")
 print(f"{response.context_variables=}")
 print(f"{response.last_speaker=}")
 print(f"{response.cost=}")
-assert response.last_speaker in [jack, emma], "Last speaker should be one of the agents"
+assert response.last_speaker in ["Jack", "Emma"], "Last speaker should be one of the agents"
 assert isinstance(response.cost, Cost)
 ```
 
@@ -104,11 +106,13 @@ with llm_config:
     )
 
 # 3. Run the chat
-response = jack.run(emma, message="Emma, tell me a joke about goldfish and peanut butter.")
+response = jack.run(
+    emma, message="Emma, tell me a joke about goldfish and peanut butter.", summary_method="reflection_with_llm"
+)
 
 response.process()
 
-assert response.last_speaker in [jack, emma], "Last speaker should be one of the agents"
+assert response.last_speaker in ["Jack", "Emma"], "Last speaker should be one of the agents"
 assert response.summary is not None, "Summary should not be None"
 assert len(response.messages) > 0, "Messages should not be empty"
 ```
@@ -126,7 +130,9 @@ with llm_config:
     )
 
 # 2. Run the agent with a prompt
-response = my_agent.run(message="In one sentence, what's the big deal about AI?", max_turns=1)
+response = my_agent.run(
+    message="In one sentence, what's the big deal about AI?", max_turns=1, summary_method="reflection_with_llm"
+)
 
 response.process()
 print(f"{response.summary=}")
@@ -135,7 +141,7 @@ print(f"{response.last_speaker=}")
 
 assert response.summary is not None, "Summary should not be None"
 assert len(response.messages) == 2, "Messages should not be empty"
-assert isinstance(response.last_speaker, ConversableAgent), "Last speaker should be an agent"
+assert response.last_speaker == "helpful_agent", "Last speaker should be an agent"
 ```
 
 ## Group chat run
@@ -180,7 +186,9 @@ manager = GroupChatManager(
 )
 
 # Start the conversation
-response = teacher.run(recipient=manager, message="Let's teach the kids about the solar system.")
+response = teacher.run(
+    recipient=manager, message="Let's teach the kids about the solar system.", summary_method="reflection_with_llm"
+)
 
 response.process()
 
@@ -190,7 +198,9 @@ print(f"{response.last_speaker=}")
 
 assert response.summary is not None, "Summary should not be None"
 assert len(response.messages) > 0, "Messages should not be empty"
-assert isinstance(response.last_speaker, ConversableAgent), "Last speaker should be an agent"
+assert response.last_speaker in ["teacher_agent", "planner_agent", "reviewer_agent"], (
+    "Last speaker should be one of the agents"
+)
 ```
 
 ## Swarm chat run
@@ -252,7 +262,9 @@ print(f"{response.last_speaker=}")
 
 assert response.summary is not None, "Summary should not be None"
 assert len(response.messages) > 0, "Messages should not be empty"
-assert isinstance(response.last_speaker, ConversableAgent), "Last speaker should be an agent"
+assert response.last_speaker in ["teacher_agent", "planner_agent", "reviewer_agent"], (
+    "Last speaker should be one of the agents"
+)
 ```
 
 ## Sequential run
@@ -324,7 +336,9 @@ for response in responses:
 
 for response in responses:
     assert len(response.messages) > 0, "Messages should not be empty"
-    assert isinstance(response.last_speaker, ConversableAgent), "Last speaker should be an agent"
+    assert response.last_speaker in ["Financial_assistant", "Researcher", "writer", "User"], (
+        "Last speaker should be one of the agents"
+    )
     assert response.summary is not None, "Summary should not be None"
 ```
 
@@ -364,7 +378,7 @@ with llm_config:
 
 # 4. Run the chat
 response: AsyncRunResponseProtocol = await jack.a_run(
-    emma, message="Emma, tell me a joke about goldfish and peanut butter."
+    emma, message="Emma, tell me a joke about goldfish and peanut butter.", summary_method="reflection_with_llm"
 )
 
 async for event in response.events:
@@ -411,7 +425,7 @@ with llm_config:
 
 # 4. Run the chat
 response: AsyncRunResponseProtocol = await jack.a_run(
-    emma, message="Emma, tell me a joke about goldfish and peanut butter."
+    emma, message="Emma, tell me a joke about goldfish and peanut butter.", summary_method="reflection_with_llm"
 )
 
 await response.process()
@@ -419,7 +433,7 @@ await response.process()
 print(f"{await response.summary=}")
 print(f"{await response.messages=}")
 
-assert await response.last_speaker in [jack, emma], "Last speaker should be one of the agents"
+assert await response.last_speaker in ["Jack", "Emma"], "Last speaker should be one of the agents"
 assert await response.summary is not None, "Summary should not be None"
 assert len(await response.messages) > 0, "Messages should not be empty"
 ```
@@ -466,13 +480,17 @@ manager = GroupChatManager(
 )
 
 # Start the conversation
-response = await teacher.a_run(recipient=manager, message="Let's teach the kids about the solar system.")
+response = await teacher.a_run(
+    recipient=manager, message="Let's teach the kids about the solar system.", summary_method="reflection_with_llm"
+)
 
 await response.process()
 
 assert await response.summary is not None, "Summary should not be None"
 assert len(await response.messages) > 0, "Messages should not be empty"
-assert isinstance(await response.last_speaker, ConversableAgent), "Last speaker should be one of the agents"
+assert await response.last_speaker in ["teacher_agent", "planner_agent", "reviewer_agent"], (
+    "Last speaker should be one of the agents"
+)
 ```
 
 ## Swarm chat
@@ -530,7 +548,9 @@ async for event in response.events:
 
 assert await response.summary is not None, "Summary should not be None"
 assert len(await response.messages) > 0, "Messages should not be empty"
-assert isinstance(await response.last_speaker, ConversableAgent), "Last speaker should be one of the agents"
+assert await response.last_speaker in ["teacher_agent", "planner_agent", "reviewer_agent"], (
+    "Last speaker should be one of the agents"
+)
 ```
 
 ## Single agent run
@@ -544,7 +564,9 @@ with llm_config:
     )
 
 # 2. Run the agent with a prompt
-response = await my_agent.a_run(message="In one sentence, what's the big deal about AI?", max_turns=1)
+response = await my_agent.a_run(
+    message="In one sentence, what's the big deal about AI?", max_turns=1, summary_method="reflection_with_llm"
+)
 
 await response.process()
 print(f"{await response.summary=}")
@@ -553,7 +575,7 @@ print(f"{await response.last_speaker=}")
 
 assert await response.summary is not None, "Summary should not be None"
 assert len(await response.messages) == 2, "Messages should not be empty"
-assert isinstance(await response.last_speaker, ConversableAgent), "Last speaker should be an agent"
+assert await response.last_speaker == "helpful_agent", "Last speaker should be an agent"
 ```
 
 ## Sequential run
@@ -622,7 +644,9 @@ for response in responses:
     await response.process()
 
     assert len(await response.messages) > 0, "Messages should not be empty"
-    assert isinstance(await response.last_speaker, ConversableAgent), "Last speaker should be one of the agents"
+    assert await response.last_speaker in ["Financial_assistant", "Researcher", "writer", "User"], (
+        "Last speaker should be one of the agents"
+    )
     assert await response.summary is not None, "Summary should not be None"
 ```
 

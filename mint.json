@@ -93,15 +93,14 @@
   "anchors": [],
   "navigation": [
     {
-      "group": "Home",
+      "group": "Quick Start",
       "pages": [
-        "docs/home/home"
+        "docs/quick-start"
       ]
     },
     {
       "group": "User Guide",
       "pages": [
-        "docs/user-guide/quick-start",
         "docs/user-guide/basic-concepts/installing-ag2",
         {
           "group": "Basic Concepts",
@@ -1519,6 +1518,13 @@
                     "docs/api-reference/autogen/events/agent_events/TextEvent",
                     "docs/api-reference/autogen/events/agent_events/ToolCallEvent",
                     "docs/api-reference/autogen/events/agent_events/ToolResponseEvent"
+                  ]
+                },
+                {
+                  "group": "base_event",
+                  "pages": [
+                    "docs/api-reference/autogen/events/base_event/overview",
+                    "docs/api-reference/autogen/events/base_event/get_event_classes"
                   ]
                 },
                 {
