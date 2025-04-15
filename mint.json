@@ -2289,6 +2289,7 @@
         {
           "group": "User Stories",
           "pages": [
+            "docs/user-stories/2025-04-11-Productionizing-OSS-Agents/index",
             "docs/user-stories/2025-04-04-AgentWeb/index",
             "docs/user-stories/2025-04-03-Fortune-500-RAG-Chatbot/index",
             "docs/user-stories/2025-02-11-NOVA/index"
