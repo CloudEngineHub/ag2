@@ -16,11 +16,10 @@ WikipediaPageLoadTool(
 )
 ```
 
-    A tool to load full Wikipedia page content along with metadata.<br/>This tool utilizes a language-specific Wikipedia client to search for relevant articles
-    and returns a list of Document objects containing truncated page content along with rich
-    metadata such as source URL, title, page ID, timestamp, word count, and size. It is ideal
-    for agents requiring comprehensive, structured Wikipedia data for research, summarization,
-    or contextual enrichment.<br/>Attributes: <br/>    language (str): The language code for the Wikipedia edition (default is "en" for English).<br/>    top_k (int): The maximum number of pages to retrieve per query (default is 3).<br/>    truncate (int): The maximum number of characters to include from each page's content (default is 4000).<br/>    verbose (bool): If True, enables verbose output for debugging purposes (default is False).<br/>    tool_name (str): The name of the tool, used in the User-Agent header.<br/>    wiki_cli (WikipediaClient): An instance of the WikipediaClient for interacting with the Wikipedia API.<br/>Initializes the WikipediaPageLoadTool with the specified parameters.<br/>
+    A tool to load up to N characters of Wikipedia page content along with metadata.<br/>This tool uses a language-specific Wikipedia client to search for relevant articles
+    and returns a list of Document objects containing truncated page content and metadata
+    (source URL, title, page ID, timestamp, word count, and size). Ideal for agents
+    requiring structured Wikipedia data for research, summarization, or contextual enrichment.<br/>Attributes: <br/>    language (str): Wikipedia language code (default: "en").<br/>    top_k (int): Maximum number of pages to retrieve per query (default: 3).<br/>    truncate (int): Maximum number of characters of content per page (default: 4000).<br/>    verbose (bool): If True, prints debug information (default: False).<br/>    tool_name (str): Identifier used in User-Agent header.<br/>    wiki_cli (WikipediaClient): Client for interacting with the Wikipedia API.<br/>Initializes the WikipediaPageLoadTool with configurable language, result count, and content length.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -77,7 +76,7 @@ WikipediaPageLoadTool(
 content_search(self, query: str) -> list[Document] | str
 ```
 
-    Executes a Wikipedia query and loads full page content with metadata.<br/>
+    Executes a Wikipedia search and returns page content plus metadata.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -87,7 +86,7 @@ content_search(self, query: str) -> list[Document] | str
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| list[[Document](/docs/api-reference/autogen/tools/experimental/wikipedia/wikipedia/Document)] \| str | Union[list[Document], str]: A list of Document objects containing page content and metadata if successful; otherwise, a string message indicating no results were found or an error occurred. |
+| list[[Document](/docs/api-reference/autogen/tools/experimental/wikipedia/wikipedia/Document)] \| str | Union[list[Document], str]: - list[Document]: Documents with up to `truncate` characters of page text and metadata if pages are found. - str: Error message if the search fails or no pages are found. Notes: - Errors are caught internally and returned as strings. - If no matching pages have text content, returns "No good Wikipedia Search Result was found". |
 
 <br />
 

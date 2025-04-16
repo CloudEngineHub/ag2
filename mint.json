@@ -245,8 +245,9 @@
             "docs/user-guide/reference-agents/docagent",
             "docs/user-guide/reference-agents/docagent-performance",
             "docs/user-guide/reference-agents/reasoningagent",
+            "docs/user-guide/reference-agents/deepresearchagent",
             "docs/user-guide/reference-agents/websurferagent",
-            "docs/user-guide/reference-agents/deepresearchagent"
+            "docs/user-guide/reference-agents/wikipediaagent"
           ]
         },
         {
@@ -346,6 +347,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
             "docs/use-cases/notebooks/notebooks/agentchat_agentops",
             "docs/use-cases/notebooks/notebooks/config_loader_utility_functions",
+            "docs/use-cases/notebooks/notebooks/agents_wikipedia",
             "docs/use-cases/notebooks/notebooks/agentchat_websockets",
             "docs/use-cases/notebooks/notebooks/autogen_uniformed_api_calling",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
@@ -1322,6 +1324,7 @@
                     "docs/api-reference/autogen/agents/experimental/ThinkNode",
                     "docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
+                    "docs/api-reference/autogen/agents/experimental/WikipediaAgent",
                     {
                       "group": "document_agent",
                       "pages": [
@@ -2289,6 +2292,7 @@
         {
           "group": "User Stories",
           "pages": [
+            "docs/user-stories/2025-04-15-CMBAgent/index",
             "docs/user-stories/2025-04-11-Productionizing-OSS-Agents/index",
             "docs/user-stories/2025-04-04-AgentWeb/index",
             "docs/user-stories/2025-04-03-Fortune-500-RAG-Chatbot/index",

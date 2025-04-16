@@ -1,59 +1,38 @@
 ---
-sidebarTitle: WebSurferAgent
-title: autogen.agentchat.contrib.web_surfer.WebSurferAgent
+sidebarTitle: WikipediaAgent
+title: autogen.agents.experimental.WikipediaAgent
 ---
-<h2 id="autogen.agentchat.contrib.web_surfer.WebSurferAgent" class="doc doc-heading">
+<h2 id="autogen.agents.experimental.WikipediaAgent" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">WebSurferAgent</span>
+    <span class="doc doc-object-name doc-class-name">WikipediaAgent</span>
 </h2>
 
 ```python
-WebSurferAgent(
-    name: str,
-    system_message: str | list[str] | None = "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-04-16",
-    description: str | None = 'A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, navigate to Wikipedia, answer questions from pages, and or generate summaries.',
-    is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
-    max_consecutive_auto_reply: int | None = None,
-    human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'TERMINATE',
-    function_map: dict[str, Callable[..., Any]] | None = None,
-    code_execution_config: dict[str, Any] | Literal[False] = False,
-    llm_config: LLMConfig | dict[str, Any] | Literal[False] | None = None,
-    summarizer_llm_config: LLMConfig | dict[str, Any] | Literal[False] | None = None,
-    default_auto_reply: str | dict[str, Any] | None = '',
-    browser_config: dict[str, Any] | None = None,
+WikipediaAgent(
+    system_message: str | List[str] | None = None,
+    format_instructions: str | None = None,
+    language: str = 'en',
+    top_k: int = 2,
     **kwargs: Any
 )
 ```
 
-    (In preview) An agent that acts as a basic web surfer that can search the web and visit web pages.<br/>
+    An AI agent that leverages Wikipedia tools to provide accurate, concise answers
+    to user queries.<br/>Tools: <br/>    - WikipediaQueryRunTool: searches Wikipedia for relevant article titles.<br/>    - WikipediaPageLoadTool: loads full Wikipedia pages (and metadata) for in‑depth content.<br/>Attributes: <br/>    _query_run_tool (WikipediaQueryRunTool): for running title/keyword searches.<br/>    _page_load_tool (WikipediaPageLoadTool): for fetching full page content.<br/>Parameters: <br/>    system_message (Optional[Union[str, List[str]]]): <br/>        Custom system prompt(s). If None, DEFAULT_SYSTEM_MESSAGE is used.<br/>        Must be a str or a list of strings, otherwise raises ValueError.<br/>    format_instructions (Optional[str]): Extra formatting instructions to append.<br/>    language (str): ISO code for the Wikipedia language edition (default: "en").<br/>    top_k (int): Number of top search results to return (default: 2).<br/>    **kwargs: Passed through to the base ConversableAgent.<br/>Raises: <br/>    ValueError: If `system_message` is not a str or list of str.<br/>Initialize the WikipediaAgent with optional custom prompts and tools.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | **Type:** str |
-| `system_message` | **Type:** str \| list[str] \| None<br/><br/>**Default:** "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-04-16" |
-| `description` | **Type:** str \| None<br/><br/>**Default:** 'A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, navigate to Wikipedia, answer questions from pages, and or generate summaries.' |
-| `is_termination_msg` | **Type:** Callable[[dict[str, Any]], bool] \| None<br/><br/>**Default:** None |
-| `max_consecutive_auto_reply` | **Type:** int \| None<br/><br/>**Default:** None |
-| `human_input_mode` | **Type:** Literal['ALWAYS', 'NEVER', 'TERMINATE']<br/><br/>**Default:** 'TERMINATE' |
-| `function_map` | **Type:** dict[str, typing.Callable[..., typing.Any]] \| None<br/><br/>**Default:** None |
-| `code_execution_config` | **Type:** dict[str, typing.Any] \| Literal[False]<br/><br/>**Default:** False |
-| `llm_config` | **Type:** [LLMConfig](/docs/api-reference/autogen/llm_config/LLMConfig) \| dict[str, typing.Any] \| Literal[False] \| None<br/><br/>**Default:** None |
-| `summarizer_llm_config` | **Type:** [LLMConfig](/docs/api-reference/autogen/llm_config/LLMConfig) \| dict[str, typing.Any] \| Literal[False] \| None<br/><br/>**Default:** None |
-| `default_auto_reply` | **Type:** str \| dict[str, typing.Any] \| None<br/><br/>**Default:** '' |
-| `browser_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `system_message` | **Type:** str \| List[str] \| None<br/><br/>**Default:** None |
+| `format_instructions` | **Type:** str \| None<br/><br/>**Default:** None |
+| `language` | **Type:** str<br/><br/>**Default:** 'en' |
+| `top_k` | **Type:** int<br/><br/>**Default:** 2 |
 | `**kwargs` | **Type:** Any |
 
 ### Class Attributes
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### DEFAULT_DESCRIPTION
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### DEFAULT_PROMPT
+#### DEFAULT_SYSTEM_MESSAGE
 <br />
 
     <br />
@@ -689,29 +668,6 @@ generate_reply(
 | Type | Description |
 |--|--|
 | str \| dict[str, typing.Any] \| None | str or dict or None: reply. None if no reply is generated. |
-
-<br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### generate_surfer_reply
-
-```python
-generate_surfer_reply(
-    self,
-    messages: list[dict[str, str]] | None = None,
-    sender: Agent | None = None,
-    config: OpenAIWrapper | None = None
-) -> tuple[bool, str | dict[str, str] | None]
-```
-
-    Generate a reply using autogen.oai.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `messages` | **Type:** list[dict[str, str]] \| None<br/><br/>**Default:** None |
-| `sender` | **Type:** [Agent](/docs/api-reference/autogen/Agent) \| None<br/><br/>**Default:** None |
-| `config` | **Type:** [OpenAIWrapper](/docs/api-reference/autogen/OpenAIWrapper) \| None<br/><br/>**Default:** None |
 
 <br />
 

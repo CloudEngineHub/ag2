@@ -11,8 +11,10 @@ title: autogen.tools.experimental.wikipedia.wikipedia.WikipediaClient
 WikipediaClient(language: str = 'en', tool_name: str = 'wikipedia-client')
 ```
 
-    A client for interfacing with the Wikipedia API.<br/>This client supports basic search functionality and page retrieval for a specific
-    language edition of Wikipedia.<br/>Initialize the WikipediaClient.<br/>
+    Client for interacting with the Wikipedia API.<br/>Supports searching and page retrieval on a specified language edition.<br/>Public methods: <br/>    search(query: str, limit: int) -> list[dict[str, Any]]
+        get_page(title: str) -> Optional[wikipediaapi.WikipediaPage]
+    
+    Attributes: <br/>    base_url (str): URL of the MediaWiki API endpoint.<br/>    headers (dict[str, str]): HTTP headers, including User-Agent.<br/>    wiki (wikipediaapi.Wikipedia): Low-level Wikipedia API client.<br/>Initialize the WikipediaClient.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -29,17 +31,17 @@ WikipediaClient(language: str = 'en', tool_name: str = 'wikipedia-client')
 get_page(self, title: str) -> Any | None
 ```
 
-    Retrieve a Wikipedia page by its title.<br/>
+    Retrieve a WikipediaPage object by title.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `title` | The title of the Wikipedia page to retrieve.<br/><br/>**Type:** str |
+| `title` | Title of the Wikipedia page.<br/><br/>**Type:** str |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| Any \| None | Optional[wikipediaapi.WikipediaPage]: A WikipediaPage object if the page exists; otherwise, None. |
+| Any \| None | wikipediaapi.WikipediaPage \| None: The page object if it exists, otherwise None. |
 
 <br />
 
@@ -54,17 +56,17 @@ search(
 ) -> Any
 ```
 
-    Search Wikipedia for pages matching the given query.<br/>
+    Search Wikipedia for pages matching a query string.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `query` | The search query string.<br/><br/>**Type:** str |
-| `limit` | Maximum number of results to return.<br/><br/>Defaults to 3.<br/><br/>**Type:** int<br/><br/>**Default:** 3 |
+| `query` | The search keywords.<br/><br/>**Type:** str |
+| `limit` | Max number of results to return.<br/><br/>**Type:** int<br/><br/>**Default:** 3 |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| Any | list: A list of dictionaries containing search results. Each dictionary includes properties such as 'title', 'size', 'wordcount', and 'timestamp'. |
+| Any | list[dict[str, Any]]: Each dict has keys: - 'title' (str) - 'size' (int) - 'wordcount' (int) - 'timestamp' (str) |
 
 <br />
