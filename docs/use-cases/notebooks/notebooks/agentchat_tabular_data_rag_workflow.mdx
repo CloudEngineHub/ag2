@@ -56,6 +56,7 @@ Unstructured-IO is a dependency for this notebook to parse the PDF. Please insta
 
 ### Set Configuration and OpenAI API Key
 
+
 ```python
 import os
 
@@ -87,6 +88,7 @@ PDF are extracted out as .jpg files.
 
 All parsed output are saved in a JSON file.
 
+
 ```python
 from unstructured.partition.pdf import partition_pdf
 from unstructured.staging.base import elements_to_json
@@ -107,6 +109,7 @@ elements_to_json(elements=file_elements, filename="parsed_elements.json", encodi
 ```
 
 #### Create sample dataset
+
 
 ```python
 import json
@@ -142,6 +145,7 @@ with open("proessed_elements.json", "w", encoding="utf-8") as file:
 
 **If you want to skip the parsing of the PDF file, you can start here.**
 
+
 ```python
 # This is needed to allow nested asyncio calls for Neo4j in Jupyter
 import nest_asyncio
@@ -168,6 +172,7 @@ notebook.
 **This does not change the fact that the native RAG agent solution
 failed to provide the correct answer.**
 
+
 ```python
 input_path = "./agentchat_pdf_rag/sample_elements.json"
 input_documents = [
@@ -191,6 +196,7 @@ query_engine.init_db(input_doc=input_documents)
 
 ### Connect to knowledge graph if it is built
 
+
 ```python
 query_engine = Neo4jGraphQueryEngine(
     username="neo4j",
@@ -210,6 +216,7 @@ the agent failed to get the right information (5,282 instead of 4,430).
 
 Our best guess is that RAG agent fails to understand the table structure
 from text.
+
 
 ```python
 rag_agent = ConversableAgent(
@@ -243,6 +250,7 @@ It breaks the RAG into 3 mains steps, 1. it finds the parsed image of
 the corresponding table. 2. it converts the image to table in structured
 Markdown format. 3. With the table in Markdown, the workflow answer the
 question with the correct data.
+
 
 ```python
 llm_config = {

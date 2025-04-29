@@ -23,6 +23,7 @@ conversation. Please find documentation about this feature
 In this notebook, we demonstrate how to pass a customized agent
 selection method to GroupChat. The customized function looks like this:
 
+
 ```python
 def custom_speaker_selection_func(last_speaker, groupchat):
     """Define a customized speaker selection function.
@@ -74,6 +75,7 @@ The
 function loads a list of configurations from an environment variable or
 a json file.
 
+
 ```python
 import autogen
 
@@ -111,6 +113,7 @@ The pipeline is the following:
     papers and write a summary.
 4.  The summary will be reviewed by the Admin and give comments. When
     the Admin types “TERMINATE”, the process will be terminated.
+
 
 ````python
 gpt4_config = {
@@ -225,6 +228,7 @@ manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=gpt4_config)
 ````
 
 ## Start Chat
+
 
 ```python
 user_proxy.initiate_chat(

@@ -47,6 +47,7 @@ The
 function loads a list of configurations from an environment variable or
 a json file.
 
+
 ```python
 import autogen
 
@@ -64,6 +65,7 @@ Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/d
 
 
 ## Construct Agents
+
 
 ```python
 user_proxy = autogen.UserProxyAgent(
@@ -90,6 +92,7 @@ manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 ```
 
 ## Start Chat
+
 
 ```python
 user_proxy.initiate_chat(

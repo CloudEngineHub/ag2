@@ -56,6 +56,7 @@ at the Pennsylvania State University - [Jieyu
 Zhang](https://jieyuz2.github.io), Ph.D. student at the University of
 Washington
 
+
 ```python
 import copy
 import json
@@ -78,6 +79,7 @@ This agent is a customized MathUserProxy inherits from its [parent
 class](https://github.com/ag2ai/ag2/blob/main/autogen/agentchat/contrib/math_user_proxy_agent.py).
 
 It supports using both function_call and python to solve math problems.
+
 
 ````python
 def is_termination_msg_mathchat(message):
@@ -278,6 +280,7 @@ splits of [Craft](https://github.com/lifan-yuan/CRAFT). Please specific
 your own path to the dataset. Here we sample the first 10 algebra
 problems as examples.
 
+
 ```python
 test_data, train_data = [], []
 with open("MATH/dataset/algebra.jsonl", encoding="utf-8") as f:
@@ -294,6 +297,7 @@ test_data, train_data = test_data[0:10], train_data[0:10]
 Constructing MathUserProxyAgent and AssistantAgent used in solving these
 problems. Here, we use gpt-4-1106-preview to construct the
 AssistantAgent.
+
 
 ```python
 llm_config = autogen.LLMConfig(
@@ -328,6 +332,7 @@ process.
 In this case, the AssistantAgent and MathUserProxyAgent don’t have any
 function calls but solely solve problems with Python.
 
+
 ```python
 sum = 0
 for index, query in enumerate(test_data):
@@ -345,6 +350,7 @@ and performance. The AgentOptimizer yields register_for_llm and
 register_for_executor at each iteration, which are subsequently utilized
 to update the assistant and user_proxy agents, respectively. Here we
 optimize these two agents for ten epochs.
+
 
 ```python
 EPOCH = 10
@@ -369,6 +375,7 @@ the AgentOptimizers after 10 optimization iterations as shown below.
 
 We then show the final performances with/without the agent optimization
 process. We observe the agents after optimization are obviously better.
+
 
 ```python
 sum = 0

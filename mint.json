@@ -2495,6 +2495,7 @@
         {
           "group": "Recent posts",
           "pages": [
+            "docs/blog/2025-04-28-0.9-Release-Announcement/index",
             "docs/blog/2025-04-16-Reasoning/index",
             "docs/blog/2025-02-13-DeepResearchAgent/index",
             "docs/blog/2025-02-05-Communication-Agents/index",

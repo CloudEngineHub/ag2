@@ -99,6 +99,7 @@ The
 function loads a list of configurations from an environment variable or
 a json file.
 
+
 ```python
 from datetime import datetime
 from tempfile import TemporaryDirectory
@@ -145,6 +146,7 @@ server and the client. The `on_connect` function leverages this instance
 to set up the communication protocol, define interaction rules, and
 initiate any preliminary data exchanges or configurations required for
 the client-server interaction to proceed smoothly.
+
 
 ```python
 def on_connect(iostream: IOWebsockets) -> None:
@@ -261,6 +263,7 @@ incoming connections, process messages, and communicate responses back
 to the client, all critical functionalities for a robust websocket-based
 application.
 
+
 ```python
 with IOWebsockets.run_server_in_thread(on_connect=on_connect, port=8765) as uri:
     print(f" - test_setup() with websocket server running on {uri}.", flush=True)
@@ -332,6 +335,7 @@ send messages through the webpage, and the server processes these
 messages as per the logic defined in the on_connect function, showcasing
 the capabilities and responsiveness of the AG2 framework’s websocket
 handling in a user-friendly manner.
+
 
 ```python
 from contextlib import asynccontextmanager
@@ -481,6 +485,7 @@ and refine websocket communication logic before integrating it into
 larger frameworks or systems. The simplicity and accessibility of this
 testing setup make it an excellent starting point for developing a wide
 range of interactive web applications.
+
 
 ```python
 from http.server import HTTPServer, SimpleHTTPRequestHandler

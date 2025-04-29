@@ -57,6 +57,7 @@ In this guide, we will:
 To integrate MCP tools into the AG2 framework, install the required
 dependencies:
 
+
 ```bash
 pip install -U ag2[openai,mcp]
 ```
@@ -64,11 +65,13 @@ pip install -U ag2[openai,mcp]
 > **Note:** If you have been using `autogen` or `pyautogen`, all you
 > need to do is upgrade it using:
 >
+>
 > ```bash
 > pip install -U autogen[openai,mcp]
 > ```
 >
 > or
+>
 >
 > ```bash
 > pip install -U pyautogen[openai,mcp]
@@ -92,6 +95,7 @@ guide:
     (Server-Sent Events) protocol.
 -   `create_toolkit`: A helper function that creates a toolkit, wrapping
     the tools exposed by the MCP server for easier access.
+
 
 ```python
 from pathlib import Path
@@ -127,6 +131,7 @@ documentation](https://github.com/modelcontextprotocol/python-sdk).
 
 Let’s create a Python script (`mcp_server.py`) with the following
 content:
+
 
 ```python
 mcp_server_file_content = """# mcp_server.py
@@ -191,6 +196,7 @@ performing mathematical operations and getting resource content.
     server requesting a task to be performed (e.g., adding two numbers)
     and receive the result.
 
+
 ```python
 async def create_toolkit_and_run(session: ClientSession) -> None:
     # Create a toolkit with available MCP tools
@@ -243,6 +249,7 @@ requires:
     `create_toolkit_and_run(session)` is called to wrap the MCP tools
     and perform the task asynchronously.
 
+
 ```python
 # Create server parameters for stdio connection
 server_params = StdioServerParameters(
@@ -281,6 +288,7 @@ To interact with the MCP server via `SSE`, follow these steps:
     -   **Running the Task**: Once the session is initialized,
         `create_toolkit_and_run(session)` is called to create the
         toolkit from MCP tools and perform the task.
+
 
 ```python
 async with sse_client(url="http://127.0.0.1:8000/sse") as streams, ClientSession(*streams) as session:

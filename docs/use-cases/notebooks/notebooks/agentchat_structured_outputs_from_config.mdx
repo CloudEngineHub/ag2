@@ -77,6 +77,7 @@ will use a `MathReasoning` response format. To use it, paste it into
 your `OAI_CONFIG_LIST` file and set the `api_key` to your OpenAI API
 key.
 
+
 ```json
 [
     {
@@ -165,6 +166,7 @@ above.
 The `response_format` is added to the LLM configuration and then this
 configuration is applied to the agent.
 
+
 ```python
 user_proxy = autogen.UserProxyAgent(
     name="User_proxy",
@@ -183,6 +185,7 @@ assistant = autogen.AssistantAgent(
 Let’s now start the chat and prompt the assistant to solve a simple
 equation. The assistant agent should return a response solving the
 equation using a step-by-step `MathReasoning` model.
+
 
 ```python
 summary = user_proxy.initiate_chat(

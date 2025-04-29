@@ -44,6 +44,7 @@ powerful functionality for your agents.
 To integrate LangChain tools into the AG2 framework, install the
 required dependencies:
 
+
 ```bash
 pip install -U ag2[openai,interop-langchain]
 ```
@@ -51,11 +52,13 @@ pip install -U ag2[openai,interop-langchain]
 > **Note:** If you have been using `autogen` or `pyautogen`, all you
 > need to do is upgrade it using:
 >
+>
 > ```bash
 > pip install -U autogen[openai,interop-langchain]
 > ```
 >
 > or
+>
 >
 > ```bash
 > pip install -U pyautogen[openai,interop-langchain]
@@ -67,6 +70,7 @@ pip install -U ag2[openai,interop-langchain]
 Additionally, this notebook uses LangChain’s [Wikipedia
 Tool](https://api.python.langchain.com/en/latest/tools/langchain_community.tools.wikipedia.tool.WikipediaQueryRun.html),
 which requires the `wikipedia` package. Install it with:
+
 
 ```bash
 pip install wikipedia
@@ -84,6 +88,7 @@ Import necessary modules and tools.
     communication in the AG2 framework.
 -   `Interoperability`: This module acts as a bridge, making it easier
     to integrate LangChain tools with AG2’s architecture.
+
 
 ```python
 import os
@@ -105,6 +110,7 @@ Configure the agents for the interaction.
     human interaction (set to `NEVER`).
 -   `AssistantAgent` represents the AI agent, configured with the LLM
     settings.
+
 
 ```python
 config_list = [{"model": "gpt-4o", "api_key": os.environ["OPENAI_API_KEY"]}]
@@ -133,6 +139,7 @@ chatbot = AssistantAgent(
     for use by the user_proxy agent.
 -   `ag2_tool.register_for_llm(chatbot)`: Registers the tool for
     integration with the chatbot agent.
+
 
 ```python
 api_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=1000)
@@ -166,6 +173,7 @@ Install the required packages for integrating CrewAI tools into the AG2
 framework. This ensures all dependencies for both frameworks are
 installed.
 
+
 ```bash
 pip install -U ag2[openai,interop-crewai]
 ```
@@ -173,11 +181,13 @@ pip install -U ag2[openai,interop-crewai]
 > **Note:** If you have been using `autogen` or `pyautogen`, all you
 > need to do is upgrade it using:
 >
+>
 > ```bash
 > pip install -U autogen[openai,interop-crewai]
 > ```
 >
 > or
+>
 >
 > ```bash
 > pip install -U pyautogen[openai,interop-crewai]
@@ -195,6 +205,7 @@ Import necessary modules and tools.
 -   `AssistantAgent` and `UserProxyAgent` are core AG2 classes.
 -   `Interoperability`: This module acts as a bridge, making it easier
     to integrate CrewAI tools with AG2’s architecture.
+
 
 ```python
 import os
@@ -215,6 +226,7 @@ Configure the agents for the interaction.
     human interaction (set to `NEVER`).
 -   `AssistantAgent` represents the AI agent, configured with the LLM
     settings.
+
 
 ```python
 config_list = [{"model": "gpt-4o", "api_key": os.environ["OPENAI_API_KEY"]}]
@@ -240,6 +252,7 @@ Initialize and register the CrewAI tool with AG2.
     AG2.
 -   `register_for_execution` and `register_for_llm` allow the tool to
     work with the UserProxyAgent and AssistantAgent.
+
 
 ```python
 interop = Interoperability()
@@ -276,6 +289,7 @@ structured data and context-driven logic.
 To integrate LangChain tools into the AG2 framework, install the
 required dependencies:
 
+
 ```bash
 pip install -U ag2[openai,interop-pydantic-ai]
 ```
@@ -283,11 +297,13 @@ pip install -U ag2[openai,interop-pydantic-ai]
 > **Note:** If you have been using `autogen` or `pyautogen`, all you
 > need to do is upgrade it using:
 >
+>
 > ```bash
 > pip install -U autogen[openai,interop-pydantic-ai]
 > ```
 >
 > or
+>
 >
 > ```bash
 > pip install -U pyautogen[openai,interop-pydantic-ai]
@@ -311,6 +327,7 @@ Import necessary modules and tools.
 -   `Interoperability`: This module acts as a bridge, making it easier
     to integrate PydanticAI tools with AG2’s architecture.
 
+
 ```python
 import os
 from typing import Optional
@@ -333,6 +350,7 @@ Configure the agents for the interaction.
     human interaction (set to `NEVER`).
 -   `AssistantAgent` represents the AI agent, configured with the LLM
     settings.
+
 
 ```python
 config_list = [{"model": "gpt-4o", "api_key": os.environ["OPENAI_API_KEY"]}]
@@ -366,6 +384,7 @@ Integrate the PydanticAI tool with AG2.
     `convert_tool`.
 -   Register the tool for both execution and communication with the LLM
     by associating it with the `user_proxy` and `chatbot`.
+
 
 ```python
 class Player(BaseModel):
@@ -405,6 +424,7 @@ Initiate a conversation between the `UserProxyAgent` and the
     [RunContext](https://ai.pydantic.dev/api/tools/#pydantic_ai.tools.RunContext),
     ensuring the chatbot can retrieve and use this data during the
     interaction.
+
 
 ```python
 user_proxy.initiate_chat(

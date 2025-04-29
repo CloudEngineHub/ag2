@@ -64,6 +64,7 @@ The
 function loads a list of configurations from an environment variable or
 a json file.
 
+
 ```python
 import autogen
 
@@ -86,6 +87,7 @@ llm_config = {
 ## Prompts
 
 The prompts remain unchanged from the original example.
+
 
 ```python
 # baggage/policies.py
@@ -184,6 +186,7 @@ def triage_instructions(context_variables):
 
 ## Define Agents and register functions
 
+
 ```python
 from autogen import Agent, AssistantAgent, UserProxyAgent
 
@@ -231,6 +234,7 @@ lost_baggage = AssistantAgent(
 > LLM-based agent, where the schema is automatically generated. See more
 > details in this
 > [doc](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/introducing-tools)
+
 
 ```python
 @flight_change.register_for_llm(description="valid to change flight")
@@ -373,6 +377,7 @@ the control to another agent.
 Based on this workflow, we define a `state_transition` function to route
 the requests to the corresponding agent.
 
+
 ```python
 def state_transition(last_speaker, groupchat):
     messages = groupchat.messages
@@ -421,6 +426,7 @@ Here is a sequence of messages entered in this example:
 3.  `I want flight credits`
 4.  `No` (No further questions)
 5.  `exit` (End the conversation)
+
 
 ```python
 def state_transition(last_speaker, groupchat) -> Agent:

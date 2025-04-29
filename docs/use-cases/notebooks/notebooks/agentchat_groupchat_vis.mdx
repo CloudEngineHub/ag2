@@ -44,6 +44,7 @@ The
 function loads a list of configurations from an environment variable or
 a json file.
 
+
 ```python
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -113,6 +114,7 @@ manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
 ## Start Chat
 
+
 ```python
 user_proxy.initiate_chat(
     manager,
@@ -123,11 +125,13 @@ user_proxy.initiate_chat(
 
 ## Display the saved figure
 
+
 ```python
 Image(filename="groupchat/weight_vs_horsepower.png")
 ```
 
 ## Example 2
+
 
 ```python
 user_proxy.reset()
@@ -142,6 +146,7 @@ user_proxy.initiate_chat(
 ```
 
 ### The original chart before critic’s suggestion
+
 
 ```python
 url = "https://raw.githubusercontent.com/vega/vega/main/docs/data/seattle-weather.csv"
@@ -165,6 +170,7 @@ print("Plot has been saved to 'weather_plot.png'.")
 ```
 
 ### The final figure
+
 
 ```python
 Image(filename="groupchat/improved_weather_plot.png")

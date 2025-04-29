@@ -74,6 +74,7 @@ configured on your system.
 
 ## Check Azure CLI Installation and Login Status
 
+
 ```python
 # Check Azure CLI installation and login status
 # !az --version
@@ -84,6 +85,7 @@ configured on your system.
 
 Run the cell below to install the required packages for this notebook.
 
+
 ```python
 !pip3 install pyautogen==0.2.16
 !pip3 install python-dotenv==1.0.1
@@ -93,6 +95,7 @@ Run the cell below to install the required packages for this notebook.
 ```
 
 Next you will import the required packages for this notebook.
+
 
 ```python
 import json
@@ -119,6 +122,7 @@ AZURE_SEARCH_SERVICE_ENDPOINT = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
 
 Next, you need to authenticate and create a `SearchClient` instance.
 
+
 ```python
 credential = DefaultAzureCredential()
 endpoint = AZURE_SEARCH_SERVICE_ENDPOINT
@@ -136,6 +140,7 @@ client = SearchClient(endpoint=endpoint, index_name="test-index", credential=cre
 Then, load the configuration list and define the configuration for the
 `AssistantAgent`.
 
+
 ```python
 config_list = autogen.config_list_from_json(
     env_or_file="OAI_CONFIG_LIST",
@@ -151,6 +156,7 @@ gpt4_config = {
 
 Define your tool function `search` that will interact with the Azure
 Cognitive Search service.
+
 
 ```python
 def search(query: str):
@@ -178,6 +184,7 @@ def search(query: str):
 Define the `AssistantAgent` and `UserProxyAgent` instances, and register
 the `search` function to them.
 
+
 ```python
 cog_search = AssistantAgent(
     name="COGSearch",
@@ -204,6 +211,7 @@ register_function(
 ```
 
 Finally, initiate a chat.
+
 
 ```python
 if __name__ == "__main__":
