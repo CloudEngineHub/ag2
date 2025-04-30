@@ -16,9 +16,6 @@ title: (Legacy) Implement Swarm-style orchestration with GroupChat
 
 
 
-export const quartoRawHtml =
-[`<!-- stateflow-swarm-example.png -->`,`<figure>`,`</figure>`];
-
 
 <div class="tip">
 <Tip>
@@ -350,17 +347,14 @@ user = UserProxyAgent(
 
 ## Understand and define the workflow
 
-<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[0] }} />
-
 We define a customized agent transition function to decide which agent
 to call based on the user input. See the overall architecture of the
 example in the image below:
 
-<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[1] }} />
-
-<img src="https://media.githubusercontent.com/media/ag2ai/ag2/main/notebook/stateflow-swarm-example.png"  width="700"
-         alt="stateflow-swarm-example"> </img>
-<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[2] }} />
+<img 
+    src="https://media.githubusercontent.com/media/ag2ai/ag2/main/notebook/stateflow-swarm-example.png"  
+    width="700" 
+    alt="stateflow-swarm-example"> </img>
 
 A human user is trying to contact an airline custom service. Given a
 request, we will also call `triage_agent` to determine whether it is
