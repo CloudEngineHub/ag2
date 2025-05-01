@@ -2480,6 +2480,7 @@
         {
           "group": "User Stories",
           "pages": [
+            "docs/user-stories/2025-04-30-Cegid-Pulse-OS/index",
             "docs/user-stories/2025-04-15-CMBAgent/index",
             "docs/user-stories/2025-04-11-Productionizing-OSS-Agents/index",
             "docs/user-stories/2025-04-04-AgentWeb/index",
