@@ -2358,6 +2358,7 @@
                     "docs/api-reference/autogen/tools/experimental/DeepResearchTool",
                     "docs/api-reference/autogen/tools/experimental/DiscordRetrieveTool",
                     "docs/api-reference/autogen/tools/experimental/DiscordSendTool",
+                    "docs/api-reference/autogen/tools/experimental/DuckDuckGoSearchTool",
                     "docs/api-reference/autogen/tools/experimental/GoogleSearchTool",
                     "docs/api-reference/autogen/tools/experimental/PerplexitySearchTool",
                     "docs/api-reference/autogen/tools/experimental/SlackRetrieveRepliesTool",
