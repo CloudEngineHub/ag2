@@ -312,11 +312,12 @@ llm_config = autogen.LLMConfig(
     ]
 )
 
-assistant = autogen.AssistantAgent(
-    name="assistant",
-    system_message="You are a helpful assistant.",
-    llm_config=llm_config,
-)
+with llm_config:
+    assistant = autogen.AssistantAgent(
+        name="assistant",
+        system_message="You are a helpful assistant.",
+    )
+
 user_proxy = MathUserProxyAgent(
     name="mathproxyagent",
     human_input_mode="NEVER",
@@ -354,8 +355,10 @@ optimize these two agents for ten epochs.
 
 ```python
 EPOCH = 10
+
 optimizer_model = "gpt-4-1106-preview"
 optimizer = AgentOptimizer(max_actions_per_step=3, llm_config=llm_config, optimizer_model=optimizer_model)
+
 for i in range(EPOCH):
     for index, query in enumerate(train_data):
         is_correct = user_proxy.initiate_chat(assistant, answer=query["answer"], problem=query["question"])

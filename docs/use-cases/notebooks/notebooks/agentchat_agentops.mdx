@@ -70,7 +70,7 @@ Create an account and obtain an API key at
 ```python
 import agentops
 
-from autogen import ConversableAgent, UserProxyAgent, config_list_from_json
+from autogen import ConversableAgent, LLMConfig, UserProxyAgent
 
 agentops.init(api_key="...")
 ```
@@ -89,8 +89,10 @@ import agentops
 agentops.init(tags=["simple-autogen-example"])
 
 # Create the agent that uses the LLM.
-config_list = config_list_from_json(env_or_file="OAI_CONFIG_LIST")
-assistant = ConversableAgent("agent", llm_config={"config_list": config_list})
+llm_config = LLMConfig.from_json(path="OAI_CONFIG_LIST")
+
+with llm_config:
+    assistant = ConversableAgent("agent")
 
 # Create the agent that represents the user in the conversation.
 user_proxy = UserProxyAgent("user", code_execution_config=False)
@@ -122,7 +124,7 @@ information on this example in
 ```python
 from typing import Annotated, Literal
 
-from autogen import ConversableAgent, config_list_from_json, register_function
+from autogen import ConversableAgent, LLMConfig, register_function
 
 agentops.start_session(tags=["autogen-tool-example"])
 
@@ -142,16 +144,16 @@ def calculator(a: int, b: int, operator: Annotated[Operator, "operator"]) -> int
         raise ValueError("Invalid operator")
 
 
-config_list = config_list_from_json(env_or_file="OAI_CONFIG_LIST")
+llm_config = LLMConfig.from_json(path="OAI_CONFIG_LIST")
 
 # Create the agent that uses the LLM.
-assistant = ConversableAgent(
-    name="Assistant",
-    system_message="You are a helpful AI assistant. "
-    "You can help with simple calculations. "
-    "Return 'TERMINATE' when the task is done.",
-    llm_config={"config_list": config_list},
-)
+with llm_config:
+    assistant = ConversableAgent(
+        name="Assistant",
+        system_message="You are a helpful AI assistant. "
+        "You can help with simple calculations. "
+        "Return 'TERMINATE' when the task is done.",
+    )
 
 # The user proxy agent is used for interacting with the assistant agent
 # and executes tool calls.

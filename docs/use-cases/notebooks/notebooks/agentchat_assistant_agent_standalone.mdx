@@ -103,9 +103,10 @@ open the browser as a window so you can see it in action.
 
 
 ```python
-x_assistant = AssistantAgent(name="x_assistant", llm_config=llm_config)
+with llm_config:
+    x_assistant = AssistantAgent(name="x_assistant")
 
-arxiv_researcher = AssistantAgent(name="arxiv", llm_config=llm_config)
+    arxiv_researcher = AssistantAgent(name="arxiv")
 
 browser_use_tool = BrowserUseTool(
     llm_config=llm_config,
